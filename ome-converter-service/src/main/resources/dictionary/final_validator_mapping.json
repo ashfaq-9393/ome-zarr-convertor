@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {"source_key": "Plane.ExposureTime", "target": "OME.Plane.ExposureTime", "category": "Mapped"},
+    {"source_key": "Camera.Exposure", "target": "OME.Plane.ExposureTime", "category": "Renamed"},
+    {"source_key": "Vendor.InternalId", "target": "vendor_custom_metadata", "category": "Vendor Metadata"},
+    {"source_key": "Olympus.RawBlockIndex", "target": "vendor_custom_metadata", "category": "Transitional Metadata"}
+  ]
+}

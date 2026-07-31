@@ -1,0 +1,8 @@
+{
+  "fixed_rules": [
+    {"pattern": ".*Exposure.*", "target": "OME.Plane.ExposureTime", "classification": "Mapped"},
+    {"pattern": ".*Gain.*", "target": "OME.Detector.Gain", "classification": "Mapped"},
+    {"pattern": ".*Power.*", "target": "OME.Laser.Power", "classification": "Mapped"},
+    {"pattern": ".*Mag.*", "target": "OME.Objective.NominalMagnification", "classification": "Mapped"}
+  ]
+}

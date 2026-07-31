@@ -1,0 +1,9 @@
+org\ome\converter\plugin\vsi\OmeNgffMetadataBuilder.class
+org\ome\converter\plugin\vsi\VsiImageConverter.class
+org\ome\converter\plugin\vsi\VsiConverterProvider.class
+org\ome\converter\plugin\vsi\WriterStrategyFactory.class
+org\ome\converter\plugin\vsi\BioFormatsReaderEngine.class
+org\ome\converter\plugin\vsi\OmeZarrWriterStrategy.class
+org\ome\converter\plugin\vsi\OmeZarrV04Writer.class
+org\ome\converter\plugin\vsi\OmeZarrV05Writer.class
+org\ome\converter\plugin\vsi\ZarrV3PyramidWriter.class

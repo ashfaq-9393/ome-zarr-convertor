@@ -1,0 +1,15 @@
+{
+  "oir_mappings": {
+    "ExposureTime": "OME.Plane.ExposureTime",
+    "Exposure": "OME.Plane.ExposureTime",
+    "CameraExposure": "OME.Plane.ExposureTime",
+    "LaserPower": "OME.Laser.Power",
+    "LaserWavelength": "OME.Laser.Wavelength",
+    "DetectorGain": "OME.Detector.Gain",
+    "ObjectiveMag": "OME.Objective.NominalMagnification",
+    "ObjectiveNA": "OME.Objective.LensNA",
+    "PixelSizeX": "OME.Pixels.PhysicalSizeX",
+    "PixelSizeY": "OME.Pixels.PhysicalSizeY",
+    "PixelSizeZ": "OME.Pixels.PhysicalSizeZ"
+  }
+}

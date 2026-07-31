@@ -1,0 +1,4 @@
+org\ome\converter\service\analysis\MetadataGapAnalysisTest.class
+org\ome\converter\service\validation\StorageValidatorTest.class
+org\ome\converter\service\impl\ConversionOrchestratorTest$1.class
+org\ome\converter\service\impl\ConversionOrchestratorTest.class

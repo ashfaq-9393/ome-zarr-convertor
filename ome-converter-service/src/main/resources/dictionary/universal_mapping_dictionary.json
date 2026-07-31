@@ -1,0 +1,49 @@
+{
+  "Channel ID": {
+    "oir_xml_source": "channel:id",
+    "ome_target": "N/A (internal linking)",
+    "pretty_key_prefix": "channel",
+    "status": "STRUCTURAL",
+    "suffix_match": "id"
+  },
+  "Channel color": {
+    "alt_prefixes": ["channel"],
+    "oir_xml_source": "channel:color",
+    "ome_target": "store.setChannelColor",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "color",
+    "xml_attribute": "Color",
+    "xml_tag": "Channel"
+  },
+  "Channel end wavelength": {
+    "alt_prefixes": ["channel"],
+    "oir_xml_source": "channel:emission",
+    "ome_target": "store.setChannelEmissionWavelength",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "end wavelength",
+    "xml_attribute": "EmissionWavelength",
+    "xml_tag": "Channel"
+  },
+  "Exposure Time": {
+    "alt_prefixes": ["plane", "channel", "camera"],
+    "oir_xml_source": "camera:exposure",
+    "ome_target": "OME.Plane.ExposureTime",
+    "pretty_key_prefix": "plane",
+    "status": "MAPPED",
+    "suffix_match": "exposure",
+    "xml_attribute": "ExposureTime",
+    "xml_tag": "Plane"
+  },
+  "Objective Magnification": {
+    "alt_prefixes": ["objective", "microscope"],
+    "oir_xml_source": "objective:mag",
+    "ome_target": "OME.Objective.NominalMagnification",
+    "pretty_key_prefix": "objective",
+    "status": "MAPPED",
+    "suffix_match": "magnification",
+    "xml_attribute": "NominalMagnification",
+    "xml_tag": "Objective"
+  }
+}

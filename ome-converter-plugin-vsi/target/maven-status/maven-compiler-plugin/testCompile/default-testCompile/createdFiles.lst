@@ -1,0 +1,4 @@
+org\ome\converter\plugin\vsi\VendorMetadataDumperTest.class
+org\ome\converter\plugin\vsi\ZarrV3PyramidWriterTest.class
+org\ome\converter\plugin\vsi\OmeZarrV04WriterTest.class
+org\ome\converter\plugin\vsi\OmeNgffMetadataBuilderTest.class

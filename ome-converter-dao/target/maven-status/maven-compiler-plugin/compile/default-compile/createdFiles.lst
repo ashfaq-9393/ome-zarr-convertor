@@ -1,0 +1,11 @@
+org\ome\converter\dao\api\SettingsRepository.class
+org\ome\converter\dao\impl\JsonFileAuditLogRepository$1.class
+org\ome\converter\dao\impl\JsonFileSettingsRepository.class
+org\ome\converter\dao\entity\UserSettingsEntity.class
+org\ome\converter\dao\api\JobRepository.class
+org\ome\converter\dao\api\AuditLogRepository.class
+org\ome\converter\dao\impl\JsonFileJobRepository$1.class
+org\ome\converter\dao\entity\JobEntity.class
+org\ome\converter\dao\impl\JsonFileJobRepository.class
+org\ome\converter\dao\impl\JsonFileAuditLogRepository.class
+org\ome\converter\dao\entity\AuditLogEntity.class

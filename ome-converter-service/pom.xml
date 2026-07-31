@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.ome.converter</groupId>
+        <artifactId>vsi-ome-zarr-converter</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ome-converter-service</artifactId>
+    <packaging>jar</packaging>
+
+    <name>OME Converter :: Service Module</name>
+    <description>High-level orchestration service managing async thread pools, validation, batch queues, and event publishing</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.ome.converter</groupId>
+            <artifactId>ome-converter-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ome.converter</groupId>
+            <artifactId>ome-converter-dao</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ome.converter</groupId>
+            <artifactId>ome-converter-plugin-vsi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ome.converter</groupId>
+            <artifactId>ome-converter-plugin-oir</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.ome.converter.ui.controller.MainDashboardController"
+      spacing="0.0" stylesheets="@../styles/theme.css" styleClass="app-window">
+
+    <!-- Top Application Bar -->
+    <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12.0">
+        <padding>
+            <Insets top="12" right="24" bottom="12" left="24"/>
+        </padding>
+        <Label text="Microscope OME-Zarr Converter" styleClass="app-brand-title"/>
+        <Label text="VSI &amp; OIR" styleClass="app-brand-badge"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="📁 Open Output Directory" onAction="#handleOpenOutputFolder" styleClass="top-bar-btn"/>
+    </HBox>
+
+    <!-- Main Workspace (Split View) -->
+    <HBox VBox.vgrow="ALWAYS" spacing="16.0" styleClass="workspace-container">
+        <padding>
+            <Insets top="16" right="20" bottom="16" left="20"/>
+        </padding>
+
+        <!-- Left Column: Settings & Configuration -->
+        <VBox prefWidth="440" minWidth="400" spacing="16.0">
+
+            <!-- File Selection Card -->
+            <VBox styleClass="card-panel" spacing="12.0">
+                <Label text="File &amp; Format Setup" styleClass="card-header-title"/>
+
+                <!-- Format Selection Buttons -->
+                <VBox spacing="6.0">
+                    <Label text="Source Image Format:" styleClass="input-label"/>
+                    <HBox spacing="8.0">
+                        <ToggleButton fx:id="btnFormatVsi" text="Olympus VSI (.vsi)" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="toggle-option-btn"/>
+                        <ToggleButton fx:id="btnFormatOir" text="Olympus OIR (.oir)" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="toggle-option-btn"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Source File Picker -->
+                <VBox spacing="6.0">
+                    <Label text="Source Slide (.vsi / .oir):" styleClass="input-label"/>
+                    <HBox spacing="8.0">
+                        <TextField fx:id="txtSourceFile" promptText="Choose a .vsi or .oir microscopic file..." HBox.hgrow="ALWAYS" styleClass="input-field"/>
+                        <Button text="Browse" onAction="#handleBrowseSourceFile" styleClass="btn-secondary"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Output Folder Picker -->
+                <VBox spacing="6.0">
+                    <Label text="Output Destination (.zarr):" styleClass="input-label"/>
+                    <HBox spacing="8.0">
+                        <TextField fx:id="txtTargetDestination" promptText="Choose destination directory..." HBox.hgrow="ALWAYS" styleClass="input-field"/>
+                        <Button text="Select" onAction="#handleBrowseTargetDestination" styleClass="btn-secondary"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Conversion Settings Card -->
+            <VBox styleClass="card-panel" spacing="12.0">
+                <Label text="Target OME-Zarr Spec Version" styleClass="card-header-title"/>
+                <VBox spacing="6.0">
+                    <Label text="Select Version:" styleClass="input-label"/>
+                    <HBox spacing="8.0">
+                        <ToggleButton fx:id="btnVersionV05" text="OME-Zarr 0.5 (Zarr v3)" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="toggle-option-btn"/>
+                        <ToggleButton fx:id="btnVersionV04" text="OME-Zarr 0.4 (Zarr v2)" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="toggle-option-btn"/>
+                    </HBox>
+                </VBox>
+
+                <CheckBox fx:id="chkVendorMetadata" text="Preserve original microscope hardware tags" selected="true" styleClass="custom-checkbox"/>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Action Controls Card -->
+            <VBox styleClass="card-panel" spacing="12.0">
+                <HBox spacing="10.0">
+                    <Button fx:id="btnConvert" text="Start Conversion" onAction="#handleStartConversion" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" styleClass="btn-primary"/>
+                    <Button fx:id="btnCancel" text="Cancel" onAction="#handleCancelConversion" styleClass="btn-danger"/>
+                </HBox>
+            </VBox>
+        </VBox>
+
+        <!-- Right Column: Tabbed View (Console & Gap Analysis Report) -->
+        <VBox HBox.hgrow="ALWAYS" spacing="16.0">
+            <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE" styleClass="custom-tab-pane">
+                <Tab text="Console &amp; Execution">
+                    <VBox spacing="12.0">
+                        <padding>
+                            <Insets top="12" right="12" bottom="12" left="12"/>
+                        </padding>
+                        
+                        <!-- Progress & Throughput Gauge -->
+                        <VBox styleClass="card-panel" spacing="8.0">
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="Conversion Progress" styleClass="card-header-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="lblThroughput" text="0.00 MB/s" styleClass="status-indicator"/>
+                            </HBox>
+                            <ProgressBar fx:id="progressBar" progress="0.0" maxWidth="1.7976931348623157E308" styleClass="custom-progress-bar"/>
+                            <Label fx:id="lblStatus" text="Ready" styleClass="input-label"/>
+                        </VBox>
+
+                        <!-- Execution Logs -->
+                        <VBox styleClass="card-panel" VBox.vgrow="ALWAYS" spacing="8.0">
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="Execution Console Logs" styleClass="card-header-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Button text="Clear Logs" onAction="#handleClearLogs" styleClass="btn-text"/>
+                            </HBox>
+                            <ListView fx:id="lstLogs" VBox.vgrow="ALWAYS" styleClass="terminal-log-view"/>
+                        </VBox>
+                    </VBox>
+                </Tab>
+
+                <Tab text="Metadata Gap Analysis Report">
+                    <VBox spacing="16.0">
+                        <padding>
+                            <Insets top="16" right="16" bottom="16" left="16"/>
+                        </padding>
+
+                        <!-- Header Info Card -->
+                        <VBox styleClass="card-panel" spacing="6.0">
+                            <Label text="Metadata Gap Analysis Dashboard" styleClass="card-header-title"/>
+                            <Label fx:id="lblDashboardSubtitle" text="Dataset: Select a file and run conversion | Target Spec: OME-Zarr" styleClass="input-label"/>
+                        </VBox>
+
+                        <!-- Numerical Count Metric Cards -->
+                        <HBox spacing="16.0">
+                            <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                <Label text="TOTAL FIELDS" styleClass="kpi-label"/>
+                                <Label fx:id="lblTotalFields" text="--" styleClass="kpi-val-primary"/>
+                            </VBox>
+                            <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                <Label text="MAPPED FIELDS" styleClass="kpi-label"/>
+                                <Label fx:id="lblMappedFields" text="--" styleClass="kpi-val-success"/>
+                            </VBox>
+                            <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                <Label text="VENDOR DUMPED" styleClass="kpi-label"/>
+                                <Label fx:id="lblVendorDumped" text="--" styleClass="kpi-val-purple"/>
+                            </VBox>
+                            <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                <Label text="LOSS" styleClass="kpi-label"/>
+                                <Label fx:id="lblLossFields" text="--" styleClass="kpi-val-danger"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Metadata Classification Breakdown Badges -->
+                        <VBox styleClass="card-panel" spacing="10.0">
+                            <Label text="Metadata Classification Breakdown" styleClass="card-header-title"/>
+                            <HBox spacing="12.0">
+                                <Label fx:id="lblBadgeMapped" text="Mapped: 0" styleClass="badge-mapped"/>
+                                <Label fx:id="lblBadgeVendor" text="Vendor Custom (Dumped): 0" styleClass="badge-vendor"/>
+                                <Label fx:id="lblBadgeLoss" text="Loss: 0" styleClass="badge-loss"/>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Lost Metadata Inventory Table -->
+                        <VBox styleClass="card-panel" VBox.vgrow="ALWAYS" spacing="10.0">
+                            <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                <Label fx:id="lblLostHeader" text="Lost Metadata Inventory (Displaying 0 Lost / Missing Fields)" styleClass="card-header-title"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <TextField fx:id="txtLostSearch" promptText="Search lost key or value..." prefWidth="250" styleClass="input-field"/>
+                            </HBox>
+
+                            <TableView fx:id="tblLostMetadata" VBox.vgrow="ALWAYS" styleClass="custom-table-view">
+                                <columns>
+                                    <TableColumn fx:id="colOriginalKey" text="ORIGINAL KEY" prefWidth="220"/>
+                                    <TableColumn fx:id="colOriginalValue" text="ORIGINAL VALUE" prefWidth="180"/>
+                                    <TableColumn fx:id="colStatus" text="STATUS" prefWidth="140"/>
+                                    <TableColumn fx:id="colExplanation" text="EXPLANATION" prefWidth="350"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+
+                    </VBox>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </HBox>
+
+    <!-- Bottom Status Bar -->
+    <HBox styleClass="bottom-status-bar" alignment="CENTER_LEFT" spacing="12.0">
+        <padding>
+            <Insets top="6" right="20" bottom="6" left="20"/>
+        </padding>
+        <Label text="Dual Engine: OME-Zarr 0.5 (Zarr v3) &amp; 0.4 (Zarr v2)" styleClass="bottom-status-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="System Ready" styleClass="bottom-status-text"/>
+    </HBox>
+
+</VBox>
