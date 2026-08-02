@@ -1,3 +1,4 @@
-org\ome\converter\core\registry\ConverterRegistryTest$1.class
 org\ome\converter\core\registry\ConverterRegistryTest.class
 org\ome\converter\core\writer\OmeZarrWriterStrategyTest.class
+org\ome\converter\core\util\UniqueDatasetPathResolverTest.class
+org\ome\converter\core\registry\ConverterRegistryTest$1.class

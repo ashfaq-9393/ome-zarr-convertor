@@ -27,6 +27,7 @@ org\ome\converter\core\event\ProgressEvent.class
 org\ome\converter\core\exception\ConversionException.class
 org\ome\converter\core\exception\UnsupportedFormatException.class
 org\ome\converter\core\api\ProgressObserver.class
+org\ome\converter\core\util\UniqueDatasetPathResolver.class
 org\ome\converter\core\model\OriginalMetadataItem.class
 org\ome\converter\core\model\ConversionResult.class
 org\ome\converter\core\model\Axis.class

@@ -200,8 +200,13 @@ public class MainDashboardViewModel implements EventListener {
         }
     }
 
+    private Path lastReportDirectory;
+
     public void updateGapAnalysisResults(GapAnalysisResult result) {
         if (result == null) return;
+        if (result.htmlReportPath() != null) {
+            this.lastReportDirectory = result.htmlReportPath().getParent();
+        }
         Platform.runLater(() -> {
             dashboardSubtitle.set("Dataset: " + result.datasetName() + " | Spec: " + result.targetVersion().getDisplayName());
             totalFields.set(String.valueOf(result.totalOriginalCount()));
@@ -222,23 +227,29 @@ public class MainDashboardViewModel implements EventListener {
     }
 
     public void openReportFile(String filename) {
-        String destDirStr = targetDestinationPath.get();
-        if (destDirStr != null && !destDirStr.isBlank()) {
-            File srcFile = new File(sourceFilePath.get());
-            String zarrName = srcFile.getName();
-            if (zarrName.contains(".")) {
-                zarrName = zarrName.substring(0, zarrName.lastIndexOf('.'));
-            }
-            File reportFile = new File(new File(destDirStr, zarrName + ".zarr"), filename);
-            if (!reportFile.exists()) {
-                reportFile = new File(destDirStr, filename);
-            }
-            if (reportFile.exists()) {
-                try {
-                    Desktop.getDesktop().open(reportFile);
-                } catch (Exception e) {
-                    log.error("Could not open report file: {}", reportFile.getAbsolutePath(), e);
+        File reportFile = null;
+        if (lastReportDirectory != null) {
+            reportFile = lastReportDirectory.resolve(filename).toFile();
+        }
+        if (reportFile == null || !reportFile.exists()) {
+            String destDirStr = targetDestinationPath.get();
+            if (destDirStr != null && !destDirStr.isBlank()) {
+                File srcFile = new File(sourceFilePath.get());
+                String zarrName = srcFile.getName();
+                if (zarrName.contains(".")) {
+                    zarrName = zarrName.substring(0, zarrName.lastIndexOf('.'));
                 }
+                reportFile = new File(new File(destDirStr, zarrName + ".zarr"), filename);
+                if (!reportFile.exists()) {
+                    reportFile = new File(destDirStr, filename);
+                }
+            }
+        }
+        if (reportFile != null && reportFile.exists()) {
+            try {
+                Desktop.getDesktop().open(reportFile);
+            } catch (Exception e) {
+                log.error("Could not open report file: {}", reportFile.getAbsolutePath(), e);
             }
         }
     }

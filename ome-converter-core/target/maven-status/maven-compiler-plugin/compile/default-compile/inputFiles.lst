@@ -26,6 +26,7 @@ C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\ja
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\model\OriginalMetadataItem.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\model\VendorMetadata.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\registry\ConverterRegistry.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\util\UniqueDatasetPathResolver.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\writer\OmeZarrV04Writer.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\writer\OmeZarrV05Writer.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-core\src\main\java\org\ome\converter\core\writer\OmeZarrWriterStrategy.java

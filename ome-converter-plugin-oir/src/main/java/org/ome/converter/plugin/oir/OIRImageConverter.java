@@ -109,11 +109,9 @@ public class OIRImageConverter implements ImageConverter {
                 ? new OmeZarrV04Writer()
                 : new OmeZarrV05Writer();
 
-            String zarrName = sourceFile.getName();
-            if (zarrName.toLowerCase().endsWith(".oir")) {
-                zarrName = zarrName.substring(0, zarrName.length() - 4);
-            }
-            File zarrDir = new File(targetDir.toFile(), zarrName + ".zarr");
+            Path zarrPath = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, sourceFile.getName());
+            File zarrDir = zarrPath.toFile();
+            zarrDir.mkdirs();
 
             writerStrategy.initializeRootMetadata(zarrDir, metadata, rawVendorMetadata, "<OME xmlns=\"http://www.openmicroscopy.org/Schemas/OME/2016-06\"></OME>");
 

@@ -30,11 +30,7 @@ public class OmeZarrV04Writer implements OmeZarrWriterStrategy {
     @Override
     public Path initializeDatasetDirectory(Path targetDir, String datasetName) throws ConversionException {
         try {
-            String sanitizedName = datasetName.replaceAll("[^a-zA-Z0-9._-]", "_");
-            if (!sanitizedName.toLowerCase().endsWith(".zarr")) {
-                sanitizedName += ".zarr";
-            }
-            Path zarrRoot = targetDir.resolve(sanitizedName);
+            Path zarrRoot = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, datasetName);
             Files.createDirectories(zarrRoot);
 
             // Write Zarr v2 root .zgroup
