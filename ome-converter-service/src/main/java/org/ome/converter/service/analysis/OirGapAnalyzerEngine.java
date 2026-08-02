@@ -35,10 +35,7 @@ public class OirGapAnalyzerEngine {
 
     private void loadDictionaryResources() {
         String[] resources = {
-            "/dictionary/universal_mapping_dictionary.json",
-            "/dictionary/oir_to_ome_mapping.json",
-            "/dictionary/final_validator_mapping.json",
-            "/dictionary/fixed_validator_mapping.json"
+            "/dictionary/validator_dictionary.json"
         };
 
         for (String resPath : resources) {
@@ -71,7 +68,7 @@ public class OirGapAnalyzerEngine {
                                 }
                             }
 
-                            allRules.put(dictKey, spec);
+                            allRules.putIfAbsent(dictKey, spec);
                         }
                     }
                 }
@@ -94,6 +91,13 @@ public class OirGapAnalyzerEngine {
             normalized = normalized.substring(oirSuffix + 5).trim();
         }
 
+        // 0. Exact dict key lookup
+        for (Map.Entry<String, RuleSpec> entry : allRules.entrySet()) {
+            if (entry.getKey().equalsIgnoreCase(normalized) || entry.getKey().equalsIgnoreCase(rawKey)) {
+                return entry.getValue();
+            }
+        }
+
         // 1. Exact prefix lookup
         if (prefixToDictKey.containsKey(normalized)) {
             return prefixToDictKey.get(normalized);
@@ -107,6 +111,7 @@ public class OirGapAnalyzerEngine {
             if (normalized.startsWith(prefix) && prefix.length() > bestLength) {
                 if (normalized.length() == prefix.length()
                     || normalized.charAt(prefix.length()) == ' '
+                    || normalized.charAt(prefix.length()) == '.'
                     || normalized.charAt(prefix.length()) == '#') {
                     bestMatch = entry.getValue();
                     bestLength = prefix.length();
@@ -163,19 +168,23 @@ public class OirGapAnalyzerEngine {
             boolean isCanonicalConcept = SemanticMetadataDictionary.findCanonicalConcept(rawKey).isPresent();
 
             if (rule != null && "MAPPED".equalsIgnoreCase(rule.status)) {
-                // Formal OME Mapped
+                // Formal OME Mapped (Path 1)
                 mapped++;
-            } else if (isInternalStructuralOrDroppedTag(rawKey, rule)) {
-                // Internal structural linkage or dropped tag -> Loss
-                loss++;
-                lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                    rawKey,
-                    rawVal != null ? rawVal : "N/A",
-                    "LOSS (Missing)",
-                    "Internal structural link or non-standard tag dropped during standard OME translation."
-                ));
+            } else if (rule != null && "STRUCTURAL".equalsIgnoreCase(rule.status)) {
+                // Internal structural linkage — skipped / non-data tag
+                if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
+                    vendorDumped++;
+                } else {
+                    loss++;
+                    lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
+                        rawKey,
+                        "null",
+                        "LOSS (Missing)",
+                        "Tag failed value extraction during conversion."
+                    ));
+                }
             } else if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
-                // Vendor Custom Dumped namespace
+                // Vendor Custom Dumped namespace (Path 2: Preserved Raw)
                 vendorDumped++;
             } else {
                 loss++;
@@ -201,14 +210,5 @@ public class OirGapAnalyzerEngine {
             lostItems,
             reportPath
         );
-    }
-
-    private boolean isInternalStructuralOrDroppedTag(String rawKey, RuleSpec rule) {
-        if (rule != null && ("STRUCTURAL".equalsIgnoreCase(rule.status) || "UNMAPPED_OR_DROPPED".equalsIgnoreCase(rule.status))) {
-            return true;
-        }
-        String k = rawKey.toLowerCase();
-        return k.contains("channel ch") || k.contains("creation date") || k.contains("pixel length")
-            || k.contains("uuid") || k.contains("internal id") || k.contains("detector linked channel id");
     }
 }

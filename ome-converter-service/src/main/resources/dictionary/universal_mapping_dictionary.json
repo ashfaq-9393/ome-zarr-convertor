@@ -7,7 +7,9 @@
     "suffix_match": "id"
   },
   "Channel color": {
-    "alt_prefixes": ["channel"],
+    "alt_prefixes": [
+      "channel"
+    ],
     "oir_xml_source": "channel:color",
     "ome_target": "store.setChannelColor",
     "pretty_key_prefix": "channel",
@@ -17,7 +19,9 @@
     "xml_tag": "Channel"
   },
   "Channel end wavelength": {
-    "alt_prefixes": ["channel"],
+    "alt_prefixes": [
+      "channel"
+    ],
     "oir_xml_source": "channel:emission",
     "ome_target": "store.setChannelEmissionWavelength",
     "pretty_key_prefix": "channel",
@@ -26,24 +30,204 @@
     "xml_attribute": "EmissionWavelength",
     "xml_tag": "Channel"
   },
-  "Exposure Time": {
-    "alt_prefixes": ["plane", "channel", "camera"],
-    "oir_xml_source": "camera:exposure",
-    "ome_target": "OME.Plane.ExposureTime",
-    "pretty_key_prefix": "plane",
-    "status": "MAPPED",
-    "suffix_match": "exposure",
-    "xml_attribute": "ExposureTime",
-    "xml_tag": "Plane"
+  "Channel linked laser index": {
+    "oir_xml_source": "channel:laserIndex",
+    "ome_target": "store.setChannelLightSourceSettingsID (indirect)",
+    "pretty_key_prefix": "channel",
+    "status": "STRUCTURAL",
+    "suffix_match": "linked laser index"
   },
-  "Objective Magnification": {
-    "alt_prefixes": ["objective", "microscope"],
-    "oir_xml_source": "objective:mag",
-    "ome_target": "OME.Objective.NominalMagnification",
-    "pretty_key_prefix": "objective",
+  "Channel pinhole": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "fvCommonphase:pinholeDiameter",
+    "ome_target": "store.setChannelPinholeSize",
+    "pretty_key_prefix": "channel",
     "status": "MAPPED",
-    "suffix_match": "magnification",
+    "suffix_match": "pinhole",
+    "xml_attribute": "PinholeSize",
+    "xml_tag": "Channel"
+  },
+  "Channel start wavelength": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "channel:excitation",
+    "ome_target": "store.setChannelExcitationWavelength",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "start wavelength",
+    "xml_attribute": "ExcitationWavelength",
+    "xml_tag": "Channel"
+  },
+  "Creation date": {
+    "oir_xml_source": "base:creationDateTime",
+    "ome_target": "store.setImageAcquisitionDate",
+    "pretty_key_prefix": "creation date",
+    "status": "MAPPED",
+    "xml_tag": "Image"
+  },
+  "Detector ID": {
+    "oir_xml_source": "detector:id",
+    "ome_target": "store.setDetectorID (auto-generated LSID)",
+    "pretty_key_prefix": "detector id",
+    "status": "STRUCTURAL"
+  },
+  "Detector gain": {
+    "oir_xml_source": "detector:gain",
+    "ome_target": "store.setDetectorGain",
+    "pretty_key_prefix": "detector gain",
+    "status": "MAPPED",
+    "xml_attribute": "Gain",
+    "xml_tag": "Detector"
+  },
+  "Detector linked channel ID": {
+    "oir_xml_source": "detector:channelId",
+    "ome_target": "store.setDetectorSettingsID (indirect)",
+    "pretty_key_prefix": "detector linked channel id",
+    "status": "STRUCTURAL"
+  },
+  "Detector offset": {
+    "oir_xml_source": "detector:offset",
+    "ome_target": "store.setDetectorOffset",
+    "pretty_key_prefix": "detector offset",
+    "status": "MAPPED",
+    "xml_attribute": "Offset",
+    "xml_tag": "Detector"
+  },
+  "Detector voltage": {
+    "oir_xml_source": "detector:voltage",
+    "ome_target": "store.setDetectorVoltage",
+    "pretty_key_prefix": "detector voltage",
+    "status": "MAPPED",
+    "xml_attribute": "Voltage",
+    "xml_tag": "Detector"
+  },
+  "Laser ID": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "commonimage:id",
+    "ome_target": "store.setLaserModel",
+    "pretty_key_prefix": "laser",
+    "status": "MAPPED",
+    "suffix_match": "id",
+    "xml_attribute": "ID",
+    "xml_tag": "Laser"
+  },
+  "Laser data ID": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:dataId",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "data id"
+  },
+  "Laser power": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:power",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "power"
+  },
+  "Laser transmissivity": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:transmissivity",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "transmissivity"
+  },
+  "Laser wavelength": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:wavelength",
+    "ome_target": "store.setLaserWavelength",
+    "pretty_key_prefix": "laser",
+    "status": "MAPPED",
+    "suffix_match": "wavelength",
+    "xml_attribute": "Wavelength",
+    "xml_tag": "Laser"
+  },
+  "Objective Lens immersion": {
+    "oir_xml_source": "opticalelement:immersion",
+    "ome_target": "store.setObjectiveImmersion",
+    "pretty_key_prefix": "objective lens immersion",
+    "status": "MAPPED",
+    "xml_attribute": "Immersion",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens magnification": {
+    "oir_xml_source": "opticalelement:magnification",
+    "ome_target": "store.setObjectiveNominalMagnification",
+    "pretty_key_prefix": "objective lens magnification",
+    "status": "MAPPED",
     "xml_attribute": "NominalMagnification",
     "xml_tag": "Objective"
+  },
+  "Objective Lens na": {
+    "oir_xml_source": "opticalelement:naValue",
+    "ome_target": "store.setObjectiveLensNA",
+    "pretty_key_prefix": "objective lens na",
+    "status": "MAPPED",
+    "xml_attribute": "LensNA",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens name": {
+    "oir_xml_source": "opticalelement:displayName",
+    "ome_target": "store.setObjectiveModel",
+    "pretty_key_prefix": "objective lens name",
+    "status": "MAPPED",
+    "xml_attribute": "Model",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens refractive index": {
+    "oir_xml_source": "opticalelement:refraction",
+    "ome_target": "store.setObjectiveSettingsRefractiveIndex",
+    "pretty_key_prefix": "objective lens refractive index",
+    "status": "MAPPED",
+    "xml_attribute": "RefractiveIndex",
+    "xml_tag": "ObjectiveSettings"
+  },
+  "Objective Lens wd": {
+    "oir_xml_source": "opticalelement:wdValue",
+    "ome_target": "store.setObjectiveWorkingDistance",
+    "pretty_key_prefix": "objective lens wd",
+    "status": "MAPPED",
+    "xml_attribute": "WorkingDistance",
+    "xml_tag": "Objective"
+  },
+  "Pixel Length X": {
+    "oir_xml_source": "commonimage:physicalX",
+    "ome_target": "store.setPixelsPhysicalSizeX",
+    "pretty_key_prefix": "pixel length x",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeX",
+    "xml_tag": "Pixels"
+  },
+  "Pixel Length Y": {
+    "oir_xml_source": "commonimage:physicalY",
+    "ome_target": "store.setPixelsPhysicalSizeY",
+    "pretty_key_prefix": "pixel length y",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeY",
+    "xml_tag": "Pixels"
+  },
+  "Z step": {
+    "oir_xml_source": "lsmimage:zStep",
+    "ome_target": "store.setPixelsPhysicalSizeZ",
+    "pretty_key_prefix": "z step",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeZ",
+    "xml_tag": "Pixels"
   }
 }

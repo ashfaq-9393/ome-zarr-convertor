@@ -1,8 +1,294 @@
 {
-  "fixed_rules": [
-    {"pattern": ".*Exposure.*", "target": "OME.Plane.ExposureTime", "classification": "Mapped"},
-    {"pattern": ".*Gain.*", "target": "OME.Detector.Gain", "classification": "Mapped"},
-    {"pattern": ".*Power.*", "target": "OME.Laser.Power", "classification": "Mapped"},
-    {"pattern": ".*Mag.*", "target": "OME.Objective.NominalMagnification", "classification": "Mapped"}
-  ]
+  "base:bitCounts": {
+    "status": "MAPPED",
+    "ome_target": "m.bitsPerPixel"
+  },
+  "base:colorType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "base:creationDateTime": {
+    "status": "MAPPED",
+    "ome_target": "store.setImageAcquisitionDate()"
+  },
+  "base:depth": {
+    "status": "MAPPED",
+    "ome_target": "m.pixelType"
+  },
+  "base:height": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeY"
+  },
+  "condenser displayName": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelName()"
+  },
+  "base:width": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeX"
+  },
+  "commonframe:general": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonframe:imageDefinition": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:acquisition": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:axis": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:configuration": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:general": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:height": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeY"
+  },
+  "- Channel CH5 ID": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserModel()"
+  },
+  "commonimage:imageInfo": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:imagingParam": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:laser": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:lsm": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:microscopeConfiguration": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:objectiveLens": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "stimulationMainLaser wavelength": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonimage:width": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeX"
+  },
+  "commonparam:axis": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonparam:endPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "synchronizedAcquisitionParamList imagingFrameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonparam:interval": {
+    "status": "MAPPED",
+    "ome_target": "store.setPlaneDeltaT()"
+  },
+  "commonparam:maxSize": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonparam:pixelResolution": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "laser power": {
+    "status": "MAPPED",
+    "ome_target": "store.setLightSourcePower() (Note: Usually mapped indirectly through commonparam:power)"
+  },
+  "commonparam:seriesInterval": {
+    "status": "MAPPED",
+    "ome_target": "internal tStep"
+  },
+  "commonparam:speedInformation": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonparam:startPosition": {
+    "status": "MAPPED",
+    "ome_target": "internal zStart / tStart"
+  },
+  "commonparam:step": {
+    "status": "MAPPED",
+    "ome_target": "internal zStep / tStep"
+  },
+  "laser transmissivity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "- Channel CH4 linked laser index": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "pixelResolution z": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonphase:bitCounts": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonphase:channel": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonphase:colorType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonphase:depth": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "commonphase:elementChannel": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonphase:imageDefinition": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "commonphase:pixelUnit": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "frame:frameProperties": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "fvCommonparam:specifiedFrameInterval": {
+    "status": "MAPPED",
+    "ome_target": "Applies adjustments to store.setPlaneDeltaT() based on pause frames"
+  },
+  "fvCommonphase:pinholeDiameter": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelPinholeSize()"
+  },
+  "channel laserDataId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "image:imageProperties": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:acquisition": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:channel": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:imagingMainLaser": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:imagingParam": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:param": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmimage:scannerSettings": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmConfiguration scannerType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "lsmparam:gain": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorGain()"
+  },
+  "lsmparam:mainLaser": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmparam:offset": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorOffset()"
+  },
+  "lsmparam:pmt": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmparam:speed": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lsmparam:voltage": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorVoltage()"
+  },
+  "lut:LUT": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lut:data": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "lut:linear": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "objectiveLens displayName": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveModel()"
+  },
+  "opticalelement:endWavelength": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelEmissionWavelength()"
+  },
+  "objectiveLens immersion": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveImmersion()"
+  },
+  "- Objective Lens magnification": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveNominalMagnification()"
+  },
+  "objectiveLens naValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveLensNA()"
+  },
+  "objectiveLens refraction": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveSettingsRefractiveIndex()"
+  },
+  "opticalelement:startWavelength": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelExcitationWavelength()"
+  },
+  "objectiveLens wdValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveWorkingDistance()"
+  }
 }

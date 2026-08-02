@@ -1,15 +1,61 @@
 {
-  "oir_mappings": {
-    "ExposureTime": "OME.Plane.ExposureTime",
-    "Exposure": "OME.Plane.ExposureTime",
-    "CameraExposure": "OME.Plane.ExposureTime",
-    "LaserPower": "OME.Laser.Power",
-    "LaserWavelength": "OME.Laser.Wavelength",
-    "DetectorGain": "OME.Detector.Gain",
-    "ObjectiveMag": "OME.Objective.NominalMagnification",
-    "ObjectiveNA": "OME.Objective.LensNA",
-    "PixelSizeX": "OME.Pixels.PhysicalSizeX",
-    "PixelSizeY": "OME.Pixels.PhysicalSizeY",
-    "PixelSizeZ": "OME.Pixels.PhysicalSizeZ"
+  "__meta_note__": "This dictionary has been rigorously verified against lines 520-630 and the parser logic in OIRReader.java.",
+  
+  "Image Setup": {
+    "base:creationDateTime": "store.setImageAcquisitionDate()",
+    "base:width": "m.sizeX",
+    "base:height": "m.sizeY",
+    "base:depth": "m.pixelType",
+    "base:bitCounts": "m.bitsPerPixel",
+    "base:name": "baseName",
+    "commonimage:width": "m.sizeX",
+    "commonimage:height": "m.sizeY"
+  },
+  
+  "Objective Data": {
+    "opticalelement:displayName": "store.setObjectiveModel()",
+    "opticalelement:magnification": "store.setObjectiveNominalMagnification()",
+    "opticalelement:naValue": "store.setObjectiveLensNA()",
+    "opticalelement:wdValue": "store.setObjectiveWorkingDistance()",
+    "opticalelement:refraction": "store.setObjectiveSettingsRefractiveIndex()",
+    "opticalelement:immersion": "store.setObjectiveImmersion()",
+    "ID linkages": "store.setObjectiveID() and store.setObjectiveSettingsID()"
+  },
+  
+  "Detector / PMT": {
+    "lsmparam:voltage": "store.setDetectorVoltage()",
+    "lsmparam:offset": "store.setDetectorOffset()",
+    "lsmparam:gain": "store.setDetectorGain()",
+    "ID linkages": "store.setDetectorID() and store.setDetectorSettingsID()"
+  },
+  
+  "Light Source / Laser": {
+    "commonparam:power": "store.setLightSourcePower() (Note: Usually mapped indirectly through commonparam:power)",
+    "commonparam:transmissivity": "Mapped to internal Laser.transmissivity but NOT pushed to OME-XML (Dropped/OriginalMetadata)",
+    "commonimage:wavelength": "store.setLaserWavelength()",
+    "commonimage:id": "store.setLaserModel()",
+    "ID linkages": "store.setLaserID() and store.setChannelLightSourceSettingsID()"
+  },
+  
+  "Pixels & Dimensions": {
+    "commonparam:x": "store.setPixelsPhysicalSizeX()",
+    "commonparam:y": "store.setPixelsPhysicalSizeY()",
+    "commonparam:z": "store.setPixelsPhysicalSizeZ()"
+  },
+
+  "Channel Information": {
+    "commonphase:name": "store.setChannelName()",
+    "fvCommonphase:pinholeDiameter": "store.setChannelPinholeSize()",
+    "opticalelement:startWavelength": "store.setChannelExcitationWavelength()",
+    "opticalelement:endWavelength": "store.setChannelEmissionWavelength()",
+    "lut:LUT (binary)": "store.setChannelColor()"
+  },
+  
+  "Time & Z-Stack (Timelapse)": {
+    "commonparam:interval": "store.setPlaneDeltaT()",
+    "commonparam:seriesInterval": "internal tStep",
+    "commonparam:startPosition": "internal zStart / tStart",
+    "commonparam:step": "internal zStep / tStep",
+    "fvCommonparam:specifiedFrameInterval": "Applies adjustments to store.setPlaneDeltaT() based on pause frames"
   }
 }

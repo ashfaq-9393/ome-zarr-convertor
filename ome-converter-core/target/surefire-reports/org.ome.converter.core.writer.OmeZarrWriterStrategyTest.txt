@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.ome.converter.core.writer.OmeZarrWriterStrategyTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.370 s -- in org.ome.converter.core.writer.OmeZarrWriterStrategyTest

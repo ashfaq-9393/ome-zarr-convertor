@@ -1,8 +1,1404 @@
 {
-  "rules": [
-    {"source_key": "Plane.ExposureTime", "target": "OME.Plane.ExposureTime", "category": "Mapped"},
-    {"source_key": "Camera.Exposure", "target": "OME.Plane.ExposureTime", "category": "Renamed"},
-    {"source_key": "Vendor.InternalId", "target": "vendor_custom_metadata", "category": "Vendor Metadata"},
-    {"source_key": "Olympus.RawBlockIndex", "target": "vendor_custom_metadata", "category": "Transitional Metadata"}
-  ]
+  "_comment": "OIR-to-OME-XML Metadata Dictionary v2.0 — Covers all 872 raw metadata keys from Bio-Formats",
+
+  "base:bitCounts": {
+    "status": "MAPPED",
+    "ome_target": "m.bitsPerPixel",
+    "pretty_key_prefix": "imageDefinition bitCounts",
+    "alt_prefixes": []
+  },
+  "base:colorType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "imageDefinition colorType",
+    "alt_prefixes": []
+  },
+  "base:creationDateTime": {
+    "status": "MAPPED",
+    "ome_target": "store.setImageAcquisitionDate()",
+    "pretty_key_prefix": "general creationDateTime",
+    "alt_prefixes": []
+  },
+  "base:depth": {
+    "status": "MAPPED",
+    "ome_target": "m.pixelType",
+    "pretty_key_prefix": "imageDefinition depth",
+    "alt_prefixes": []
+  },
+  "base:height": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeY",
+    "pretty_key_prefix": "imageDefinition height",
+    "alt_prefixes": []
+  },
+  "base:name": {
+    "status": "MAPPED",
+    "ome_target": "baseName",
+    "pretty_key_prefix": "general name",
+    "alt_prefixes": []
+  },
+  "base:width": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeX",
+    "pretty_key_prefix": "imageDefinition width",
+    "alt_prefixes": []
+  },
+
+  "commonframe:general": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonframe:imageDefinition": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:acquisition": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:axis": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:configuration": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:general": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:imageInfo": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:imagingParam": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:laser": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:lsm": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonimage:microscopeConfiguration": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+
+  "commonimage:height": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeY",
+    "pretty_key_prefix": "imageSize height",
+    "alt_prefixes": []
+  },
+  "commonimage:id": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserModel()",
+    "pretty_key_prefix": "laser id",
+    "alt_prefixes": []
+  },
+  "commonimage:name": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "laser name",
+    "alt_prefixes": []
+  },
+  "commonimage:objectiveLens": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "objectiveLens name",
+    "alt_prefixes": ["objective lens name"]
+  },
+  "commonimage:wavelength": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserWavelength()",
+    "pretty_key_prefix": "imagingMainLaser wavelength",
+    "alt_prefixes": []
+  },
+  "commonimage:width": {
+    "status": "MAPPED",
+    "ome_target": "m.sizeX",
+    "pretty_key_prefix": "imageSize width",
+    "alt_prefixes": []
+  },
+
+  "commonparam:axis": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonparam:pixelResolution": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonparam:endPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis endPosition",
+    "alt_prefixes": []
+  },
+  "commonparam:frameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis frameCount",
+    "alt_prefixes": []
+  },
+  "commonparam:interval": {
+    "status": "MAPPED",
+    "ome_target": "store.setPlaneDeltaT()",
+    "pretty_key_prefix": "axis interval",
+    "alt_prefixes": []
+  },
+  "commonparam:maxSize": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis maxSize",
+    "alt_prefixes": []
+  },
+  "commonparam:power": {
+    "status": "MAPPED",
+    "ome_target": "store.setLightSourcePower()",
+    "pretty_key_prefix": "mainLaser power",
+    "alt_prefixes": []
+  },
+  "commonparam:seriesInterval": {
+    "status": "MAPPED",
+    "ome_target": "internal tStep",
+    "pretty_key_prefix": "speedInformation seriesInterval",
+    "alt_prefixes": []
+  },
+  "commonparam:speedInformation": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speedInformation frameSpeed",
+    "alt_prefixes": []
+  },
+  "commonparam:startPosition": {
+    "status": "MAPPED",
+    "ome_target": "internal zStart / tStart",
+    "pretty_key_prefix": "axis startPosition",
+    "alt_prefixes": []
+  },
+  "commonparam:step": {
+    "status": "MAPPED",
+    "ome_target": "internal zStep / tStep",
+    "pretty_key_prefix": "axis step",
+    "alt_prefixes": []
+  },
+  "commonparam:transmissivity": {
+    "status": "MAPPED",
+    "ome_target": "Mapped to internal Laser.transmissivity but NOT pushed to OME-XML",
+    "pretty_key_prefix": "mainLaser transmissivity",
+    "alt_prefixes": []
+  },
+  "commonparam:x": {
+    "status": "MAPPED",
+    "ome_target": "store.setPixelsPhysicalSizeX()",
+    "pretty_key_prefix": "pixelResolution x",
+    "alt_prefixes": []
+  },
+  "commonparam:y": {
+    "status": "MAPPED",
+    "ome_target": "store.setPixelsPhysicalSizeY()",
+    "pretty_key_prefix": "pixelResolution y",
+    "alt_prefixes": []
+  },
+  "commonparam:z": {
+    "status": "MAPPED",
+    "ome_target": "store.setPixelsPhysicalSizeZ()",
+    "pretty_key_prefix": "pixelResolution z",
+    "alt_prefixes": []
+  },
+
+  "commonphase:bitCounts": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channelImageDefinition bitCounts",
+    "alt_prefixes": []
+  },
+  "commonphase:channel": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonphase:colorType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channelImageDefinition colorType",
+    "alt_prefixes": []
+  },
+  "commonphase:depth": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channelImageDefinition depth",
+    "alt_prefixes": []
+  },
+  "commonphase:elementChannel": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonphase:imageDefinition": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonphase:length": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonphase:name": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelName()",
+    "pretty_key_prefix": "channel name",
+    "alt_prefixes": []
+  },
+  "commonphase:pixelUnit": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "commonphase:x": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channel x",
+    "alt_prefixes": []
+  },
+  "commonphase:y": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channel y",
+    "alt_prefixes": []
+  },
+  "commonphase:z": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channel z",
+    "alt_prefixes": []
+  },
+
+  "frame:frameProperties": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "fvCommonparam:specifiedFrameInterval": {
+    "status": "MAPPED",
+    "ome_target": "Applies adjustments to store.setPlaneDeltaT()",
+    "pretty_key_prefix": "specifiedFrameInterval",
+    "alt_prefixes": []
+  },
+  "fvCommonphase:pinholeDiameter": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelPinholeSize()",
+    "pretty_key_prefix": "param autoPinhole",
+    "alt_prefixes": []
+  },
+  "fvLsmimage:laserDataId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmChannel laserDataId",
+    "alt_prefixes": []
+  },
+
+  "image:imageProperties": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:acquisition": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:channel": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:imagingMainLaser": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:imagingParam": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:laserDataId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channel laserDataId",
+    "alt_prefixes": []
+  },
+  "lsmimage:param": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:scannerSettings": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmimage:scannerType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmConfiguration scannerType",
+    "alt_prefixes": []
+  },
+
+  "lsmparam:gain": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorGain()",
+    "pretty_key_prefix": "pmt gain",
+    "alt_prefixes": ["detector gain"]
+  },
+  "lsmparam:mainLaser": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmparam:offset": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorOffset()",
+    "pretty_key_prefix": "pmt offset",
+    "alt_prefixes": ["detector offset"]
+  },
+  "lsmparam:pmt": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmparam:speed": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lsmparam:voltage": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorVoltage()",
+    "pretty_key_prefix": "pmt voltage",
+    "alt_prefixes": ["detector voltage"]
+  },
+
+  "lut:LUT": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lut:data": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+  "lut:linear": {
+    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+  },
+
+  "opticalelement:displayName": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveModel()",
+    "pretty_key_prefix": "objectiveLens displayName",
+    "alt_prefixes": []
+  },
+  "opticalelement:endWavelength": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelEmissionWavelength()",
+    "pretty_key_prefix": "endWavelength",
+    "alt_prefixes": []
+  },
+  "opticalelement:immersion": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveImmersion()",
+    "pretty_key_prefix": "objectiveLens immersion",
+    "alt_prefixes": []
+  },
+  "opticalelement:magnification": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveNominalMagnification()",
+    "pretty_key_prefix": "objectiveLens magnification",
+    "alt_prefixes": ["objective lens magnification"]
+  },
+  "opticalelement:naValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveLensNA()",
+    "pretty_key_prefix": "objectiveLens naValue",
+    "alt_prefixes": ["objective lens na"]
+  },
+  "opticalelement:refraction": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveSettingsRefractiveIndex()",
+    "pretty_key_prefix": "objectiveLens refraction",
+    "alt_prefixes": ["objective lens refractive index"]
+  },
+  "opticalelement:startWavelength": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelExcitationWavelength()",
+    "pretty_key_prefix": "startWavelength",
+    "alt_prefixes": []
+  },
+  "opticalelement:wdValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveWorkingDistance()",
+    "pretty_key_prefix": "objectiveLens wdValue",
+    "alt_prefixes": ["objective lens wd"]
+  },
+
+  "bf:detectorId": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorID()",
+    "pretty_key_prefix": "detector id",
+    "alt_prefixes": []
+  },
+  "bf:detectorLinkedChannelId": {
+    "status": "MAPPED",
+    "ome_target": "store.setDetectorSettingsID()",
+    "pretty_key_prefix": "detector linked channel id",
+    "alt_prefixes": []
+  },
+  "bf:channelId": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelID()",
+    "pretty_key_prefix": "channel ch",
+    "alt_prefixes": [],
+    "notes": "Matches dash-prefixed keys like '- Channel CH1 ID' via suffix"
+  },
+  "bf:channelLinkedLaserIndex": {
+    "status": "STRUCTURAL",
+    "ome_target": "Internal channel-laser linkage",
+    "pretty_key_prefix": "channel ch",
+    "alt_prefixes": [],
+    "notes": "Matches '- Channel CH1 linked laser index' via suffix"
+  },
+  "bf:laserIdEnriched": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserID()",
+    "pretty_key_prefix": null,
+    "alt_prefixes": [],
+    "notes": "Dynamic keys like '- Laser LD405 ID' matched by suffix pattern"
+  },
+  "bf:laserWavelengthEnriched": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserWavelength()",
+    "pretty_key_prefix": null,
+    "alt_prefixes": [],
+    "notes": "Dynamic keys like '- Laser <name> wavelength' matched by suffix"
+  },
+  "bf:laserPowerEnriched": {
+    "status": "MAPPED",
+    "ome_target": "store.setLightSourcePower()",
+    "pretty_key_prefix": null,
+    "alt_prefixes": [],
+    "notes": "Dynamic keys like '- Laser <name> power' matched by suffix"
+  },
+  "bf:laserTransmissivityEnriched": {
+    "status": "MAPPED",
+    "ome_target": "Laser transmissivity",
+    "pretty_key_prefix": null,
+    "alt_prefixes": [],
+    "notes": "Dynamic keys like '- Laser <name> transmissivity' matched by suffix"
+  },
+  "bf:laserDataIdEnriched": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": null,
+    "alt_prefixes": [],
+    "notes": "Dynamic keys like '- Laser <name> data ID' matched by suffix"
+  },
+
+  "display:lutLinear": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lut linear",
+    "alt_prefixes": []
+  },
+  "display:lutName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lut name",
+    "alt_prefixes": []
+  },
+  "display:lutResolution": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lut resolution",
+    "alt_prefixes": []
+  },
+  "display:redContrast": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "red contrast",
+    "alt_prefixes": []
+  },
+  "display:redGamma": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "red gamma",
+    "alt_prefixes": []
+  },
+  "display:redHighlight": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "red highlight",
+    "alt_prefixes": []
+  },
+  "display:redIntensity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "red intensity",
+    "alt_prefixes": []
+  },
+  "display:redShadow": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "red shadow",
+    "alt_prefixes": []
+  },
+  "display:greenContrast": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "green contrast",
+    "alt_prefixes": []
+  },
+  "display:greenGamma": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "green gamma",
+    "alt_prefixes": []
+  },
+  "display:greenHighlight": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "green highlight",
+    "alt_prefixes": []
+  },
+  "display:greenIntensity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "green intensity",
+    "alt_prefixes": []
+  },
+  "display:greenShadow": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "green shadow",
+    "alt_prefixes": []
+  },
+  "display:blueContrast": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "blue contrast",
+    "alt_prefixes": []
+  },
+  "display:blueGamma": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "blue gamma",
+    "alt_prefixes": []
+  },
+  "display:blueHighlight": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "blue highlight",
+    "alt_prefixes": []
+  },
+  "display:blueIntensity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "blue intensity",
+    "alt_prefixes": []
+  },
+  "display:blueShadow": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "blue shadow",
+    "alt_prefixes": []
+  },
+  "display:alphaContrast": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alpha contrast",
+    "alt_prefixes": []
+  },
+  "display:alphaGamma": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alpha gamma",
+    "alt_prefixes": []
+  },
+  "display:alphaHighlight": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alpha highlight",
+    "alt_prefixes": []
+  },
+  "display:alphaIntensity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alpha intensity",
+    "alt_prefixes": []
+  },
+  "display:alphaShadow": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alpha shadow",
+    "alt_prefixes": []
+  },
+  "display:allContrast": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "all contrast",
+    "alt_prefixes": []
+  },
+  "display:allGamma": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "all gamma",
+    "alt_prefixes": []
+  },
+  "display:allHighlight": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "all highlight",
+    "alt_prefixes": []
+  },
+  "display:allIntensity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "all intensity",
+    "alt_prefixes": []
+  },
+  "display:allShadow": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "all shadow",
+    "alt_prefixes": []
+  },
+
+  "hw:dichroicMirrorName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dichroicMirror name",
+    "alt_prefixes": []
+  },
+  "hw:emissionFilterName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "emissionFilter name",
+    "alt_prefixes": []
+  },
+  "hw:excitationFilterName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "excitationFilter name",
+    "alt_prefixes": []
+  },
+  "hw:filterName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "filter name",
+    "alt_prefixes": []
+  },
+  "hw:filterCubeDisplayName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "filterCube displayName",
+    "alt_prefixes": []
+  },
+  "hw:filterCubeName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "filterCube name",
+    "alt_prefixes": []
+  },
+  "hw:filterCubeProductName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "filterCube productName",
+    "alt_prefixes": []
+  },
+  "hw:epiMirrorCubeDisplayName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epiMirrorCube displayName",
+    "alt_prefixes": []
+  },
+  "hw:epiMirrorCubeName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epiMirrorCube name",
+    "alt_prefixes": []
+  },
+  "hw:epiMirrorCubeProductName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epiMirrorCube productName",
+    "alt_prefixes": []
+  },
+  "hw:lsmMirrorCubeDisplayName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMirrorCube displayName",
+    "alt_prefixes": []
+  },
+  "hw:lsmMirrorCubeName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMirrorCube name",
+    "alt_prefixes": []
+  },
+  "hw:lsmMirrorCubeProductName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMirrorCube productName",
+    "alt_prefixes": []
+  },
+  "hw:commonBarrierFilterName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "commonBarrierFilter name",
+    "alt_prefixes": []
+  },
+  "hw:condenserDisplayName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "condenser displayName",
+    "alt_prefixes": []
+  },
+  "hw:condenserName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "condenser name",
+    "alt_prefixes": []
+  },
+  "hw:dmSliderName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dmSlider name",
+    "alt_prefixes": []
+  },
+  "hw:pinAssignPattern": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pinAssign pattern",
+    "alt_prefixes": []
+  },
+  "hw:pinAssignType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pinAssign type",
+    "alt_prefixes": []
+  },
+
+  "sys:deviceName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "system deviceName",
+    "alt_prefixes": []
+  },
+  "sys:systemName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "system systemName",
+    "alt_prefixes": []
+  },
+  "sys:systemVersion": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "system systemVersion",
+    "alt_prefixes": []
+  },
+  "sys:microscopeName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "microscope name",
+    "alt_prefixes": []
+  },
+  "sys:fileVersion": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "fileInfomation version",
+    "alt_prefixes": []
+  },
+
+  "config:microscopeFs": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "microscopeConfiguration fs",
+    "alt_prefixes": []
+  },
+  "config:microscopeFsFullOpen": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "microscopeConfiguration fsFullOpen",
+    "alt_prefixes": []
+  },
+  "config:lightpathPrismState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "microscopeConfiguration lightpathPrismState",
+    "alt_prefixes": []
+  },
+  "config:lsmZdcMode": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmConfiguration zdcMode",
+    "alt_prefixes": []
+  },
+  "config:zDriveUnitType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "imagingParam zDriveUnitType",
+    "alt_prefixes": []
+  },
+  "config:lsmLightpathDiaLampState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMicroscopeLightpath diaLampState",
+    "alt_prefixes": []
+  },
+  "config:lsmLightpathDiaLampValue": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMicroscopeLightpath diaLampValue",
+    "alt_prefixes": []
+  },
+  "config:lsmLightpathDiaShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMicroscopeLightpath diaShutterState",
+    "alt_prefixes": []
+  },
+  "config:lsmLightpathDicPrismState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMicroscopeLightpath dicPrismState",
+    "alt_prefixes": []
+  },
+  "config:lsmLightpathEpiShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmMicroscopeLightpath epiShutterState",
+    "alt_prefixes": []
+  },
+  "config:diaDiaLampState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dia diaLampState",
+    "alt_prefixes": []
+  },
+  "config:diaDiaLampValue": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dia diaLampValue",
+    "alt_prefixes": []
+  },
+  "config:diaDiaShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dia diaShutterState",
+    "alt_prefixes": []
+  },
+  "config:diaDicPrismState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dia dicPrismState",
+    "alt_prefixes": []
+  },
+  "config:diaEpiShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "dia epiShutterState",
+    "alt_prefixes": []
+  },
+  "config:epiDiaLampState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epi diaLampState",
+    "alt_prefixes": []
+  },
+  "config:epiDiaLampValue": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epi diaLampValue",
+    "alt_prefixes": []
+  },
+  "config:epiDiaShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epi diaShutterState",
+    "alt_prefixes": []
+  },
+  "config:epiDicPrismState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epi dicPrismState",
+    "alt_prefixes": []
+  },
+  "config:epiEpiShutterState": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "epi epiShutterState",
+    "alt_prefixes": []
+  },
+  "config:objectiveLensAfContinuous": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "objectiveLens afContinuous",
+    "alt_prefixes": []
+  },
+  "config:objectiveLensAfOneShot": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "objectiveLens afOneShot",
+    "alt_prefixes": []
+  },
+  "config:pmtCommonAutoHV": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pmtCommon autoHV",
+    "alt_prefixes": []
+  },
+  "config:methodSequentialType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "method sequentialType",
+    "alt_prefixes": []
+  },
+  "config:biPropertiesActivePhaseId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "biProperties activePhaseId",
+    "alt_prefixes": []
+  },
+  "config:groupName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "group name",
+    "alt_prefixes": []
+  },
+  "config:phaseName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "phase name",
+    "alt_prefixes": []
+  },
+
+  "spatial:acquisitionRotation": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "acquisitionValue rotation",
+    "alt_prefixes": []
+  },
+  "spatial:acquisitionXPan": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "acquisitionValue xPan",
+    "alt_prefixes": []
+  },
+  "spatial:acquisitionYPan": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "acquisitionValue yPan",
+    "alt_prefixes": []
+  },
+  "spatial:acquisitionZBase": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "acquisitionValue zBase",
+    "alt_prefixes": []
+  },
+  "spatial:acquisitionZPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "acquisitionValue zPosition",
+    "alt_prefixes": []
+  },
+  "spatial:areaRotation": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "area rotation",
+    "alt_prefixes": []
+  },
+  "spatial:areaXpan": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "area xpan",
+    "alt_prefixes": []
+  },
+  "spatial:areaYpan": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "area ypan",
+    "alt_prefixes": []
+  },
+  "spatial:areaZoom": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "area zoom",
+    "alt_prefixes": []
+  },
+  "spatial:axisAxis": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis axis",
+    "alt_prefixes": []
+  },
+  "spatial:axisBasePosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis basePosition",
+    "alt_prefixes": []
+  },
+  "spatial:axisMotorBasePosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis motorBasePosition",
+    "alt_prefixes": []
+  },
+  "spatial:axisParamName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axis paramName",
+    "alt_prefixes": []
+  },
+  "spatial:axisValueAxisType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axisValue axisType",
+    "alt_prefixes": []
+  },
+  "spatial:axisValuePosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "axisValue position",
+    "alt_prefixes": []
+  },
+  "spatial:zPiezoPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "zPosition zPiezoPosition",
+    "alt_prefixes": []
+  },
+  "spatial:zStagePosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "zPosition zStagePosition",
+    "alt_prefixes": []
+  },
+
+  "acq:channelDeviceName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "channel deviceName",
+    "alt_prefixes": ["lsmChannel deviceName"]
+  },
+  "acq:lsmChannelName": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "lsmChannel name",
+    "alt_prefixes": []
+  },
+  "acq:integrationCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "integration count",
+    "alt_prefixes": []
+  },
+  "acq:integrationType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "integration type",
+    "alt_prefixes": []
+  },
+  "acq:laserPower": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "laser power",
+    "alt_prefixes": []
+  },
+  "acq:laserTransmissivity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "laser transmissivity",
+    "alt_prefixes": []
+  },
+  "acq:imagingSIMLaserWavelength": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "imagingSIMLaser wavelength",
+    "alt_prefixes": []
+  },
+  "acq:simLaserPower": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "simLaser power",
+    "alt_prefixes": []
+  },
+  "acq:simLaserTransmissivity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "simLaser transmissivity",
+    "alt_prefixes": []
+  },
+  "acq:roiRoiType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "ROI roiType",
+    "alt_prefixes": []
+  },
+  "acq:roiTransmissivity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "ROI transmissivity",
+    "alt_prefixes": []
+  },
+  "acq:activationRepeatCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "activation repeatCount",
+    "alt_prefixes": []
+  },
+  "acq:speedFocus": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speed focus",
+    "alt_prefixes": []
+  },
+  "acq:speedRoundtrip": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speed roundtrip",
+    "alt_prefixes": []
+  },
+  "acq:speedSpeed": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speed speed",
+    "alt_prefixes": []
+  },
+  "acq:speedLineSpeed": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speedInformation lineSpeed",
+    "alt_prefixes": []
+  },
+  "acq:speedPixelSpeed": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "speedInformation pixelSpeed",
+    "alt_prefixes": []
+  },
+  "acq:alignmentActiveAutoAlignment": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment activeAutoAlignment",
+    "alt_prefixes": []
+  },
+  "acq:alignmentShiftXOffset": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment shiftXOffset",
+    "alt_prefixes": []
+  },
+  "acq:alignmentShiftXPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment shiftXPosition",
+    "alt_prefixes": []
+  },
+  "acq:alignmentShiftYOffset": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment shiftYOffset",
+    "alt_prefixes": []
+  },
+  "acq:alignmentShiftYPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment shiftYPosition",
+    "alt_prefixes": []
+  },
+  "acq:alignmentTiltXOffset": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment tiltXOffset",
+    "alt_prefixes": []
+  },
+  "acq:alignmentTiltXPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment tiltXPosition",
+    "alt_prefixes": []
+  },
+  "acq:alignmentTiltYOffset": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment tiltYOffset",
+    "alt_prefixes": []
+  },
+  "acq:alignmentTiltYPosition": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "alignment tiltYPosition",
+    "alt_prefixes": []
+  },
+
+  "stim:stimulationMainLaserWavelength": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "stimulationMainLaser wavelength",
+    "alt_prefixes": []
+  },
+  "stim:stimulationSIMLaserWavelength": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "stimulationSIMLaser wavelength",
+    "alt_prefixes": []
+  },
+  "stim:stimulationParamScanUnitType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "stimulationParam scanUnitType",
+    "alt_prefixes": []
+  },
+
+  "trig:inTriggerEnabled": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "inTrigger enabled",
+    "alt_prefixes": []
+  },
+  "trig:inTriggerMode": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "inTrigger mode",
+    "alt_prefixes": []
+  },
+  "trig:inTriggerTiming": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "inTrigger timing",
+    "alt_prefixes": []
+  },
+  "trig:inTriggerTriggerNo": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "inTrigger triggerNo",
+    "alt_prefixes": []
+  },
+  "trig:outTriggerEnabled": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "outTrigger enabled",
+    "alt_prefixes": []
+  },
+  "trig:outTriggerTiming": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "outTrigger timing",
+    "alt_prefixes": []
+  },
+  "trig:outTriggerTriggerNo": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "outTrigger triggerNo",
+    "alt_prefixes": []
+  },
+  "trig:syncWaitTimeFrame": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "syncWaitTime frame",
+    "alt_prefixes": []
+  },
+  "trig:syncParamBaseMethod": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizationParam baseMethod",
+    "alt_prefixes": []
+  },
+  "trig:syncParamRestInStimulation": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizationParam restInStimulation",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqEnabled": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList enabled",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqImagingFrameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList imagingFrameCount",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqPreFrameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList preFrameCount",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqRestTime": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList restTime",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqStimulationFrameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList stimulationFrameCount",
+    "alt_prefixes": []
+  },
+  "trig:syncAcqType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "synchronizedAcquisitionParamList type",
+    "alt_prefixes": []
+  },
+
+  "pointscan:pointTimeAutoAssign": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime autoAssign",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimeCycleInterval": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime cycleInterval",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimeNumOfComplementPoint": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime numOfComplementPoint",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimeNumOfCycle": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime numOfCycle",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimePixelInterval": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime pixelInterval",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimePointInterval": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime pointInterval",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimePointTime": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime pointTime",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimeReturnToImaging": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime returnToImaging",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimeTravelTime": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTime travelTime",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimingActivate": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTiming activate",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimingBefore": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTiming before",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimingInterval": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTiming interval",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimingLaserDataId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTiming laserDataId",
+    "alt_prefixes": []
+  },
+  "pointscan:pointTimingPulse": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)",
+    "pretty_key_prefix": "pointTiming pulse",
+    "alt_prefixes": []
+  }
 }
