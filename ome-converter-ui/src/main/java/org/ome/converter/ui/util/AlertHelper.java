@@ -21,6 +21,14 @@ public class AlertHelper {
         alert.showAndWait();
     }
 
+    public static void showFormatMismatchError(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
     public static void showStorageError(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Target Destination Storage Warning");

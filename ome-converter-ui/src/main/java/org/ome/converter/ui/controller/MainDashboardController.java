@@ -81,6 +81,7 @@ public class MainDashboardController {
                 btnFormatVsi.setSelected(true);
                 viewModel.sourceFormatProperty().set("Olympus CellSens VSI (.vsi)");
             }
+            checkAndShowFormatMismatchWarning();
         });
 
         // Version Toggle Group Setup
@@ -172,11 +173,38 @@ public class MainDashboardController {
         File selectedFile = fileChooser.showOpenDialog(stage);
         if (selectedFile != null) {
             viewModel.sourceFilePathProperty().set(selectedFile.getAbsolutePath());
-            if (selectedFile.getName().toLowerCase().endsWith(".oir")) {
-                btnFormatOir.setSelected(true);
-            } else if (selectedFile.getName().toLowerCase().endsWith(".vsi")) {
-                btnFormatVsi.setSelected(true);
-            }
+            checkAndShowFormatMismatchWarning();
+        }
+    }
+
+    private void checkAndShowFormatMismatchWarning() {
+        String currentPath = txtSourceFile.getText();
+        if (currentPath == null || currentPath.isBlank()) return;
+
+        File file = new File(currentPath);
+        String name = file.getName().toLowerCase();
+
+        boolean isOirMode = btnFormatOir.isSelected();
+        boolean isVsiMode = btnFormatVsi.isSelected();
+
+        if (isVsiMode && name.endsWith(".oir")) {
+            AlertHelper.showFormatMismatchError(
+                "Source Format Mismatch",
+                "Format Selection Mismatch Warning",
+                String.format(
+                    "You have selected 'Olympus VSI (.vsi)' mode, but the chosen file '%s' is an Olympus OIR (.oir) file.\n\nPlease select a .vsi file, or switch the mode to 'Olympus OIR (.oir)'.",
+                    file.getName()
+                )
+            );
+        } else if (isOirMode && name.endsWith(".vsi")) {
+            AlertHelper.showFormatMismatchError(
+                "Source Format Mismatch",
+                "Format Selection Mismatch Warning",
+                String.format(
+                    "You have selected 'Olympus OIR (.oir)' mode, but the chosen file '%s' is an Olympus VSI (.vsi) file.\n\nPlease select an .oir file, or switch the mode to 'Olympus VSI (.vsi)'.",
+                    file.getName()
+                )
+            );
         }
     }
 

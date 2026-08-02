@@ -95,6 +95,29 @@ public class MainDashboardViewModel implements EventListener {
             return;
         }
 
+        String fileName = srcFile.getName().toLowerCase();
+        String selectedFormatStr = sourceFormat.get() != null ? sourceFormat.get().toLowerCase() : "";
+        boolean isOirMode = selectedFormatStr.contains(".oir");
+        boolean isVsiMode = selectedFormatStr.contains(".vsi");
+
+        if (isOirMode && !fileName.endsWith(".oir")) {
+            String ext = fileName.contains(".") ? fileName.substring(fileName.lastIndexOf('.')) : "none";
+            onError.accept(new IllegalArgumentException(String.format(
+                "Source format mismatch: Olympus OIR (.oir) mode is selected, but the provided input file '%s' has extension '%s'. Please select Olympus VSI (.vsi) mode or choose an .oir file.",
+                srcFile.getName(), ext
+            )));
+            return;
+        }
+
+        if (isVsiMode && !fileName.endsWith(".vsi")) {
+            String ext = fileName.contains(".") ? fileName.substring(fileName.lastIndexOf('.')) : "none";
+            onError.accept(new IllegalArgumentException(String.format(
+                "Source format mismatch: Olympus VSI (.vsi) mode is selected, but the provided input file '%s' has extension '%s'. Please select Olympus OIR (.oir) mode or choose a .vsi file.",
+                srcFile.getName(), ext
+            )));
+            return;
+        }
+
         File destDir = new File(targetDestinationPath.get());
         if (!destDir.exists() || !destDir.isDirectory()) {
             onError.accept(new IllegalArgumentException("Target destination directory does not exist: " + targetDestinationPath.get()));
