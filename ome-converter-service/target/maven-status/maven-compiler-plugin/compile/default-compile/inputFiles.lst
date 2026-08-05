@@ -13,6 +13,7 @@ C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\validator\MetadataValidator.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\validator\ValidationDictionary.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\validator\ValidationRule.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\VsiGapAnalyzerEngine.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\impl\ConversionOrchestrator.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\InputValidator.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\StorageValidator.java

@@ -12,7 +12,7 @@ public class MetadataGapAnalyzerService {
 
     private final OriginalMetadataCollector collector = new OriginalMetadataCollector();
     private final ConvertedMetadataInspector inspector = new ConvertedMetadataInspector();
-    private final MetadataComparisonEngine comparisonEngine = new MetadataComparisonEngine();
+    private final VsiGapAnalyzerEngine vsiEngine = new VsiGapAnalyzerEngine();
     private final OirGapAnalyzerEngine oirEngine = new OirGapAnalyzerEngine();
 
     public GapAnalysisResult analyzeAndReport(
@@ -31,10 +31,8 @@ public class MetadataGapAnalyzerService {
             log.info("Using OIR Gap Analysis Engine (TausiqVarma mapping rulebook) for {}", datasetName);
             finalResult = oirEngine.analyze(datasetName, version, standardMeta, vendorMeta, zarrRoot);
         } else {
-            log.info("Using VSI Enterprise Gap Analysis Engine for {}", datasetName);
-            List<OriginalMetadataItem> originalItems = collector.collectOriginalMetadata(standardMeta, vendorMeta);
-            List<ConvertedMetadataItem> convertedItems = inspector.inspectConvertedDataset(zarrRoot, version);
-            finalResult = comparisonEngine.compare(datasetName, version, originalItems, convertedItems, reportPath);
+            log.info("Using VSI Static Dictionary & Semantic Gap Analysis Engine for {}", datasetName);
+            finalResult = vsiEngine.analyze(datasetName, version, standardMeta, vendorMeta, zarrRoot);
         }
 
         GapAnalysisReportGenerator reportGenerator = new GapAnalysisReportGenerator();

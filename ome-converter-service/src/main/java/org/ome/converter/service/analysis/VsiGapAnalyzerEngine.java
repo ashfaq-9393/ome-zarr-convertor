@@ -13,8 +13,13 @@ import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.*;
 
-public class OirGapAnalyzerEngine {
-    private static final Logger log = LoggerFactory.getLogger(OirGapAnalyzerEngine.class);
+/**
+ * Enterprise VSI Gap Analysis Engine utilizing static JSON dictionary mapping rulebooks
+ * (validator_dictionary.json, universal_mapping_dictionary.json) combined with
+ * SemanticMetadataDictionary for alias resolution.
+ */
+public class VsiGapAnalyzerEngine {
+    private static final Logger log = LoggerFactory.getLogger(VsiGapAnalyzerEngine.class);
     private static final ObjectMapper mapper = new ObjectMapper();
 
     private final Map<String, RuleSpec> prefixToDictKey = new LinkedHashMap<>();
@@ -29,13 +34,16 @@ public class OirGapAnalyzerEngine {
         public List<String> altPrefixes;
     }
 
-    public OirGapAnalyzerEngine() {
+    public VsiGapAnalyzerEngine() {
         loadDictionaryResources();
     }
 
     private void loadDictionaryResources() {
         String[] resources = {
-            "/dictionary/validator_dictionary.json"
+            "/dictionary/validator_dictionary.json",
+            "/dictionary/universal_mapping_dictionary.json",
+            "/dictionary/final_validator_mapping.json",
+            "/dictionary/fixed_validator_mapping.json"
         };
 
         for (String resPath : resources) {
@@ -86,9 +94,9 @@ public class OirGapAnalyzerEngine {
             normalized = normalized.substring(2).trim();
         }
 
-        int oirSuffix = normalized.indexOf(".oir ");
-        if (oirSuffix >= 0) {
-            normalized = normalized.substring(oirSuffix + 5).trim();
+        int vsiSuffix = normalized.indexOf(".vsi ");
+        if (vsiSuffix >= 0) {
+            normalized = normalized.substring(vsiSuffix + 5).trim();
         }
 
         // 0. Exact dict key lookup
@@ -148,11 +156,23 @@ public class OirGapAnalyzerEngine {
         VendorMetadata vendorMeta,
         Path zarrRoot
     ) {
-        log.info("Running TausiqVarma OIR Gap Analysis Engine for dataset: {}", datasetName);
+        log.info("Running Pure Static Dictionary Gap Analysis Engine for VSI dataset: {}", datasetName);
 
         Map<String, String> rawTags = new LinkedHashMap<>();
         if (vendorMeta != null && vendorMeta.globalTags() != null) {
             rawTags.putAll(vendorMeta.globalTags());
+        }
+
+        // Collect standard dimension metadata attributes
+        if (standardMeta != null) {
+            rawTags.putIfAbsent("SizeX", String.valueOf(standardMeta.sizeX()));
+            rawTags.putIfAbsent("SizeY", String.valueOf(standardMeta.sizeY()));
+            rawTags.putIfAbsent("SizeZ", String.valueOf(standardMeta.sizeZ()));
+            rawTags.putIfAbsent("SizeC", String.valueOf(standardMeta.sizeC()));
+            rawTags.putIfAbsent("SizeT", String.valueOf(standardMeta.sizeT()));
+            rawTags.putIfAbsent("PhysicalSizeX", String.valueOf(standardMeta.physicalSizeX()));
+            rawTags.putIfAbsent("PhysicalSizeY", String.valueOf(standardMeta.physicalSizeY()));
+            rawTags.putIfAbsent("PhysicalSizeZ", String.valueOf(standardMeta.physicalSizeZ()));
         }
 
         int mapped = 0;
@@ -167,10 +187,10 @@ public class OirGapAnalyzerEngine {
             RuleSpec rule = findRule(rawKey);
 
             if (rule != null && "MAPPED".equalsIgnoreCase(rule.status)) {
-                // Formal OME Mapped (Path 1)
+                // Formal OME Mapped via Static Dictionary
                 mapped++;
             } else if (rule != null && "STRUCTURAL".equalsIgnoreCase(rule.status)) {
-                // Internal structural linkage — skipped / non-data tag
+                // Internal structural linkage
                 if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
                     vendorDumped++;
                 } else {
@@ -179,11 +199,11 @@ public class OirGapAnalyzerEngine {
                         rawKey,
                         "null",
                         "LOSS (Missing)",
-                        "Tag failed value extraction during conversion."
+                        "Tag failed value extraction during VSI conversion."
                     ));
                 }
             } else if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
-                // Vendor Custom Dumped namespace (Path 2: Preserved Raw)
+                // Preserved Vendor Custom Dumped Metadata
                 vendorDumped++;
             } else {
                 loss++;
@@ -191,7 +211,7 @@ public class OirGapAnalyzerEngine {
                     rawKey,
                     "null",
                     "LOSS (Missing)",
-                    "Tag failed value extraction during conversion."
+                    "Tag failed value extraction during VSI conversion."
                 ));
             }
         }

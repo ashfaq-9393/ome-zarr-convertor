@@ -18,6 +18,8 @@ org\ome\converter\service\validation\StorageValidator.class
 org\ome\converter\service\analysis\validator\JacksonValidationDictionary.class
 org\ome\converter\service\analysis\OirGapAnalyzerEngine.class
 org\ome\converter\service\analysis\validator\JacksonValidationDictionary$JacksonValidationRule.class
+org\ome\converter\service\analysis\VsiGapAnalyzerEngine.class
+org\ome\converter\service\analysis\VsiGapAnalyzerEngine$RuleSpec.class
 org\ome\converter\service\impl\ConversionOrchestrator$2.class
 org\ome\converter\service\impl\ConversionOrchestrator.class
 org\ome\converter\service\analysis\OriginalMetadataCollector.class

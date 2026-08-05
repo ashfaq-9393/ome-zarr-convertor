@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.ome.converter.service.validation.StorageValidatorTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in org.ome.converter.service.validation.StorageValidatorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in org.ome.converter.service.validation.StorageValidatorTest
