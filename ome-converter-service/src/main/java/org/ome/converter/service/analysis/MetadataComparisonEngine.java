@@ -24,6 +24,7 @@ public class MetadataComparisonEngine {
         int loss = 0;
 
         List<GapAnalysisResult.GapAnalysisItemDetail> lostItems = new ArrayList<>();
+        List<GapAnalysisResult.GapAnalysisItemDetail> allItems = new ArrayList<>();
 
         for (OriginalMetadataItem orig : originalItems) {
             String rawKey = orig.key();
@@ -32,40 +33,41 @@ public class MetadataComparisonEngine {
 
             if (convertedByKey.containsKey(rawKeyLower) && "VENDOR_CUSTOM".equalsIgnoreCase(convertedByKey.get(rawKeyLower).namespace())) {
                 vendorDumped++;
+                allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(rawKey, orig.value(), "VENDOR_DUMPED", "Preserved raw vendor attribute in custom annotation namespace."));
             } else if ("TRANSITIONAL_XML".equalsIgnoreCase(orig.category())) {
                 vendorDumped++;
+                allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(rawKey, orig.value(), "VENDOR_DUMPED", "Raw XML header stored in custom metadata."));
             } else if (convertedByKey.containsKey(rawKeyLower)) {
                 mapped++;
+                allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(rawKey, orig.value(), "MAPPED", "Mapped to formal OME-XML attribute."));
             } else if (canonicalConcept.isPresent()) {
                 String concept = canonicalConcept.get();
                 ConvertedMetadataItem conceptMatch = findMatchForConcept(concept, convertedItems);
                 if (conceptMatch != null) {
                     mapped++;
+                    allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(rawKey, orig.value(), "MAPPED", "Mapped via concept '" + concept + "'."));
                 } else {
                     loss++;
-                    lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                        rawKey,
-                        orig.value(),
-                        "LOSS (Missing)",
-                        "Mapped in dictionary to '" + concept + "', but absent in output OME-Zarr attributes."
-                    ));
+                    GapAnalysisResult.GapAnalysisItemDetail item = new GapAnalysisResult.GapAnalysisItemDetail(
+                        rawKey, orig.value(), "LOSS (Missing)", "Mapped in dictionary to '" + concept + "', but absent in output OME-Zarr attributes."
+                    );
+                    lostItems.add(item);
+                    allItems.add(item);
                 }
             } else if (isPossibleMatchCandidate(rawKeyLower)) {
                 loss++;
-                lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                    rawKey,
-                    orig.value(),
-                    "LOSS (Unmapped)",
-                    "Potential hardware/acquisition attribute requiring expert review."
-                ));
+                GapAnalysisResult.GapAnalysisItemDetail item = new GapAnalysisResult.GapAnalysisItemDetail(
+                    rawKey, orig.value(), "LOSS (Unmapped)", "Potential hardware/acquisition attribute requiring expert review."
+                );
+                lostItems.add(item);
+                allItems.add(item);
             } else {
                 loss++;
-                lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                    rawKey,
-                    orig.value(),
-                    "LOSS (Unregistered)",
-                    "Unregistered raw vendor tag dropped from standard OME translation."
-                ));
+                GapAnalysisResult.GapAnalysisItemDetail item = new GapAnalysisResult.GapAnalysisItemDetail(
+                    rawKey, orig.value(), "LOSS (Unregistered)", "Unregistered raw vendor tag dropped from standard OME translation."
+                );
+                lostItems.add(item);
+                allItems.add(item);
             }
         }
 
@@ -79,6 +81,7 @@ public class MetadataComparisonEngine {
             vendorDumped,
             loss,
             lostItems,
+            allItems,
             htmlReportPath
         );
     }

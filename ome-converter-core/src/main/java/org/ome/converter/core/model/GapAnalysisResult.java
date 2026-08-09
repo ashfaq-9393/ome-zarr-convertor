@@ -11,8 +11,22 @@ public record GapAnalysisResult(
     int vendorDumpedCount,
     int lossCount,
     List<GapAnalysisItemDetail> lostItems,
+    List<GapAnalysisItemDetail> allItems,
     Path htmlReportPath
 ) {
+    public GapAnalysisResult(
+        String datasetName,
+        OmeZarrVersion targetVersion,
+        int totalOriginalCount,
+        int mappedCount,
+        int vendorDumpedCount,
+        int lossCount,
+        List<GapAnalysisItemDetail> lostItems,
+        Path htmlReportPath
+    ) {
+        this(datasetName, targetVersion, totalOriginalCount, mappedCount, vendorDumpedCount, lossCount, lostItems, lostItems, htmlReportPath);
+    }
+
     public record GapAnalysisItemDetail(
         String originalKey,
         String originalValue,

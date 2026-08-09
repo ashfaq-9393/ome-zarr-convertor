@@ -2,8 +2,9 @@ package org.ome.converter.ui.controller;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.transformation.FilteredList;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.DirectoryChooser;
@@ -17,6 +18,7 @@ import org.ome.converter.ui.viewmodel.MainDashboardViewModel;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.util.List;
 
 public class MainDashboardController {
 
@@ -35,6 +37,7 @@ public class MainDashboardController {
     @FXML private ProgressBar progressBar;
     @FXML private Label lblStatus;
     @FXML private Label lblThroughput;
+
     @FXML private Button btnConvert;
     @FXML private Button btnCancel;
 
@@ -45,9 +48,10 @@ public class MainDashboardController {
     @FXML private Label lblVendorDumped;
     @FXML private Label lblLossFields;
 
-    @FXML private Label lblBadgeMapped;
-    @FXML private Label lblBadgeVendor;
-    @FXML private Label lblBadgeLoss;
+    @FXML private ToggleButton btnCategoryLoss;
+    @FXML private ToggleButton btnCategoryMapped;
+    @FXML private ToggleButton btnCategoryVendor;
+    @FXML private ToggleButton btnCategoryAll;
 
     @FXML private Label lblLostHeader;
     @FXML private TextField txtLostSearch;
@@ -59,11 +63,35 @@ public class MainDashboardController {
 
     @FXML private ListView<String> lstLogs;
 
+    // Compliance UI Controls
+    @FXML private TextField txtComplianceDatasetPath;
+    @FXML private Button btnCheckCompliance;
+    @FXML private Label lblComplianceOmeVersion;
+    @FXML private Label lblComplianceZarrVersion;
+    @FXML private Label lblComplianceProgress;
+    @FXML private Label lblComplianceOverallStatus;
+    @FXML private Label lblComplianceErrors;
+    @FXML private Label lblComplianceWarnings;
+    @FXML private Label lblComplianceInfo;
+    @FXML private Button btnOpenComplianceReport;
+
+    @FXML private Label lblStatusStructure;
+    @FXML private Label lblStatusVersion;
+    @FXML private Label lblStatusMultiscales;
+    @FXML private Label lblStatusAxes;
+    @FXML private Label lblStatusTransformations;
+    @FXML private Label lblStatusOmero;
+    @FXML private Label lblStatusLabels;
+    @FXML private Label lblStatusPlateWell;
+
     private MainDashboardViewModel viewModel;
-    private FilteredList<GapAnalysisResult.GapAnalysisItemDetail> filteredLostItems;
+    private final ObservableList<GapAnalysisResult.GapAnalysisItemDetail> displayedTableItems = FXCollections.observableArrayList();
 
     private final ToggleGroup formatToggleGroup = new ToggleGroup();
     private final ToggleGroup versionToggleGroup = new ToggleGroup();
+
+    private String activeCategory = "LOSS";
+    private boolean isUpdatingSelection = false;
 
     @FXML
     public void initialize() {
@@ -85,8 +113,8 @@ public class MainDashboardController {
         });
 
         // Version Toggle Group Setup
-        btnVersionV05.setToggleGroup(versionToggleGroup);
         btnVersionV04.setToggleGroup(versionToggleGroup);
+        btnVersionV05.setToggleGroup(versionToggleGroup);
         btnVersionV05.setSelected(true);
 
         versionToggleGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
@@ -113,9 +141,12 @@ public class MainDashboardController {
         lblVendorDumped.textProperty().bind(viewModel.vendorDumpedProperty());
         lblLossFields.textProperty().bind(viewModel.lossFieldsProperty());
 
-        lblBadgeMapped.textProperty().bind(viewModel.badgeMappedTextProperty());
-        lblBadgeVendor.textProperty().bind(viewModel.badgeVendorTextProperty());
-        lblBadgeLoss.textProperty().bind(viewModel.badgeLossTextProperty());
+        // Bind Gap Analysis Button Text Properties
+        if (btnCategoryMapped != null) btnCategoryMapped.textProperty().bind(viewModel.badgeMappedTextProperty());
+        if (btnCategoryVendor != null) btnCategoryVendor.textProperty().bind(viewModel.badgeVendorTextProperty());
+        if (btnCategoryLoss != null) btnCategoryLoss.textProperty().bind(viewModel.badgeLossTextProperty());
+        if (btnCategoryAll != null) btnCategoryAll.textProperty().bind(viewModel.badgeAllTextProperty());
+
         lblLostHeader.textProperty().bind(viewModel.lostHeaderProperty());
 
         // Table Setup with safe lambdas for JavaFX record properties
@@ -124,32 +155,141 @@ public class MainDashboardController {
         colStatus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().status() : ""));
         colExplanation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().explanation() : ""));
 
-        filteredLostItems = new FilteredList<>(viewModel.getLostItems(), p -> true);
-        tblLostMetadata.setItems(filteredLostItems);
+        tblLostMetadata.setItems(displayedTableItems);
+
+        txtLostSearch.textProperty().addListener((obs, oldVal, newVal) -> updateTableFilter());
 
         viewModel.getLostItems().addListener((ListChangeListener<GapAnalysisResult.GapAnalysisItemDetail>) change -> {
-            Platform.runLater(() -> tblLostMetadata.refresh());
+            Platform.runLater(this::updateTableFilter);
         });
 
-        viewModel.dashboardSubtitleProperty().addListener((obs, oldVal, newVal) -> {
-            Platform.runLater(() -> tblLostMetadata.refresh());
-        });
-
-        txtLostSearch.textProperty().addListener((obs, oldVal, newVal) -> {
-            filteredLostItems.setPredicate(item -> {
-                if (newVal == null || newVal.isBlank()) return true;
-                String filter = newVal.toLowerCase();
-                return (item.originalKey() != null && item.originalKey().toLowerCase().contains(filter))
-                    || (item.originalValue() != null && item.originalValue().toLowerCase().contains(filter))
-                    || (item.explanation() != null && item.explanation().toLowerCase().contains(filter));
+        viewModel.getAllItems().addListener((ListChangeListener<GapAnalysisResult.GapAnalysisItemDetail>) change -> {
+            Platform.runLater(() -> {
+                activeCategory = "LOSS";
+                updateCategoryButtonSelection();
+                updateTableFilter();
             });
-            tblLostMetadata.refresh();
         });
 
         btnConvert.disableProperty().bind(viewModel.convertingProperty());
         btnCancel.disableProperty().bind(viewModel.convertingProperty().not());
 
         lstLogs.setItems(viewModel.getLogMessages());
+        updateCategoryButtonSelection();
+
+        // Bind Compliance UI Controls
+        txtComplianceDatasetPath.textProperty().bindBidirectional(viewModel.complianceDatasetPathProperty());
+        lblComplianceOmeVersion.textProperty().bind(viewModel.detectedOmeVersionProperty());
+        lblComplianceZarrVersion.textProperty().bind(viewModel.detectedZarrVersionProperty());
+        lblComplianceProgress.textProperty().bind(viewModel.complianceProgressTextProperty());
+        lblComplianceOverallStatus.textProperty().bind(viewModel.complianceOverallStatusProperty());
+        lblComplianceErrors.textProperty().bind(viewModel.complianceErrorsCountProperty());
+        lblComplianceWarnings.textProperty().bind(viewModel.complianceWarningsCountProperty());
+        lblComplianceInfo.textProperty().bind(viewModel.complianceInfoCountProperty());
+
+        btnCheckCompliance.disableProperty().bind(viewModel.validatingComplianceProperty());
+
+        viewModel.latestComplianceResultProperty().addListener((obs, oldRes, newRes) -> {
+            boolean hasReport = newRes != null && newRes.htmlReportPath() != null && newRes.htmlReportPath().toFile().exists();
+            btnOpenComplianceReport.setDisable(!hasReport);
+        });
+
+        var catProps = viewModel.categoryStatusProperties();
+        if (lblStatusStructure != null) lblStatusStructure.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.STRUCTURE));
+        if (lblStatusVersion != null) lblStatusVersion.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.VERSION));
+        if (lblStatusMultiscales != null) lblStatusMultiscales.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.MULTISCALES));
+        if (lblStatusAxes != null) lblStatusAxes.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.AXES));
+        if (lblStatusTransformations != null) lblStatusTransformations.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.TRANSFORMATIONS));
+        if (lblStatusOmero != null) lblStatusOmero.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.OMERO));
+        if (lblStatusLabels != null) lblStatusLabels.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.LABELS));
+        if (lblStatusPlateWell != null) lblStatusPlateWell.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.PLATE_WELL));
+    }
+
+    @FXML
+    private void handleCategoryLoss() {
+        if (isUpdatingSelection) return;
+        activeCategory = "LOSS";
+        updateCategoryButtonSelection();
+        updateTableFilter();
+    }
+
+    @FXML
+    private void handleCategoryMapped() {
+        if (isUpdatingSelection) return;
+        activeCategory = "MAPPED";
+        updateCategoryButtonSelection();
+        updateTableFilter();
+    }
+
+    @FXML
+    private void handleCategoryVendor() {
+        if (isUpdatingSelection) return;
+        activeCategory = "VENDOR";
+        updateCategoryButtonSelection();
+        updateTableFilter();
+    }
+
+    @FXML
+    private void handleCategoryAll() {
+        if (isUpdatingSelection) return;
+        activeCategory = "ALL";
+        updateCategoryButtonSelection();
+        updateTableFilter();
+    }
+
+    private void updateCategoryButtonSelection() {
+        if (isUpdatingSelection) return;
+        isUpdatingSelection = true;
+        try {
+            if (btnCategoryLoss != null) btnCategoryLoss.setSelected("LOSS".equals(activeCategory));
+            if (btnCategoryMapped != null) btnCategoryMapped.setSelected("MAPPED".equals(activeCategory));
+            if (btnCategoryVendor != null) btnCategoryVendor.setSelected("VENDOR".equals(activeCategory));
+            if (btnCategoryAll != null) btnCategoryAll.setSelected("ALL".equals(activeCategory));
+        } finally {
+            isUpdatingSelection = false;
+        }
+    }
+
+    private void updateTableFilter() {
+        ObservableList<GapAnalysisResult.GapAnalysisItemDetail> activeSource =
+            (!viewModel.getAllItems().isEmpty()) ? viewModel.getAllItems() : viewModel.getLostItems();
+
+        String search = txtLostSearch.getText();
+        String searchFilter = (search != null) ? search.trim().toLowerCase() : "";
+
+        List<GapAnalysisResult.GapAnalysisItemDetail> filtered = activeSource.stream().filter(item -> {
+            if (item == null) return false;
+
+            // Category Filter
+            boolean matchesCategory;
+            String statusUpper = item.status() != null ? item.status().toUpperCase() : "";
+
+            switch (activeCategory) {
+                case "MAPPED":
+                    matchesCategory = statusUpper.contains("MAPPED") && !statusUpper.contains("UNMAPPED");
+                    break;
+                case "VENDOR":
+                    matchesCategory = statusUpper.contains("VENDOR") || statusUpper.contains("STRUCTURAL");
+                    break;
+                case "LOSS":
+                    matchesCategory = statusUpper.contains("LOSS") || statusUpper.contains("MISSING") || statusUpper.contains("UNMAPPED") || statusUpper.contains("UNREGISTERED");
+                    break;
+                case "ALL":
+                default:
+                    matchesCategory = true;
+                    break;
+            }
+
+            if (!matchesCategory) return false;
+
+            // Text Search Filter
+            if (searchFilter.isEmpty()) return true;
+            return (item.originalKey() != null && item.originalKey().toLowerCase().contains(searchFilter))
+                || (item.originalValue() != null && item.originalValue().toLowerCase().contains(searchFilter))
+                || (item.explanation() != null && item.explanation().toLowerCase().contains(searchFilter));
+        }).toList();
+
+        displayedTableItems.setAll(filtered);
     }
 
     @FXML
@@ -273,5 +413,39 @@ public class MainDashboardController {
     @FXML
     private void handleClearLogs() {
         viewModel.getLogMessages().clear();
+    }
+
+    @FXML
+    private void handleBrowseComplianceDataset() {
+        DirectoryChooser dirChooser = new DirectoryChooser();
+        dirChooser.setTitle("Select OME-Zarr Output Directory to Validate");
+
+        if (txtComplianceDatasetPath != null && !txtComplianceDatasetPath.getText().isBlank()) {
+            File existing = new File(txtComplianceDatasetPath.getText());
+            if (existing.exists() && existing.isDirectory()) {
+                dirChooser.setInitialDirectory(existing);
+            }
+        }
+
+        Stage stage = (Stage) txtComplianceDatasetPath.getScene().getWindow();
+        File selectedDir = dirChooser.showDialog(stage);
+        if (selectedDir != null) {
+            viewModel.complianceDatasetPathProperty().set(selectedDir.getAbsolutePath());
+        }
+    }
+
+    @FXML
+    private void handleCheckCompliance() {
+        viewModel.runComplianceCheck(
+            () -> {},
+            (ex) -> {
+                AlertHelper.showInputValidationError("Compliance Validation Error", ex.getMessage());
+            }
+        );
+    }
+
+    @FXML
+    private void handleOpenComplianceReport() {
+        viewModel.openComplianceReport();
     }
 }

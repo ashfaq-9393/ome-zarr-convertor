@@ -15,5 +15,17 @@ C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\validator\ValidationRule.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\VsiGapAnalyzerEngine.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\impl\ConversionOrchestrator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceCategory.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceIssue.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceResult.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceSeverity.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\InputValidator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\OmeZarrComplianceService.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\OmeZarrVersionDetector.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\OverallStatus.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\report\ComplianceReportGenerator.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\StorageValidator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\v04\OmeZarrV04ComplianceValidator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\v05\OmeZarrV05ComplianceValidator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\zarr\ZarrV2Validator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\zarr\ZarrV3Validator.java

@@ -149,22 +149,25 @@
                             </VBox>
                         </HBox>
 
-                        <!-- Metadata Classification Breakdown Badges -->
+                        <!-- Metadata Classification Breakdown Interactive Category Tabs -->
                         <VBox styleClass="card-panel" spacing="10.0">
-                            <Label text="Metadata Classification Breakdown" styleClass="card-header-title"/>
+                            <HBox alignment="CENTER_LEFT">
+                                <Label text="Metadata Classification Breakdown (Click category to filter table below)" styleClass="card-header-title"/>
+                            </HBox>
                             <HBox spacing="12.0">
-                                <Label fx:id="lblBadgeMapped" text="Mapped: 0" styleClass="badge-mapped"/>
-                                <Label fx:id="lblBadgeVendor" text="Vendor Custom (Dumped): 0" styleClass="badge-vendor"/>
-                                <Label fx:id="lblBadgeLoss" text="Loss: 0" styleClass="badge-loss"/>
+                                <ToggleButton fx:id="btnCategoryLoss" text="Loss: 0" styleClass="badge-loss-btn" onAction="#handleCategoryLoss"/>
+                                <ToggleButton fx:id="btnCategoryMapped" text="Mapped: 0" styleClass="badge-mapped-btn" onAction="#handleCategoryMapped"/>
+                                <ToggleButton fx:id="btnCategoryVendor" text="Vendor Custom (Dumped): 0" styleClass="badge-vendor-btn" onAction="#handleCategoryVendor"/>
+                                <ToggleButton fx:id="btnCategoryAll" text="All Fields (0)" styleClass="toggle-option-btn" onAction="#handleCategoryAll"/>
                             </HBox>
                         </VBox>
 
-                        <!-- Lost Metadata Inventory Table -->
+                        <!-- Metadata Inventory Table -->
                         <VBox styleClass="card-panel" VBox.vgrow="ALWAYS" spacing="10.0">
                             <HBox alignment="CENTER_LEFT" spacing="12.0">
-                                <Label fx:id="lblLostHeader" text="Lost Metadata Inventory (Displaying 0 Lost / Missing Fields)" styleClass="card-header-title"/>
+                                <Label fx:id="lblLostHeader" text="Metadata Inventory" styleClass="card-header-title"/>
                                 <Region HBox.hgrow="ALWAYS"/>
-                                <TextField fx:id="txtLostSearch" promptText="Search lost key or value..." prefWidth="250" styleClass="input-field"/>
+                                <TextField fx:id="txtLostSearch" promptText="Search key or value..." prefWidth="250" styleClass="input-field"/>
                             </HBox>
 
                             <TableView fx:id="tblLostMetadata" VBox.vgrow="ALWAYS" styleClass="custom-table-view">
@@ -182,7 +185,126 @@
 
                     </VBox>
                 </Tab>
+
+                <Tab text="OME-Zarr Compliance">
+                    <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane">
+                        <VBox spacing="12.0">
+                            <padding>
+                                <Insets top="12" right="12" bottom="12" left="12"/>
+                            </padding>
+
+                            <!-- Top Row: Selector & Detected Format side-by-side -->
+                            <HBox spacing="12.0">
+                                <!-- Selected Dataset Selector Card -->
+                                <VBox styleClass="card-panel" HBox.hgrow="ALWAYS" spacing="8.0">
+                                    <Label text="OME-Zarr Compliance Validator" styleClass="card-header-title"/>
+                                    <VBox spacing="4.0">
+                                        <Label text="Selected Dataset (.ome.zarr directory):" styleClass="input-label"/>
+                                        <HBox spacing="8.0">
+                                            <TextField fx:id="txtComplianceDatasetPath" promptText="Select generated OME-Zarr directory..." HBox.hgrow="ALWAYS" styleClass="input-field"/>
+                                            <Button text="Browse" onAction="#handleBrowseComplianceDataset" styleClass="btn-secondary"/>
+                                            <Button fx:id="btnCheckCompliance" text="Check Compliance" onAction="#handleCheckCompliance" styleClass="btn-primary"/>
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+
+                                <!-- Detected Format Card -->
+                                <VBox styleClass="card-panel" prefWidth="300" minWidth="260" spacing="8.0">
+                                    <Label text="Detected Format" styleClass="card-header-title"/>
+                                    <VBox spacing="6.0">
+                                        <HBox spacing="8.0" alignment="CENTER_LEFT">
+                                            <Label text="OME-Zarr Version:" styleClass="input-label"/>
+                                            <Label fx:id="lblComplianceOmeVersion" text="--" styleClass="status-indicator"/>
+                                        </HBox>
+                                        <HBox spacing="8.0" alignment="CENTER_LEFT">
+                                            <Label text="Zarr Version:" styleClass="input-label"/>
+                                            <Label fx:id="lblComplianceZarrVersion" text="--" styleClass="status-indicator"/>
+                                        </HBox>
+                                        <Label fx:id="lblComplianceProgress" text="" styleClass="input-label"/>
+                                    </VBox>
+                                </VBox>
+                            </HBox>
+
+                            <!-- Compliance Summary Card -->
+                            <VBox styleClass="card-panel" VBox.vgrow="ALWAYS" spacing="12.0">
+                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                    <Label text="Compliance Summary" styleClass="card-header-title"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Label text="Overall Status:" styleClass="input-label"/>
+                                    <Label fx:id="lblComplianceOverallStatus" text="--" styleClass="kpi-val-primary"/>
+                                </HBox>
+
+                                <!-- Category Status Grid (2 rows x 4 cols) -->
+                                <GridPane hgap="24" vgap="8">
+                                    <Label text="Structure" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusStructure" text="--" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="status-indicator"/>
+
+                                    <Label text="Version" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusVersion" text="--" GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="status-indicator"/>
+
+                                    <Label text="Multiscales" GridPane.columnIndex="4" GridPane.rowIndex="0" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusMultiscales" text="--" GridPane.columnIndex="5" GridPane.rowIndex="0" styleClass="status-indicator"/>
+
+                                    <Label text="Axes" GridPane.columnIndex="6" GridPane.rowIndex="0" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusAxes" text="--" GridPane.columnIndex="7" GridPane.rowIndex="0" styleClass="status-indicator"/>
+
+                                    <Label text="Transformations" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusTransformations" text="--" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="status-indicator"/>
+
+                                    <Label text="OMERO" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusOmero" text="--" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="status-indicator"/>
+
+                                    <Label text="Labels" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusLabels" text="--" GridPane.columnIndex="5" GridPane.rowIndex="1" styleClass="status-indicator"/>
+
+                                    <Label text="Plate/Well" GridPane.columnIndex="6" GridPane.rowIndex="1" styleClass="input-label"/>
+                                    <Label fx:id="lblStatusPlateWell" text="--" GridPane.columnIndex="7" GridPane.rowIndex="1" styleClass="status-indicator"/>
+                                </GridPane>
+
+                                <!-- Count Metrics & Report Button Row -->
+                                <HBox spacing="16.0" alignment="CENTER_LEFT">
+                                    <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                        <Label text="ERRORS" styleClass="kpi-label"/>
+                                        <Label fx:id="lblComplianceErrors" text="0" styleClass="kpi-val-danger"/>
+                                    </VBox>
+                                    <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                        <Label text="WARNINGS" styleClass="kpi-label"/>
+                                        <Label fx:id="lblComplianceWarnings" text="0" styleClass="kpi-val-purple"/>
+                                    </VBox>
+                                    <VBox styleClass="kpi-box" HBox.hgrow="ALWAYS" alignment="CENTER">
+                                        <Label text="INFO" styleClass="kpi-label"/>
+                                        <Label fx:id="lblComplianceInfo" text="0" styleClass="kpi-val-success"/>
+                                    </VBox>
+
+                                    <Button fx:id="btnOpenComplianceReport" text="Open Compliance Report" onAction="#handleOpenComplianceReport" styleClass="btn-primary" disable="true" prefHeight="54.0"/>
+                                </HBox>
+
+                                <!-- Compact Horizontal Status Guide Banner -->
+                                <HBox styleClass="status-guide-panel" spacing="16.0" alignment="CENTER_LEFT">
+                                    <Label text="STATUS GUIDE:" styleClass="status-guide-title"/>
+
+                                    <HBox spacing="6.0" alignment="CENTER_LEFT">
+                                        <Label text="PASS" styleClass="pill-pass"/>
+                                        <Label text="Fully compliant" styleClass="status-guide-desc"/>
+                                    </HBox>
+
+                                    <HBox spacing="6.0" alignment="CENTER_LEFT">
+                                        <Label text="WARNING" styleClass="pill-warning"/>
+                                        <Label text="Missing recommended fields" styleClass="status-guide-desc"/>
+                                    </HBox>
+
+                                    <HBox spacing="6.0" alignment="CENTER_LEFT">
+                                        <Label text="FAIL" styleClass="pill-fail"/>
+                                        <Label text="Specification violation" styleClass="status-guide-desc"/>
+                                    </HBox>
+                                </HBox>
+                            </VBox>
+
+                        </VBox>
+                    </ScrollPane>
+                </Tab>
             </TabPane>
+
         </VBox>
     </HBox>
 

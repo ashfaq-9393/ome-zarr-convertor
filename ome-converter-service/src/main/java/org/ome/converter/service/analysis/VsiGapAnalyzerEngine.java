@@ -99,9 +99,16 @@ public class VsiGapAnalyzerEngine {
             normalized = normalized.substring(vsiSuffix + 5).trim();
         }
 
+        String strippedPrefix = normalized;
+        int colonIdx = strippedPrefix.indexOf(':');
+        if (colonIdx >= 0) {
+            strippedPrefix = strippedPrefix.substring(colonIdx + 1).trim();
+        }
+
         // 0. Exact dict key lookup
         for (Map.Entry<String, RuleSpec> entry : allRules.entrySet()) {
-            if (entry.getKey().equalsIgnoreCase(normalized) || entry.getKey().equalsIgnoreCase(rawKey)) {
+            String k = entry.getKey();
+            if (k.equalsIgnoreCase(normalized) || k.equalsIgnoreCase(rawKey) || k.equalsIgnoreCase(strippedPrefix) || k.equalsIgnoreCase("bf:" + strippedPrefix)) {
                 return entry.getValue();
             }
         }
@@ -109,6 +116,9 @@ public class VsiGapAnalyzerEngine {
         // 1. Exact prefix lookup
         if (prefixToDictKey.containsKey(normalized)) {
             return prefixToDictKey.get(normalized);
+        }
+        if (prefixToDictKey.containsKey(strippedPrefix)) {
+            return prefixToDictKey.get(strippedPrefix);
         }
 
         // 2. Longest prefix lookup
@@ -149,6 +159,31 @@ public class VsiGapAnalyzerEngine {
         return bestSuffixMatch;
     }
 
+    private boolean isLossCandidate(String rawKey, RuleSpec rule, String rawVal) {
+        if (rawVal == null || rawVal.isBlank() || rawVal.equalsIgnoreCase("null")) {
+            return true;
+        }
+        if (rule != null && rule.status != null) {
+            String st = rule.status.toUpperCase();
+            if (st.contains("UNMAPPED") || st.contains("LOSS") || st.contains("DROPPED")) {
+                return true;
+            }
+        }
+        if (rawKey != null) {
+            String k = rawKey.toLowerCase();
+            if (k.startsWith("bf:")) k = k.substring(3);
+            if (k.contains("creation") || k.contains("uuid") || k.contains("linked") ||
+                k.contains("unmapped") || k.contains("unregistered") || k.contains("dropped") ||
+                k.contains("uncalibrated") || k.contains("pixel length") ||
+                k.contains("product build") || k.contains("snapshot count") ||
+                k.contains("document company") || k.contains("document name") ||
+                k.contains("pyramidal level") || k.contains("internal id")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public GapAnalysisResult analyze(
         String datasetName,
         OmeZarrVersion version,
@@ -161,6 +196,16 @@ public class VsiGapAnalyzerEngine {
         Map<String, String> rawTags = new LinkedHashMap<>();
         if (vendorMeta != null && vendorMeta.globalTags() != null) {
             rawTags.putAll(vendorMeta.globalTags());
+        }
+        if (vendorMeta != null && vendorMeta.seriesTags() != null) {
+            for (Map.Entry<String, Map<String, String>> seriesEntry : vendorMeta.seriesTags().entrySet()) {
+                String seriesName = seriesEntry.getKey();
+                if (seriesEntry.getValue() != null) {
+                    for (Map.Entry<String, String> tagEntry : seriesEntry.getValue().entrySet()) {
+                        rawTags.putIfAbsent(seriesName + "." + tagEntry.getKey(), tagEntry.getValue());
+                    }
+                }
+            }
         }
 
         // Collect standard dimension metadata attributes
@@ -179,39 +224,60 @@ public class VsiGapAnalyzerEngine {
         int vendorDumped = 0;
         int loss = 0;
         List<GapAnalysisResult.GapAnalysisItemDetail> lostItems = new ArrayList<>();
+        List<GapAnalysisResult.GapAnalysisItemDetail> allItems = new ArrayList<>();
+
+        Set<String> standardDimensionKeys = Set.of(
+            "SizeX", "SizeY", "SizeZ", "SizeC", "SizeT",
+            "PhysicalSizeX", "PhysicalSizeY", "PhysicalSizeZ",
+            "DimensionOrder", "PixelType"
+        );
 
         for (Map.Entry<String, String> entry : rawTags.entrySet()) {
             String rawKey = entry.getKey();
             String rawVal = entry.getValue();
 
             RuleSpec rule = findRule(rawKey);
+            boolean isStandardDimension = standardDimensionKeys.contains(rawKey);
+            boolean isLoss = isLossCandidate(rawKey, rule, rawVal);
 
-            if (rule != null && "MAPPED".equalsIgnoreCase(rule.status)) {
-                // Formal OME Mapped via Static Dictionary
+            if (isStandardDimension || (rule != null && "MAPPED".equalsIgnoreCase(rule.status))) {
+                // Formal OME Mapped via Static Dictionary or Standard Dimensions
                 mapped++;
+                allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
+                    rawKey, rawVal != null ? rawVal : "", "MAPPED", "Mapped to formal OME-XML attribute."
+                ));
             } else if (rule != null && "STRUCTURAL".equalsIgnoreCase(rule.status)) {
                 // Internal structural linkage
                 if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
                     vendorDumped++;
+                    allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
+                        rawKey, rawVal, "STRUCTURAL", "Internal structural linkage tag."
+                    ));
                 } else {
                     loss++;
-                    lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                        rawKey,
-                        "null",
-                        "LOSS (Missing)",
-                        "Tag failed value extraction during VSI conversion."
-                    ));
+                    GapAnalysisResult.GapAnalysisItemDetail item = new GapAnalysisResult.GapAnalysisItemDetail(
+                        rawKey, "null", "LOSS (Missing)", "Tag failed value extraction during VSI conversion."
+                    );
+                    lostItems.add(item);
+                    allItems.add(item);
                 }
-            } else if (rawVal != null && !rawVal.isBlank() && !rawVal.equalsIgnoreCase("null")) {
+            } else if (isLoss) {
+                loss++;
+                boolean isMissing = (rawVal == null || rawVal.isBlank() || rawVal.equalsIgnoreCase("null"));
+                String statusStr = isMissing ? "LOSS (Missing)" : "LOSS (Unmapped)";
+                String explanationStr = isMissing
+                    ? "Tag failed value extraction during VSI conversion."
+                    : "Acquisition attribute unmapped in standard OME translation.";
+                GapAnalysisResult.GapAnalysisItemDetail item = new GapAnalysisResult.GapAnalysisItemDetail(
+                    rawKey, rawVal != null ? rawVal : "null", statusStr, explanationStr
+                );
+                lostItems.add(item);
+                allItems.add(item);
+            } else {
                 // Preserved Vendor Custom Dumped Metadata
                 vendorDumped++;
-            } else {
-                loss++;
-                lostItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
-                    rawKey,
-                    "null",
-                    "LOSS (Missing)",
-                    "Tag failed value extraction during VSI conversion."
+                allItems.add(new GapAnalysisResult.GapAnalysisItemDetail(
+                    rawKey, rawVal, "VENDOR_DUMPED", "Preserved raw vendor attribute in custom annotation namespace."
                 ));
             }
         }
@@ -227,6 +293,7 @@ public class VsiGapAnalyzerEngine {
             vendorDumped,
             loss,
             lostItems,
+            allItems,
             reportPath
         );
     }

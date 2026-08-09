@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.Desktop;
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
@@ -50,14 +51,31 @@ public class MainDashboardViewModel implements EventListener {
     private final StringProperty badgeMappedText = new SimpleStringProperty("Mapped: 0");
     private final StringProperty badgeVendorText = new SimpleStringProperty("Vendor Custom (Dumped): 0");
     private final StringProperty badgeLossText = new SimpleStringProperty("Loss: 0");
+    private final StringProperty badgeAllText = new SimpleStringProperty("All Fields (0)");
     private final StringProperty lostHeader = new SimpleStringProperty("Lost Metadata Inventory (Displaying 0 Lost / Missing Fields)");
 
+    // Compliance UI Properties
+    private final StringProperty complianceDatasetPath = new SimpleStringProperty("");
+    private final StringProperty detectedOmeVersion = new SimpleStringProperty("--");
+    private final StringProperty detectedZarrVersion = new SimpleStringProperty("--");
+    private final StringProperty complianceOverallStatus = new SimpleStringProperty("--");
+    private final StringProperty complianceErrorsCount = new SimpleStringProperty("0");
+    private final StringProperty complianceWarningsCount = new SimpleStringProperty("0");
+    private final StringProperty complianceInfoCount = new SimpleStringProperty("0");
+    private final StringProperty complianceProgressText = new SimpleStringProperty("");
+    private final BooleanProperty validatingCompliance = new SimpleBooleanProperty(false);
+    private final ObjectProperty<org.ome.converter.service.validation.ComplianceResult> latestComplianceResult = new SimpleObjectProperty<>(null);
+
+    private final java.util.Map<org.ome.converter.service.validation.ComplianceCategory, StringProperty> categoryStatusProperties = new java.util.EnumMap<>(org.ome.converter.service.validation.ComplianceCategory.class);
+
     private final ObservableList<GapAnalysisResult.GapAnalysisItemDetail> lostItems = FXCollections.observableArrayList();
+    private final ObservableList<GapAnalysisResult.GapAnalysisItemDetail> allItems = FXCollections.observableArrayList();
     private final ObservableList<String> logMessages = FXCollections.observableArrayList();
     private final ObservableList<JobEntity> jobHistory = FXCollections.observableArrayList();
 
     private final ConversionOrchestrator orchestrator;
     private final SettingsRepository settingsRepository;
+    private final org.ome.converter.service.validation.OmeZarrComplianceService complianceService;
     private String currentJobId;
 
     public MainDashboardViewModel() {
@@ -67,6 +85,11 @@ public class MainDashboardViewModel implements EventListener {
     public MainDashboardViewModel(ConversionOrchestrator orchestrator, SettingsRepository settingsRepository) {
         this.orchestrator = orchestrator;
         this.settingsRepository = settingsRepository;
+        this.complianceService = new org.ome.converter.service.validation.OmeZarrComplianceService();
+
+        for (org.ome.converter.service.validation.ComplianceCategory cat : org.ome.converter.service.validation.ComplianceCategory.values()) {
+            categoryStatusProperties.put(cat, new SimpleStringProperty("--"));
+        }
 
         UserSettingsEntity settings = settingsRepository.loadSettings();
         if (settings.lastDestinationDirectory() != null) {
@@ -186,8 +209,10 @@ public class MainDashboardViewModel implements EventListener {
             badgeMappedText.set("Mapped: --");
             badgeVendorText.set("Vendor Custom (Dumped): --");
             badgeLossText.set("Loss: --");
+            badgeAllText.set("All Fields (0)");
             lostHeader.set("Lost Metadata Inventory (Analyzing...)");
             lostItems.clear();
+            allItems.clear();
         });
     }
 
@@ -201,6 +226,10 @@ public class MainDashboardViewModel implements EventListener {
     }
 
     private Path lastReportDirectory;
+
+    public ObservableList<GapAnalysisResult.GapAnalysisItemDetail> getAllItems() {
+        return allItems;
+    }
 
     public void updateGapAnalysisResults(GapAnalysisResult result) {
         if (result == null) return;
@@ -217,13 +246,87 @@ public class MainDashboardViewModel implements EventListener {
             badgeMappedText.set("Mapped: " + result.mappedCount());
             badgeVendorText.set("Vendor Custom (Dumped): " + result.vendorDumpedCount());
             badgeLossText.set("Loss: " + result.lossCount());
-            lostHeader.set("Lost Metadata Inventory (Displaying " + result.lostItems().size() + " Lost / Missing Fields)");
+            badgeAllText.set("All Fields (" + result.totalOriginalCount() + ")");
+            lostHeader.set("Metadata Inventory (Displaying " + result.totalOriginalCount() + " Total Fields)");
 
-            lostItems.clear();
             if (result.lostItems() != null) {
-                lostItems.addAll(result.lostItems());
+                lostItems.setAll(result.lostItems());
+            } else {
+                lostItems.clear();
+            }
+
+            if (result.allItems() != null && !result.allItems().isEmpty()) {
+                allItems.setAll(result.allItems());
+            } else if (result.lostItems() != null) {
+                allItems.setAll(result.lostItems());
+            } else {
+                allItems.clear();
+            }
+
+            if (result.htmlReportPath() != null && result.htmlReportPath().getParent() != null) {
+                complianceDatasetPath.set(result.htmlReportPath().getParent().toAbsolutePath().toString());
             }
         });
+    }
+
+    public void runComplianceCheck(Runnable onDone, java.util.function.Consumer<Exception> onError) {
+        String pathStr = complianceDatasetPath.get();
+        if (pathStr == null || pathStr.isBlank()) {
+            if (onError != null) onError.accept(new IllegalArgumentException("Please select a target OME-Zarr directory first."));
+            return;
+        }
+
+        File file = new File(pathStr);
+        if (!file.exists() || !file.isDirectory()) {
+            if (onError != null) onError.accept(new IllegalArgumentException("Specified OME-Zarr dataset path does not exist or is not a directory: " + pathStr));
+            return;
+        }
+
+        validatingCompliance.set(true);
+        complianceProgressText.set("Validating...");
+        complianceOverallStatus.set("VALIDATING...");
+
+        java.util.concurrent.CompletableFuture.supplyAsync(() -> {
+            return complianceService.validateDataset(file.toPath());
+        }).thenAcceptAsync(result -> {
+            Platform.runLater(() -> {
+                latestComplianceResult.set(result);
+                detectedOmeVersion.set(result.detectedOmeVersion());
+                detectedZarrVersion.set(result.detectedZarrVersion());
+                complianceOverallStatus.set(result.overallStatus().getDisplayName());
+                complianceErrorsCount.set(String.valueOf(result.errorCount()));
+                complianceWarningsCount.set(String.valueOf(result.warningCount()));
+                complianceInfoCount.set(String.valueOf(result.infoCount()));
+
+                for (org.ome.converter.service.validation.ComplianceCategory cat : org.ome.converter.service.validation.ComplianceCategory.values()) {
+                    org.ome.converter.service.validation.ComplianceSeverity sev = result.categoryStatuses().getOrDefault(cat, org.ome.converter.service.validation.ComplianceSeverity.INFO);
+                    categoryStatusProperties.get(cat).set(sev.name());
+                }
+
+                validatingCompliance.set(false);
+                complianceProgressText.set("Validation Complete!");
+                if (onDone != null) onDone.run();
+            });
+        }).exceptionally(ex -> {
+            Platform.runLater(() -> {
+                validatingCompliance.set(false);
+                complianceProgressText.set("Validation Error");
+                complianceOverallStatus.set("ERROR");
+                if (onError != null) onError.accept(new Exception(ex));
+            });
+            return null;
+        });
+    }
+
+    public void openComplianceReport() {
+        org.ome.converter.service.validation.ComplianceResult res = latestComplianceResult.get();
+        if (res != null && res.htmlReportPath() != null && Files.exists(res.htmlReportPath())) {
+            try {
+                Desktop.getDesktop().open(res.htmlReportPath().toFile());
+            } catch (Exception e) {
+                log.error("Could not open compliance report file: {}", res.htmlReportPath(), e);
+            }
+        }
     }
 
     public void openReportFile(String filename) {
@@ -314,9 +417,23 @@ public class MainDashboardViewModel implements EventListener {
     public StringProperty badgeMappedTextProperty() { return badgeMappedText; }
     public StringProperty badgeVendorTextProperty() { return badgeVendorText; }
     public StringProperty badgeLossTextProperty() { return badgeLossText; }
+    public StringProperty badgeAllTextProperty() { return badgeAllText; }
     public StringProperty lostHeaderProperty() { return lostHeader; }
+
+    public StringProperty complianceDatasetPathProperty() { return complianceDatasetPath; }
+    public StringProperty detectedOmeVersionProperty() { return detectedOmeVersion; }
+    public StringProperty detectedZarrVersionProperty() { return detectedZarrVersion; }
+    public StringProperty complianceOverallStatusProperty() { return complianceOverallStatus; }
+    public StringProperty complianceErrorsCountProperty() { return complianceErrorsCount; }
+    public StringProperty complianceWarningsCountProperty() { return complianceWarningsCount; }
+    public StringProperty complianceInfoCountProperty() { return complianceInfoCount; }
+    public StringProperty complianceProgressTextProperty() { return complianceProgressText; }
+    public BooleanProperty validatingComplianceProperty() { return validatingCompliance; }
+    public ObjectProperty<org.ome.converter.service.validation.ComplianceResult> latestComplianceResultProperty() { return latestComplianceResult; }
+    public java.util.Map<org.ome.converter.service.validation.ComplianceCategory, StringProperty> categoryStatusProperties() { return categoryStatusProperties; }
 
     public ObservableList<GapAnalysisResult.GapAnalysisItemDetail> getLostItems() { return lostItems; }
     public ObservableList<String> getLogMessages() { return logMessages; }
     public ObservableList<JobEntity> getJobHistory() { return jobHistory; }
 }
+
