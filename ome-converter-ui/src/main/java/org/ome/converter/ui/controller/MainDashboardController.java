@@ -74,6 +74,7 @@ public class MainDashboardController {
     @FXML private Label lblComplianceWarnings;
     @FXML private Label lblComplianceInfo;
     @FXML private Button btnOpenComplianceReport;
+    @FXML private Button btnOpenOfficialValidator;
 
     @FXML private Label lblStatusStructure;
     @FXML private Label lblStatusVersion;
@@ -447,5 +448,14 @@ public class MainDashboardController {
     @FXML
     private void handleOpenComplianceReport() {
         viewModel.openComplianceReport();
+    }
+
+    @FXML
+    private void handleOpenOfficialValidator() {
+        try {
+            viewModel.openOfficialValidator(null);
+        } catch (Exception e) {
+            AlertHelper.showInputValidationError("Official OME-NGFF Validator Error", e.getMessage());
+        }
     }
 }

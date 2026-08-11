@@ -15,6 +15,7 @@ C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\validator\ValidationRule.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\analysis\VsiGapAnalyzerEngine.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\impl\ConversionOrchestrator.java
+C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\runtime\BundledOmeZarrRuntimeService.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceCategory.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceIssue.java
 C:\Users\LENOVO\Desktop\github\ome-zarr-convertor\ome-converter-service\src\main\java\org\ome\converter\service\validation\ComplianceResult.java

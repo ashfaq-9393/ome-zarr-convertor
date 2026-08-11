@@ -276,7 +276,8 @@
                                         <Label fx:id="lblComplianceInfo" text="0" styleClass="kpi-val-success"/>
                                     </VBox>
 
-                                    <Button fx:id="btnOpenComplianceReport" text="Open Compliance Report" onAction="#handleOpenComplianceReport" styleClass="btn-primary" disable="true" prefHeight="54.0"/>
+                                    <Button fx:id="btnOpenComplianceReport" text="Open Compliance Report" onAction="#handleOpenComplianceReport" styleClass="btn-secondary" disable="true" prefHeight="54.0"/>
+                                    <Button fx:id="btnOpenOfficialValidator" text="Open Official OME-NGFF Validator" onAction="#handleOpenOfficialValidator" styleClass="btn-primary" prefHeight="54.0"/>
                                 </HBox>
 
                                 <!-- Compact Horizontal Status Guide Banner -->

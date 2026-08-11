@@ -1,0 +1,17 @@
+{
+  "bundled_runtime": "python-3.12.8-embed-amd64",
+  "python_version": "3.12.8",
+  "architecture": "x64",
+  "platform": "win32",
+  "pinned_dependencies": {
+    "ome-zarr": "0.9.0",
+    "zarr": "2.18.2",
+    "numpy": "1.26.4",
+    "fsspec": "2024.3.1",
+    "asciitree": "0.3.3",
+    "numcodecs": "0.12.1",
+    "requests": "2.31.0"
+  },
+  "cli_entrypoint": "ome_zarr.cli",
+  "default_port": 8000
+}

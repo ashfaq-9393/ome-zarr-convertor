@@ -329,6 +329,15 @@ public class MainDashboardViewModel implements EventListener {
         }
     }
 
+    public void openOfficialValidator(String customPath) throws Exception {
+        String pathStr = (customPath != null && !customPath.isBlank()) ? customPath : complianceDatasetPath.get();
+        if (pathStr == null || pathStr.isBlank()) {
+            throw new IllegalArgumentException("No OME-Zarr dataset path selected.");
+        }
+        Path path = Paths.get(pathStr);
+        org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().launchOfficialValidator(path);
+    }
+
     public void openReportFile(String filename) {
         File reportFile = null;
         if (lastReportDirectory != null) {

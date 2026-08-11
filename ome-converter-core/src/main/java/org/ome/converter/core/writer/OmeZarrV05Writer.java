@@ -118,6 +118,7 @@ public class OmeZarrV05Writer implements OmeZarrWriterStrategy {
 
         arrayJson.put("fill_value", 0);
         arrayJson.put("codecs", List.of(Map.of("name", "bytes", "configuration", Map.of("endian", "little"))));
+        arrayJson.put("dimension_names", List.of("t", "c", "z", "y", "x"));
 
         File arrayMetaFile = new File(levelDir, "zarr.json");
         mapper.writeValue(arrayMetaFile, arrayJson);

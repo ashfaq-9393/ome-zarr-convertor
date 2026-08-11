@@ -111,6 +111,7 @@ public class ZarrV3PyramidWriter {
 
             arrayNode.put("codecs", codecs);
             arrayNode.put("fill_value", 0);
+            arrayNode.put("dimension_names", List.of("t", "c", "z", "y", "x"));
             arrayNode.put("attributes", Collections.emptyMap());
 
             File levelJson = levelPath.resolve("zarr.json").toFile();

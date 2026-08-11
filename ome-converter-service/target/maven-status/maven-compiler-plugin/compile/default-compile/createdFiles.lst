@@ -20,6 +20,7 @@ org\ome\converter\service\validation\zarr\ZarrV3Validator.class
 org\ome\converter\service\analysis\validator\BioFormatsGapValidator.class
 org\ome\converter\service\validation\OverallStatus.class
 org\ome\converter\service\analysis\validator\MetadataValidator.class
+org\ome\converter\service\runtime\BundledOmeZarrRuntimeService.class
 org\ome\converter\service\validation\OmeZarrVersionDetector$DetectionResult.class
 org\ome\converter\service\analysis\validator\GapResult$Verdict.class
 org\ome\converter\service\analysis\validator\GapResult.class
