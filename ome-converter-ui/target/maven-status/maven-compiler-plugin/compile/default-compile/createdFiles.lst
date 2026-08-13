@@ -1,4 +1,5 @@
 org\ome\converter\ui\viewmodel\MainDashboardViewModel.class
 org\ome\converter\ui\util\AlertHelper.class
 org\ome\converter\ui\controller\MainDashboardController.class
+org\ome\converter\ui\Main.class
 org\ome\converter\ui\App.class
