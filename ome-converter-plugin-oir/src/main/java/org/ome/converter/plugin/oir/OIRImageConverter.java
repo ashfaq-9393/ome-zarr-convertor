@@ -109,7 +109,7 @@ public class OIRImageConverter implements ImageConverter {
                 ? new OmeZarrV04Writer()
                 : new OmeZarrV05Writer();
 
-            Path zarrPath = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, sourceFile.getName());
+            Path zarrPath = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, sourceFile.getName(), request.targetVersion());
             File zarrDir = zarrPath.toFile();
             zarrDir.mkdirs();
 
@@ -129,18 +129,32 @@ public class OIRImageConverter implements ImageConverter {
             TileProducerConsumerEngine engine = new TileProducerConsumerEngine(threadCount, 50, writerStrategy);
             engine.startProcessing(level0Dir, totalTiles, observer);
 
-            int bytesPerPixel = 2;
-            byte[] fullPlane = new byte[sizeX * sizeY * bytesPerPixel];
+            int bytesPerPixel = Math.max(1, metadata.bytesPerPixel());
+            long planeBytes = (long) sizeX * sizeY * bytesPerPixel;
+            boolean useFullPlane = planeBytes <= 250 * 1024 * 1024L;
+
+            byte[] fullPlane = null;
+            if (useFullPlane) {
+                try {
+                    fullPlane = new byte[(int) planeBytes];
+                } catch (OutOfMemoryError oom) {
+                    useFullPlane = false;
+                }
+            }
 
             for (int t = 0; t < sizeT; t++) {
                 for (int z = 0; z < sizeZ; z++) {
                     for (int c = 0; c < sizeC; c++) {
                         int planeIndex = reader.getIndex(z, c, t);
-                        try {
-                            reader.openBytes(planeIndex, fullPlane, 0, 0, sizeX, sizeY);
-                        } catch (Exception e) {
-                            log.warn("Could not read full plane {}, generating zero tile", planeIndex);
-                            Arrays.fill(fullPlane, (byte) 0);
+                        boolean planeReadSuccess = false;
+                        if (useFullPlane && fullPlane != null) {
+                            try {
+                                reader.openBytes(planeIndex, fullPlane, 0, 0, sizeX, sizeY);
+                                planeReadSuccess = true;
+                            } catch (Exception e) {
+                                log.warn("Full plane read failed for plane {}, falling back to direct tile/chunk reads", planeIndex);
+                                planeReadSuccess = false;
+                            }
                         }
 
                         for (int ty = 0; ty < tilesY; ty++) {
@@ -152,10 +166,19 @@ public class OIRImageConverter implements ImageConverter {
                                 int curW = Math.min(tileWidth, sizeX - xPos);
 
                                 byte[] tileData = new byte[curW * curH * bytesPerPixel];
-                                for (int line = 0; line < curH; line++) {
-                                    int srcOffset = ((yPos + line) * sizeX + xPos) * bytesPerPixel;
-                                    int dstOffset = line * curW * bytesPerPixel;
-                                    System.arraycopy(fullPlane, srcOffset, tileData, dstOffset, Math.min(tileData.length - dstOffset, fullPlane.length - srcOffset));
+                                if (planeReadSuccess && fullPlane != null) {
+                                    for (int line = 0; line < curH; line++) {
+                                        int srcOffset = ((yPos + line) * sizeX + xPos) * bytesPerPixel;
+                                        int dstOffset = line * curW * bytesPerPixel;
+                                        System.arraycopy(fullPlane, srcOffset, tileData, dstOffset, Math.min(tileData.length - dstOffset, fullPlane.length - srcOffset));
+                                    }
+                                } else {
+                                    try {
+                                        reader.openBytes(planeIndex, tileData, xPos, yPos, curW, curH);
+                                    } catch (Exception e) {
+                                        log.error("Failed to read tile chunk at ({}, {}) for plane {}", xPos, yPos, planeIndex, e);
+                                        Arrays.fill(tileData, (byte) 0);
+                                    }
                                 }
 
                                 TileChunk chunk = new TileChunk(0, 0, c, z, t, tx, ty, xPos, yPos, curW, curH, tileData);

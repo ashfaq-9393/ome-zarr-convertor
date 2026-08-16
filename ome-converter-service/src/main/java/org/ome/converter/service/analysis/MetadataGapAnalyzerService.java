@@ -35,9 +35,6 @@ public class MetadataGapAnalyzerService {
             finalResult = vsiEngine.analyze(datasetName, version, standardMeta, vendorMeta, zarrRoot);
         }
 
-        GapAnalysisReportGenerator reportGenerator = new GapAnalysisReportGenerator();
-        reportGenerator.generateAllReports(finalResult, reportPath);
-
         log.info("Completed In-App Metadata Gap Analysis for {}. Mapped: {}, Vendor Dumped: {}, Loss: {}",
             datasetName, finalResult.mappedCount(), finalResult.vendorDumpedCount(), finalResult.lossCount());
 

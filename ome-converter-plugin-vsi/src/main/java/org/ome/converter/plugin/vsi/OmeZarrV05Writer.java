@@ -30,7 +30,7 @@ public class OmeZarrV05Writer implements OmeZarrWriterStrategy {
     @Override
     public Path initializeDatasetDirectory(Path targetDir, String datasetName) throws ConversionException {
         try {
-            Path zarrRoot = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, datasetName);
+            Path zarrRoot = org.ome.converter.core.util.UniqueDatasetPathResolver.resolveUniquePath(targetDir, datasetName, org.ome.converter.core.model.OmeZarrVersion.OME_ZARR_0_5);
             Files.createDirectories(zarrRoot);
             log.info("Initialized OME-Zarr 0.5 (Zarr v3) dataset output directory at: {}", zarrRoot.toAbsolutePath());
             return zarrRoot;

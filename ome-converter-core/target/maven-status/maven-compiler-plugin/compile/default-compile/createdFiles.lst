@@ -21,6 +21,7 @@ org\ome\converter\core\model\ImageMetadata$ChannelInfo.class
 org\ome\converter\core\model\ConversionRequest.class
 org\ome\converter\core\exception\ValidationException.class
 org\ome\converter\core\model\OmeZarrVersion.class
+org\ome\converter\core\util\TargetSubfolderResolver.class
 org\ome\converter\core\model\VendorMetadata.class
 org\ome\converter\core\event\AsyncEventBus.class
 org\ome\converter\core\event\ProgressEvent.class

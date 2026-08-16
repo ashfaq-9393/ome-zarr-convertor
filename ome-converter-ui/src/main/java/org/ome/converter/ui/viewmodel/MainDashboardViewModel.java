@@ -30,7 +30,7 @@ import java.util.UUID;
 public class MainDashboardViewModel implements EventListener {
     private static final Logger log = LoggerFactory.getLogger(MainDashboardViewModel.class);
 
-    private final StringProperty sourceFormat = new SimpleStringProperty("Olympus CellSens VSI (.vsi)");
+    private final StringProperty sourceFormat = new SimpleStringProperty("Olympus FluoView OIR (.oir)");
     private final StringProperty sourceFilePath = new SimpleStringProperty("");
     private final StringProperty targetDestinationPath = new SimpleStringProperty("");
     private final DoubleProperty progressPercentage = new SimpleDoubleProperty(0.0);
@@ -48,11 +48,11 @@ public class MainDashboardViewModel implements EventListener {
     private final StringProperty vendorDumped = new SimpleStringProperty("--");
     private final StringProperty lossFields = new SimpleStringProperty("--");
 
-    private final StringProperty badgeMappedText = new SimpleStringProperty("Mapped: 0");
-    private final StringProperty badgeVendorText = new SimpleStringProperty("Vendor Custom (Dumped): 0");
-    private final StringProperty badgeLossText = new SimpleStringProperty("Loss: 0");
-    private final StringProperty badgeAllText = new SimpleStringProperty("All Fields (0)");
-    private final StringProperty lostHeader = new SimpleStringProperty("Lost Metadata Inventory (Displaying 0 Lost / Missing Fields)");
+    private final StringProperty badgeMappedText = new SimpleStringProperty("Mapped (0)");
+    private final StringProperty badgeVendorText = new SimpleStringProperty("Vendor (0)");
+    private final StringProperty badgeLossText = new SimpleStringProperty("Loss (0)");
+    private final StringProperty badgeAllText = new SimpleStringProperty("All (0)");
+    private final StringProperty lostHeader = new SimpleStringProperty("Inventory");
 
     // Compliance UI Properties
     private final StringProperty complianceDatasetPath = new SimpleStringProperty("");
@@ -65,6 +65,7 @@ public class MainDashboardViewModel implements EventListener {
     private final StringProperty complianceProgressText = new SimpleStringProperty("");
     private final BooleanProperty validatingCompliance = new SimpleBooleanProperty(false);
     private final ObjectProperty<org.ome.converter.service.validation.ComplianceResult> latestComplianceResult = new SimpleObjectProperty<>(null);
+    private final ObjectProperty<GapAnalysisResult> latestGapAnalysisResult = new SimpleObjectProperty<>(null);
 
     private final java.util.Map<org.ome.converter.service.validation.ComplianceCategory, StringProperty> categoryStatusProperties = new java.util.EnumMap<>(org.ome.converter.service.validation.ComplianceCategory.class);
 
@@ -77,6 +78,8 @@ public class MainDashboardViewModel implements EventListener {
     private final SettingsRepository settingsRepository;
     private final org.ome.converter.service.validation.OmeZarrComplianceService complianceService;
     private String currentJobId;
+    private long startTimeMs = 0;
+    private double lastKnownMBps = 0.0;
 
     public MainDashboardViewModel() {
         this(new ConversionOrchestrator(), new JsonFileSettingsRepository());
@@ -187,6 +190,9 @@ public class MainDashboardViewModel implements EventListener {
 
             converting.set(true);
             progressPercentage.set(0.0);
+            startTimeMs = System.currentTimeMillis();
+            lastKnownMBps = 0.0;
+            throughputText.set("0.00 MB/s");
             statusText.set("Initializing Conversion Engine (" + targetVersion.get().getDisplayName() + ")...");
             logMessages.add("[SYSTEM] Starting conversion job: " + currentJobId + " using " + targetVersion.get().getDisplayName() + " with " + cpuThreads.get() + " threads");
 
@@ -233,6 +239,7 @@ public class MainDashboardViewModel implements EventListener {
 
     public void updateGapAnalysisResults(GapAnalysisResult result) {
         if (result == null) return;
+        this.latestGapAnalysisResult.set(result);
         if (result.htmlReportPath() != null) {
             this.lastReportDirectory = result.htmlReportPath().getParent();
         }
@@ -243,11 +250,11 @@ public class MainDashboardViewModel implements EventListener {
             vendorDumped.set(String.valueOf(result.vendorDumpedCount()));
             lossFields.set(result.lossCount() + " (Attention)");
 
-            badgeMappedText.set("Mapped: " + result.mappedCount());
-            badgeVendorText.set("Vendor Custom (Dumped): " + result.vendorDumpedCount());
-            badgeLossText.set("Loss: " + result.lossCount());
-            badgeAllText.set("All Fields (" + result.totalOriginalCount() + ")");
-            lostHeader.set("Metadata Inventory (Displaying " + result.totalOriginalCount() + " Total Fields)");
+            badgeMappedText.set("Mapped (" + result.mappedCount() + ")");
+            badgeVendorText.set("Vendor (" + result.vendorDumpedCount() + ")");
+            badgeLossText.set("Loss (" + result.lossCount() + ")");
+            badgeAllText.set("All (" + result.totalOriginalCount() + ")");
+            lostHeader.set("Inventory (" + result.totalOriginalCount() + ")");
 
             if (result.lostItems() != null) {
                 lostItems.setAll(result.lostItems());
@@ -263,8 +270,11 @@ public class MainDashboardViewModel implements EventListener {
                 allItems.clear();
             }
 
-            if (result.htmlReportPath() != null && result.htmlReportPath().getParent() != null) {
-                complianceDatasetPath.set(result.htmlReportPath().getParent().toAbsolutePath().toString());
+            if (result.zarrRootPath() != null) {
+                complianceDatasetPath.set(result.zarrRootPath().toAbsolutePath().toString());
+            } else if (result.htmlReportPath() != null && result.htmlReportPath().getParent() != null) {
+                Path resolved = org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().resolveDatasetPath(result.htmlReportPath().getParent());
+                complianceDatasetPath.set(resolved.toAbsolutePath().toString());
             }
         });
     }
@@ -277,17 +287,19 @@ public class MainDashboardViewModel implements EventListener {
         }
 
         File file = new File(pathStr);
-        if (!file.exists() || !file.isDirectory()) {
+        Path resolvedPath = org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().resolveDatasetPath(file.toPath());
+        if (!Files.exists(resolvedPath) || !Files.isDirectory(resolvedPath)) {
             if (onError != null) onError.accept(new IllegalArgumentException("Specified OME-Zarr dataset path does not exist or is not a directory: " + pathStr));
             return;
         }
+        complianceDatasetPath.set(resolvedPath.toAbsolutePath().toString());
 
         validatingCompliance.set(true);
         complianceProgressText.set("Validating...");
         complianceOverallStatus.set("VALIDATING...");
 
         java.util.concurrent.CompletableFuture.supplyAsync(() -> {
-            return complianceService.validateDataset(file.toPath());
+            return complianceService.validateDataset(resolvedPath);
         }).thenAcceptAsync(result -> {
             Platform.runLater(() -> {
                 latestComplianceResult.set(result);
@@ -329,13 +341,19 @@ public class MainDashboardViewModel implements EventListener {
         }
     }
 
-    public void openOfficialValidator(String customPath) throws Exception {
+    public String startOfficialValidatorServer(String customPath) throws Exception {
         String pathStr = (customPath != null && !customPath.isBlank()) ? customPath : complianceDatasetPath.get();
         if (pathStr == null || pathStr.isBlank()) {
-            throw new IllegalArgumentException("No OME-Zarr dataset path selected.");
+            throw new IllegalArgumentException("Please select an OME-Zarr dataset directory (.zarr) first.");
         }
         Path path = Paths.get(pathStr);
-        org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().launchOfficialValidator(path);
+        Path resolvedPath = org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().resolveDatasetPath(path);
+        complianceDatasetPath.set(resolvedPath.toAbsolutePath().toString());
+        return org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().startValidatorServerAndGetUrl(resolvedPath);
+    }
+
+    public void openOfficialValidator(String customPath) throws Exception {
+        startOfficialValidatorServer(customPath);
     }
 
     public void openReportFile(String filename) {
@@ -371,21 +389,72 @@ public class MainDashboardViewModel implements EventListener {
         if (event.jobId().equals(currentJobId)) {
             Platform.runLater(() -> {
                 progressPercentage.set(event.percentage() / 100.0);
-                statusText.set(event.currentTask());
 
-                if (event.currentTask().contains("MB/s")) {
-                    int idx = event.currentTask().indexOf('(');
-                    if (idx >= 0 && event.currentTask().contains(")")) {
-                        throughputText.set(event.currentTask().substring(idx + 1, event.currentTask().indexOf(')')));
+                String task = (event.currentTask() != null) ? event.currentTask() : "";
+                String stageTag;
+                String taskLower = task.toLowerCase();
+                if (taskLower.contains("init") || taskLower.contains("source") || taskLower.contains("metadata") || taskLower.contains("engine")) {
+                    stageTag = "[Stage 1/4: Reading Source]";
+                } else if (taskLower.contains("pyramid") || taskLower.contains("building") || taskLower.contains("level")) {
+                    stageTag = "[Stage 2/4: Building Pyramid]";
+                } else if (taskLower.contains("writing") || taskLower.contains("tile") || taskLower.contains("chunk")) {
+                    stageTag = "[Stage 3/4: Writing Zarr Chunks]";
+                } else if (taskLower.contains("finis") || taskLower.contains("validat")) {
+                    stageTag = "[Stage 4/4: Finalizing Metadata]";
+                } else {
+                    stageTag = "[Stage 3/4: Processing]";
+                }
+
+                String etaStr = "";
+                double pct = event.percentage();
+                if (pct > 2.0 && pct < 99.0 && startTimeMs > 0) {
+                    long elapsedMs = System.currentTimeMillis() - startTimeMs;
+                    if (elapsedMs > 1000) {
+                        double estTotalMs = elapsedMs / (pct / 100.0);
+                        long remSec = Math.max(1, (long) ((estTotalMs - elapsedMs) / 1000));
+                        etaStr = (remSec < 60) ? (remSec + "s") : (remSec / 60 + "m " + remSec % 60 + "s");
+                    }
+                }
+
+                if (!event.completed() && !event.failed()) {
+                    if (!etaStr.isEmpty()) {
+                        statusText.set(stageTag + " " + task + " · ETA: " + etaStr);
+                    } else {
+                        statusText.set(stageTag + " " + task);
+                    }
+                }
+
+                if (task.contains("MB/s")) {
+                    int idx = task.indexOf('(');
+                    if (idx >= 0 && task.contains(")")) {
+                        String rawSpeed = task.substring(idx + 1, task.indexOf(')'));
+                        throughputText.set(rawSpeed);
+                        try {
+                            String numPart = rawSpeed.replaceAll("[^0-9.]", "");
+                            if (!numPart.isEmpty()) {
+                                double val = Double.parseDouble(numPart);
+                                if (val > 0) {
+                                    lastKnownMBps = val;
+                                }
+                            }
+                        } catch (Exception ignored) {}
                     }
                 }
 
                 if (event.completed()) {
                     converting.set(false);
                     statusText.set("Conversion Finished Successfully!");
+                    long elapsedSec = Math.max(1, (System.currentTimeMillis() - startTimeMs) / 1000);
+                    String timeStr = (elapsedSec < 60) ? elapsedSec + "s" : (elapsedSec / 60) + "m " + (elapsedSec % 60) + "s";
+                    if (lastKnownMBps > 0) {
+                        throughputText.set(String.format("Avg: %.2f MB/s · Completed in %s", lastKnownMBps, timeStr));
+                    } else {
+                        throughputText.set(String.format("Completed in %s", timeStr));
+                    }
                 } else if (event.failed()) {
                     converting.set(false);
                     statusText.set("Conversion Failed");
+                    throughputText.set("Failed");
                 }
             });
         }
@@ -439,6 +508,8 @@ public class MainDashboardViewModel implements EventListener {
     public StringProperty complianceProgressTextProperty() { return complianceProgressText; }
     public BooleanProperty validatingComplianceProperty() { return validatingCompliance; }
     public ObjectProperty<org.ome.converter.service.validation.ComplianceResult> latestComplianceResultProperty() { return latestComplianceResult; }
+    public ObjectProperty<GapAnalysisResult> latestGapAnalysisResultProperty() { return latestGapAnalysisResult; }
+    public GapAnalysisResult getLatestGapAnalysisResult() { return latestGapAnalysisResult.get(); }
     public java.util.Map<org.ome.converter.service.validation.ComplianceCategory, StringProperty> categoryStatusProperties() { return categoryStatusProperties; }
 
     public ObservableList<GapAnalysisResult.GapAnalysisItemDetail> getLostItems() { return lostItems; }

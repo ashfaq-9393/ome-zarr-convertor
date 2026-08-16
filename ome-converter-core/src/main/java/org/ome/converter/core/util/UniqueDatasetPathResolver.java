@@ -1,14 +1,22 @@
 package org.ome.converter.core.util;
 
+import org.ome.converter.core.model.OmeZarrVersion;
+
 import java.io.File;
 import java.nio.file.Path;
 
 /**
  * Utility to resolve unique dataset output directory paths.
- * If a directory or file with the target name already exists in the destination folder,
- * it appends numerical suffixes (_1, _2, _3, _4, etc.) to keep both the old and new files intact.
+ * Routes output placement into subfolders such as "OIR to OME-Zarr 0.4" or "VSI to OME-Zarr 0.5".
+ * If a directory or file with the target name already exists in the subfolder,
+ * it appends numerical suffixes (_1, _2, _3, _4, etc.) to keep both old and new files intact.
  */
 public class UniqueDatasetPathResolver {
+
+    public static Path resolveUniquePath(Path targetDir, String datasetName, OmeZarrVersion targetVersion) {
+        Path resolvedSubfolder = TargetSubfolderResolver.resolveTargetSubfolder(targetDir, datasetName, targetVersion);
+        return resolveUniquePath(resolvedSubfolder, datasetName);
+    }
 
     public static Path resolveUniquePath(Path targetDir, String datasetName) {
         if (targetDir == null) {

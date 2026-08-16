@@ -16,6 +16,8 @@ public class TemplateImageConverter implements ImageConverter {
         Instant start = Instant.now();
         Path targetDir = request.targetDestinationDirectory();
 
+        Path targetSubfolder = org.ome.converter.core.util.TargetSubfolderResolver.resolveTargetSubfolder(targetDir, request.sourceFile().getFileName().toString(), request.targetVersion());
+
         if (observer != null) {
             observer.onLog("INFO", "Executing template plugin conversion for: " + request.sourceFile().getFileName());
             observer.onProgress(100.0, 1, 1, "Template conversion placeholder finished");
@@ -23,7 +25,7 @@ public class TemplateImageConverter implements ImageConverter {
 
         return ConversionResult.success(
             request.jobId(),
-            targetDir,
+            targetSubfolder,
             1,
             1024,
             Duration.between(start, Instant.now())

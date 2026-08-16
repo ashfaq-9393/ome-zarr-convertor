@@ -128,7 +128,7 @@ public class ConversionOrchestrator {
                         );
 
                         observer.onLog("INFO", "Metadata Gap Analysis Complete! Total: " + gapResult.totalOriginalCount() + " | Mapped: " + gapResult.mappedCount() + " | Dumped: " + gapResult.vendorDumpedCount() + " | Loss: " + gapResult.lossCount());
-                        observer.onLog("INFO", "HTML Report saved at: " + gapResult.htmlReportPath().toAbsolutePath());
+                        observer.onLog("INFO", "Metadata Gap Analysis Report ready in UI. Click 'Export Report (HTML)' in Gap Analysis tab to export to disk.");
 
                         AsyncEventBus.getInstance().publishGapAnalysis(new GapAnalysisEvent(request.jobId(), gapResult));
 
@@ -140,9 +140,14 @@ public class ConversionOrchestrator {
                             result.executionDuration(),
                             gapResult
                         );
+                        observer.onProgress(100.0, result.totalTilesConverted(), result.totalTilesConverted(), "[100.0%] Conversion & Metadata Gap Analysis Finished!");
+                        AsyncEventBus.getInstance().publishProgress(new ProgressEvent(request.jobId(), 100.0, result.totalTilesConverted(), result.totalTilesConverted(), "Conversion & Gap Analysis Finished Successfully!", true, false));
                     } catch (Exception gapEx) {
                         log.warn("Failed to complete Metadata Gap Analysis: {}", gapEx.getMessage(), gapEx);
                     }
+                } else if (result.status() == ConversionResult.Status.SUCCESS) {
+                    observer.onProgress(100.0, result.totalTilesConverted(), result.totalTilesConverted(), "[100.0%] Conversion Finished!");
+                    AsyncEventBus.getInstance().publishProgress(new ProgressEvent(request.jobId(), 100.0, result.totalTilesConverted(), result.totalTilesConverted(), "Conversion Finished Successfully!", true, false));
                 }
 
                 JobEntity updatedEntity = new JobEntity(

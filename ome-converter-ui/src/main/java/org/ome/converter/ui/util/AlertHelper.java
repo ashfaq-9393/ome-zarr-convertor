@@ -60,47 +60,24 @@ public class AlertHelper {
     }
 
     public static void showCompletionSuccess(String jobId, String targetPathStr) {
-        showCompletionSuccessWithReport(jobId, targetPathStr, null);
-    }
-
-    public static void showCompletionSuccessWithReport(String jobId, String targetPathStr, File htmlReportFile) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Conversion & Metadata Gap Analysis Complete");
-        alert.setHeaderText("OME-Zarr Dataset & Gap Analysis Report Generated!");
-        
-        String text = "The conversion completed successfully.\nOutput Dataset:\n" + targetPathStr;
-        if (htmlReportFile != null && htmlReportFile.exists()) {
-            text += "\n\nMetadata Gap Analysis HTML Dashboard:\n" + htmlReportFile.getAbsolutePath();
-        }
-        alert.setContentText(text);
+        alert.setTitle("Conversion Complete");
+        alert.setHeaderText("OME-Zarr Dataset Successfully Generated!");
+        alert.setContentText("The conversion completed successfully.\nOutput Dataset:\n" + targetPathStr);
 
-        ButtonType openReportBtn = new ButtonType("Open Gap Report (HTML)");
         ButtonType openFolderBtn = new ButtonType("Open Output Folder");
         ButtonType closeBtn = new ButtonType("Close", ButtonType.CANCEL.getButtonData());
-
-        if (htmlReportFile != null && htmlReportFile.exists()) {
-            alert.getButtonTypes().setAll(openReportBtn, openFolderBtn, closeBtn);
-        } else {
-            alert.getButtonTypes().setAll(openFolderBtn, closeBtn);
-        }
+        alert.getButtonTypes().setAll(openFolderBtn, closeBtn);
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == openReportBtn && htmlReportFile != null && htmlReportFile.exists()) {
-                try {
-                    Desktop.getDesktop().browse(htmlReportFile.toURI());
-                } catch (Exception e) {
-                    showStorageError("Failed to open HTML report", e.getMessage());
+        if (result.isPresent() && result.get() == openFolderBtn) {
+            try {
+                File dir = new File(targetPathStr);
+                if (dir.exists()) {
+                    Desktop.getDesktop().open(dir.isDirectory() ? dir : dir.getParentFile());
                 }
-            } else if (result.get() == openFolderBtn) {
-                try {
-                    File dir = new File(targetPathStr);
-                    if (dir.exists()) {
-                        Desktop.getDesktop().open(dir.isDirectory() ? dir : dir.getParentFile());
-                    }
-                } catch (Exception e) {
-                    showStorageError("Failed to open directory", e.getMessage());
-                }
+            } catch (Exception e) {
+                showStorageError("Failed to open directory", e.getMessage());
             }
         }
     }

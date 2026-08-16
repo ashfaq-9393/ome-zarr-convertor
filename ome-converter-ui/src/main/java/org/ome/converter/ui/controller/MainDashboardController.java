@@ -1,15 +1,20 @@
 package org.ome.converter.ui.controller;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
+import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import org.ome.converter.core.model.GapAnalysisResult;
 import org.ome.converter.core.model.OmeZarrVersion;
@@ -22,6 +27,8 @@ import java.util.List;
 
 public class MainDashboardController {
 
+    @FXML private VBox cardLeftPanel;
+
     // Toggle Buttons for Source Image Format
     @FXML private ToggleButton btnFormatVsi;
     @FXML private ToggleButton btnFormatOir;
@@ -32,7 +39,6 @@ public class MainDashboardController {
 
     @FXML private TextField txtSourceFile;
     @FXML private TextField txtTargetDestination;
-    @FXML private CheckBox chkVendorMetadata;
 
     @FXML private ProgressBar progressBar;
     @FXML private Label lblStatus;
@@ -54,27 +60,23 @@ public class MainDashboardController {
     @FXML private ToggleButton btnCategoryAll;
 
     @FXML private Label lblLostHeader;
-    @FXML private TextField txtLostSearch;
     @FXML private TableView<GapAnalysisResult.GapAnalysisItemDetail> tblLostMetadata;
     @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colOriginalKey;
     @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colOriginalValue;
-    @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colStatus;
+    @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colConvertedLocation;
+    @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colConvertedValue;
     @FXML private TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> colExplanation;
 
     @FXML private ListView<String> lstLogs;
 
-    // Compliance UI Controls
+    @FXML private TabPane mainTabPane;
+    @FXML private Tab tabConsole;
+    @FXML private Tab tabOfficialValidator;
+
+    // Official Validator UI Controls
     @FXML private TextField txtComplianceDatasetPath;
     @FXML private Button btnCheckCompliance;
-    @FXML private Label lblComplianceOmeVersion;
-    @FXML private Label lblComplianceZarrVersion;
-    @FXML private Label lblComplianceProgress;
-    @FXML private Label lblComplianceOverallStatus;
-    @FXML private Label lblComplianceErrors;
-    @FXML private Label lblComplianceWarnings;
-    @FXML private Label lblComplianceInfo;
-    @FXML private Button btnOpenComplianceReport;
-    @FXML private Button btnOpenOfficialValidator;
+    @FXML private javafx.scene.web.WebView webValidatorView;
 
     @FXML private Label lblStatusStructure;
     @FXML private Label lblStatusVersion;
@@ -99,16 +101,17 @@ public class MainDashboardController {
         viewModel = new MainDashboardViewModel();
 
         // Format Toggle Group Setup
-        btnFormatVsi.setToggleGroup(formatToggleGroup);
         btnFormatOir.setToggleGroup(formatToggleGroup);
-        btnFormatVsi.setSelected(true);
+        btnFormatVsi.setToggleGroup(formatToggleGroup);
+        btnFormatOir.setSelected(true);
+        viewModel.sourceFormatProperty().set("Olympus FluoView OIR (.oir)");
 
         formatToggleGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal == btnFormatOir) {
-                viewModel.sourceFormatProperty().set("Olympus FluoView OIR (.oir)");
-            } else {
-                btnFormatVsi.setSelected(true);
+            if (newVal == btnFormatVsi) {
                 viewModel.sourceFormatProperty().set("Olympus CellSens VSI (.vsi)");
+            } else {
+                btnFormatOir.setSelected(true);
+                viewModel.sourceFormatProperty().set("Olympus FluoView OIR (.oir)");
             }
             checkAndShowFormatMismatchWarning();
         });
@@ -129,7 +132,6 @@ public class MainDashboardController {
 
         txtSourceFile.textProperty().bindBidirectional(viewModel.sourceFilePathProperty());
         txtTargetDestination.textProperty().bindBidirectional(viewModel.targetDestinationPathProperty());
-        chkVendorMetadata.selectedProperty().bindBidirectional(viewModel.preserveVendorMetadataProperty());
 
         progressBar.progressProperty().bind(viewModel.progressPercentageProperty());
         lblStatus.textProperty().bind(viewModel.statusTextProperty());
@@ -150,15 +152,20 @@ public class MainDashboardController {
 
         lblLostHeader.textProperty().bind(viewModel.lostHeaderProperty());
 
-        // Table Setup with safe lambdas for JavaFX record properties
+        // Table Setup with wrapping Text nodes and hover Tooltips
         colOriginalKey.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().originalKey() : ""));
         colOriginalValue.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().originalValue() : ""));
-        colStatus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().status() : ""));
+        colConvertedLocation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().convertedLocation() : ""));
+        colConvertedValue.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().convertedValue() : ""));
         colExplanation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue() != null ? cellData.getValue().explanation() : ""));
 
-        tblLostMetadata.setItems(displayedTableItems);
+        setupWrappingCellFactory(colOriginalKey);
+        setupWrappingCellFactory(colOriginalValue);
+        setupWrappingCellFactory(colConvertedLocation);
+        setupWrappingCellFactory(colConvertedValue);
+        setupWrappingCellFactory(colExplanation);
 
-        txtLostSearch.textProperty().addListener((obs, oldVal, newVal) -> updateTableFilter());
+        tblLostMetadata.setItems(displayedTableItems);
 
         viewModel.getLostItems().addListener((ListChangeListener<GapAnalysisResult.GapAnalysisItemDetail>) change -> {
             Platform.runLater(this::updateTableFilter);
@@ -173,37 +180,165 @@ public class MainDashboardController {
         });
 
         btnConvert.disableProperty().bind(viewModel.convertingProperty());
-        btnCancel.disableProperty().bind(viewModel.convertingProperty().not());
+
+        // Cancel / Reset Button State Handling
+        viewModel.convertingProperty().addListener((obs, oldVal, isConverting) -> {
+            if (isConverting) {
+                btnCancel.setText("Cancel");
+            } else {
+                btnCancel.setText("Reset");
+            }
+        });
+        btnCancel.setText(viewModel.convertingProperty().get() ? "Cancel" : "Reset");
 
         lstLogs.setItems(viewModel.getLogMessages());
         updateCategoryButtonSelection();
 
         // Bind Compliance UI Controls
-        txtComplianceDatasetPath.textProperty().bindBidirectional(viewModel.complianceDatasetPathProperty());
-        lblComplianceOmeVersion.textProperty().bind(viewModel.detectedOmeVersionProperty());
-        lblComplianceZarrVersion.textProperty().bind(viewModel.detectedZarrVersionProperty());
-        lblComplianceProgress.textProperty().bind(viewModel.complianceProgressTextProperty());
-        lblComplianceOverallStatus.textProperty().bind(viewModel.complianceOverallStatusProperty());
-        lblComplianceErrors.textProperty().bind(viewModel.complianceErrorsCountProperty());
-        lblComplianceWarnings.textProperty().bind(viewModel.complianceWarningsCountProperty());
-        lblComplianceInfo.textProperty().bind(viewModel.complianceInfoCountProperty());
+        if (txtComplianceDatasetPath != null) {
+            txtComplianceDatasetPath.textProperty().bindBidirectional(viewModel.complianceDatasetPathProperty());
+            viewModel.complianceDatasetPathProperty().addListener((obs, oldPath, newPath) -> {
+                if (newPath != null && !newPath.isBlank()) {
+                    handleCheckCompliance();
+                }
+            });
+        }
 
-        btnCheckCompliance.disableProperty().bind(viewModel.validatingComplianceProperty());
+        if (webValidatorView != null) {
+            webValidatorView.getEngine().setJavaScriptEnabled(true);
+            webValidatorView.getEngine().setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36");
+        }
 
-        viewModel.latestComplianceResultProperty().addListener((obs, oldRes, newRes) -> {
-            boolean hasReport = newRes != null && newRes.htmlReportPath() != null && newRes.htmlReportPath().toFile().exists();
-            btnOpenComplianceReport.setDisable(!hasReport);
+        setupPathTooltipsAndDragDrop();
+    }
+
+    private void setupPathTooltipsAndDragDrop() {
+        bindPathTooltip(txtSourceFile, "Source Image File: ");
+        bindPathTooltip(txtTargetDestination, "Output Destination Directory: ");
+        bindPathTooltip(txtComplianceDatasetPath, "Validator Dataset Directory: ");
+
+        setupSourceFileDragAndDrop(txtSourceFile);
+        setupSourceFileDragAndDrop(cardLeftPanel);
+        setupTargetDirDragAndDrop(txtTargetDestination);
+        setupComplianceDatasetDragAndDrop(txtComplianceDatasetPath);
+    }
+
+    private void bindPathTooltip(TextField textField, String prefix) {
+        if (textField == null) return;
+        Tooltip tooltip = new Tooltip();
+        tooltip.setShowDelay(Duration.millis(150));
+        tooltip.setShowDuration(Duration.minutes(5));
+        tooltip.textProperty().bind(
+            Bindings.createStringBinding(
+                () -> {
+                    String val = textField.getText();
+                    return (val != null && !val.isBlank()) ? prefix + val : "No path selected (Hover or Drop file here)";
+                },
+                textField.textProperty()
+            )
+        );
+        Tooltip.install(textField, tooltip);
+
+        textField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal) {
+                Platform.runLater(textField::selectAll);
+            }
+        });
+    }
+
+    private void setupSourceFileDragAndDrop(javafx.scene.Node node) {
+        if (node == null) return;
+        node.setOnDragOver(event -> {
+            if (event.getDragboard().hasFiles()) {
+                List<File> files = event.getDragboard().getFiles();
+                boolean valid = files.stream().anyMatch(f -> {
+                    String name = f.getName().toLowerCase();
+                    return name.endsWith(".vsi") || name.endsWith(".oir");
+                });
+                if (valid) {
+                    event.acceptTransferModes(TransferMode.COPY);
+                }
+            }
+            event.consume();
         });
 
-        var catProps = viewModel.categoryStatusProperties();
-        if (lblStatusStructure != null) lblStatusStructure.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.STRUCTURE));
-        if (lblStatusVersion != null) lblStatusVersion.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.VERSION));
-        if (lblStatusMultiscales != null) lblStatusMultiscales.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.MULTISCALES));
-        if (lblStatusAxes != null) lblStatusAxes.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.AXES));
-        if (lblStatusTransformations != null) lblStatusTransformations.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.TRANSFORMATIONS));
-        if (lblStatusOmero != null) lblStatusOmero.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.OMERO));
-        if (lblStatusLabels != null) lblStatusLabels.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.LABELS));
-        if (lblStatusPlateWell != null) lblStatusPlateWell.textProperty().bind(catProps.get(org.ome.converter.service.validation.ComplianceCategory.PLATE_WELL));
+        node.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasFiles()) {
+                for (File file : db.getFiles()) {
+                    String name = file.getName().toLowerCase();
+                    if (name.endsWith(".vsi")) {
+                        btnFormatVsi.setSelected(true);
+                        viewModel.sourceFormatProperty().set("Olympus CellSens VSI (.vsi)");
+                        txtSourceFile.setText(file.getAbsolutePath());
+                        checkAndShowFormatMismatchWarning();
+                        viewModel.getLogMessages().add("[DRAG&DROP] Selected Olympus VSI image file: " + file.getAbsolutePath());
+                        success = true;
+                        break;
+                    } else if (name.endsWith(".oir")) {
+                        btnFormatOir.setSelected(true);
+                        viewModel.sourceFormatProperty().set("Olympus FluoView OIR (.oir)");
+                        txtSourceFile.setText(file.getAbsolutePath());
+                        checkAndShowFormatMismatchWarning();
+                        viewModel.getLogMessages().add("[DRAG&DROP] Selected Olympus OIR image file: " + file.getAbsolutePath());
+                        success = true;
+                        break;
+                    }
+                }
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
+    }
+
+    private void setupTargetDirDragAndDrop(Control node) {
+        if (node == null) return;
+        node.setOnDragOver(event -> {
+            if (event.getDragboard().hasFiles()) {
+                event.acceptTransferModes(TransferMode.COPY);
+            }
+            event.consume();
+        });
+
+        node.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasFiles()) {
+                File dropped = db.getFiles().get(0);
+                String dirPath = dropped.isDirectory() ? dropped.getAbsolutePath() : (dropped.getParentFile() != null ? dropped.getParentFile().getAbsolutePath() : dropped.getAbsolutePath());
+                txtTargetDestination.setText(dirPath);
+                viewModel.getLogMessages().add("[DRAG&DROP] Selected target destination directory: " + dirPath);
+                success = true;
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
+    }
+
+    private void setupComplianceDatasetDragAndDrop(Control node) {
+        if (node == null) return;
+        node.setOnDragOver(event -> {
+            if (event.getDragboard().hasFiles()) {
+                event.acceptTransferModes(TransferMode.COPY);
+            }
+            event.consume();
+        });
+
+        node.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasFiles()) {
+                File dropped = db.getFiles().get(0);
+                java.nio.file.Path resolved = org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().resolveDatasetPath(dropped.toPath());
+                txtComplianceDatasetPath.setText(resolved.toAbsolutePath().toString());
+                viewModel.getLogMessages().add("[DRAG&DROP] Selected dataset for compliance validation: " + resolved.toAbsolutePath());
+                handleCheckCompliance();
+                success = true;
+            }
+            event.setDropCompleted(success);
+            event.consume();
+        });
     }
 
     @FXML
@@ -255,39 +390,22 @@ public class MainDashboardController {
         ObservableList<GapAnalysisResult.GapAnalysisItemDetail> activeSource =
             (!viewModel.getAllItems().isEmpty()) ? viewModel.getAllItems() : viewModel.getLostItems();
 
-        String search = txtLostSearch.getText();
-        String searchFilter = (search != null) ? search.trim().toLowerCase() : "";
-
         List<GapAnalysisResult.GapAnalysisItemDetail> filtered = activeSource.stream().filter(item -> {
             if (item == null) return false;
 
-            // Category Filter
-            boolean matchesCategory;
             String statusUpper = item.status() != null ? item.status().toUpperCase() : "";
 
             switch (activeCategory) {
                 case "MAPPED":
-                    matchesCategory = statusUpper.contains("MAPPED") && !statusUpper.contains("UNMAPPED");
-                    break;
+                    return statusUpper.contains("MAPPED") && !statusUpper.contains("UNMAPPED");
                 case "VENDOR":
-                    matchesCategory = statusUpper.contains("VENDOR") || statusUpper.contains("STRUCTURAL");
-                    break;
+                    return statusUpper.contains("VENDOR") || statusUpper.contains("STRUCTURAL");
                 case "LOSS":
-                    matchesCategory = statusUpper.contains("LOSS") || statusUpper.contains("MISSING") || statusUpper.contains("UNMAPPED") || statusUpper.contains("UNREGISTERED");
-                    break;
+                    return statusUpper.contains("LOSS") || statusUpper.contains("MISSING") || statusUpper.contains("UNMAPPED") || statusUpper.contains("UNREGISTERED");
                 case "ALL":
                 default:
-                    matchesCategory = true;
-                    break;
+                    return true;
             }
-
-            if (!matchesCategory) return false;
-
-            // Text Search Filter
-            if (searchFilter.isEmpty()) return true;
-            return (item.originalKey() != null && item.originalKey().toLowerCase().contains(searchFilter))
-                || (item.originalValue() != null && item.originalValue().toLowerCase().contains(searchFilter))
-                || (item.explanation() != null && item.explanation().toLowerCase().contains(searchFilter));
         }).toList();
 
         displayedTableItems.setAll(filtered);
@@ -296,11 +414,11 @@ public class MainDashboardController {
     @FXML
     private void handleBrowseSourceFile() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select Microscopic Image Slide File");
+        fileChooser.setTitle("Select Image File");
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Olympus Microscopic Slides (*.vsi, *.oir)", "*.vsi", "*.oir"),
-            new FileChooser.ExtensionFilter("Olympus VSI (*.vsi)", "*.vsi"),
-            new FileChooser.ExtensionFilter("Olympus OIR (*.oir)", "*.oir")
+            new FileChooser.ExtensionFilter("Image Files (*.vsi, *.oir)", "*.vsi", "*.oir"),
+            new FileChooser.ExtensionFilter("VSI Files (*.vsi)", "*.vsi"),
+            new FileChooser.ExtensionFilter("OIR Files (*.oir)", "*.oir")
         );
 
         if (!txtSourceFile.getText().isBlank()) {
@@ -370,10 +488,13 @@ public class MainDashboardController {
 
     @FXML
     private void handleStartConversion() {
+        if (mainTabPane != null && tabConsole != null) {
+            mainTabPane.getSelectionModel().select(tabConsole);
+        }
         viewModel.startConversion(
             () -> {
                 String targetPath = txtTargetDestination.getText();
-                AlertHelper.showCompletionSuccessWithReport("CONVERTED", targetPath, null);
+                AlertHelper.showCompletionSuccess("CONVERTED", targetPath);
             },
             (ex) -> {
                 if (ex.getMessage() != null && ex.getMessage().toLowerCase().contains("disk space")) {
@@ -389,7 +510,43 @@ public class MainDashboardController {
 
     @FXML
     private void handleCancelConversion() {
-        viewModel.cancelCurrentJob();
+        if (viewModel.convertingProperty().get()) {
+            viewModel.cancelCurrentJob();
+        } else {
+            // Reset state for new job
+            viewModel.progressPercentageProperty().set(0.0);
+            viewModel.statusTextProperty().set("Ready");
+            viewModel.throughputTextProperty().set("0.00 MB/s");
+        }
+    }
+
+    private void setupWrappingCellFactory(TableColumn<GapAnalysisResult.GapAnalysisItemDetail, String> col) {
+        if (col == null) return;
+        col.setCellFactory(tc -> new TableCell<>() {
+            private final javafx.scene.text.Text textNode = new javafx.scene.text.Text();
+            {
+                textNode.wrappingWidthProperty().bind(tc.widthProperty().subtract(16));
+                textNode.setStyle("-fx-fill: #334155; -fx-font-size: 12px;");
+            }
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                    setText(null);
+                    setTooltip(null);
+                } else {
+                    textNode.setText(item);
+                    setGraphic(textNode);
+                    setText(null);
+                    Tooltip tooltip = new Tooltip(item);
+                    tooltip.setWrapText(true);
+                    tooltip.setMaxWidth(500);
+                    tooltip.setShowDelay(Duration.millis(150));
+                    setTooltip(tooltip);
+                }
+            }
+        });
     }
 
     @FXML
@@ -417,6 +574,71 @@ public class MainDashboardController {
     }
 
     @FXML
+    private void handleExportGapReport() {
+        GapAnalysisResult result = viewModel.getLatestGapAnalysisResult();
+        if (result == null && (viewModel.getLostItems().isEmpty() && viewModel.getAllItems().isEmpty())) {
+            AlertHelper.showInputValidationError("No Gap Analysis Data", "Please run a conversion first to generate metadata gap analysis data.");
+            return;
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Metadata Gap Analysis HTML Report");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML Files (*.html)", "*.html"));
+
+        String datasetName = (result != null && result.datasetName() != null) ? result.datasetName() : "dataset";
+        if (datasetName.contains(".")) {
+            datasetName = datasetName.substring(0, datasetName.lastIndexOf('.'));
+        }
+        fileChooser.setInitialFileName(datasetName + "_gap_analysis_report.html");
+
+        String targetDir = txtTargetDestination.getText();
+        if (targetDir != null && !targetDir.isBlank()) {
+            File existing = new File(targetDir);
+            if (existing.exists() && existing.isDirectory()) {
+                fileChooser.setInitialDirectory(existing);
+            }
+        }
+
+        Stage stage = (Stage) mainTabPane.getScene().getWindow();
+        File selectedFile = fileChooser.showSaveDialog(stage);
+        if (selectedFile != null) {
+            org.ome.converter.service.analysis.GapAnalysisReportGenerator reportGenerator = new org.ome.converter.service.analysis.GapAnalysisReportGenerator();
+            if (result == null) {
+                result = new GapAnalysisResult(
+                    datasetName,
+                    OmeZarrVersion.OME_ZARR_0_5,
+                    viewModel.getAllItems().size(),
+                    0, 0, viewModel.getLostItems().size(),
+                    viewModel.getLostItems(),
+                    viewModel.getAllItems(),
+                    selectedFile.toPath(),
+                    null
+                );
+            }
+            java.nio.file.Path exportedPath = reportGenerator.generateHtmlReportToFile(result, selectedFile);
+            if (exportedPath != null && selectedFile.exists()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Report Exported Successfully");
+                alert.setHeaderText("Metadata Gap Analysis Report Exported");
+                alert.setContentText("HTML Gap Analysis Report has been exported to:\n" + selectedFile.getAbsolutePath());
+                ButtonType openBtn = new ButtonType("Open Report");
+                ButtonType closeBtn = new ButtonType("Close", ButtonType.CANCEL.getButtonData());
+                alert.getButtonTypes().setAll(openBtn, closeBtn);
+                java.util.Optional<ButtonType> res = alert.showAndWait();
+                if (res.isPresent() && res.get() == openBtn) {
+                    try {
+                        Desktop.getDesktop().open(selectedFile);
+                    } catch (Exception e) {
+                        AlertHelper.showStorageError("Error Opening File", e.getMessage());
+                    }
+                }
+            } else {
+                AlertHelper.showStorageError("Export Failed", "Failed to write HTML report to selected file destination.");
+            }
+        }
+    }
+
+    @FXML
     private void handleBrowseComplianceDataset() {
         DirectoryChooser dirChooser = new DirectoryChooser();
         dirChooser.setTitle("Select OME-Zarr Output Directory to Validate");
@@ -431,18 +653,27 @@ public class MainDashboardController {
         Stage stage = (Stage) txtComplianceDatasetPath.getScene().getWindow();
         File selectedDir = dirChooser.showDialog(stage);
         if (selectedDir != null) {
-            viewModel.complianceDatasetPathProperty().set(selectedDir.getAbsolutePath());
+            java.nio.file.Path resolved = org.ome.converter.service.runtime.BundledOmeZarrRuntimeService.getInstance().resolveDatasetPath(selectedDir.toPath());
+            viewModel.complianceDatasetPathProperty().set(resolved.toAbsolutePath().toString());
+            handleCheckCompliance();
         }
     }
 
     @FXML
     private void handleCheckCompliance() {
-        viewModel.runComplianceCheck(
-            () -> {},
-            (ex) -> {
-                AlertHelper.showInputValidationError("Compliance Validation Error", ex.getMessage());
+        try {
+            String targetUrl = viewModel.startOfficialValidatorServer(null);
+            if (webValidatorView != null && targetUrl != null) {
+                Platform.runLater(() -> {
+                    if (mainTabPane != null && tabOfficialValidator != null) {
+                        mainTabPane.getSelectionModel().select(tabOfficialValidator);
+                    }
+                    webValidatorView.getEngine().load(targetUrl);
+                });
             }
-        );
+        } catch (Exception e) {
+            AlertHelper.showInputValidationError("Official OME-NGFF Validator Error", e.getMessage());
+        }
     }
 
     @FXML
@@ -452,10 +683,6 @@ public class MainDashboardController {
 
     @FXML
     private void handleOpenOfficialValidator() {
-        try {
-            viewModel.openOfficialValidator(null);
-        } catch (Exception e) {
-            AlertHelper.showInputValidationError("Official OME-NGFF Validator Error", e.getMessage());
-        }
+        handleCheckCompliance();
     }
 }

@@ -55,7 +55,9 @@ class MetadataGapAnalysisTest {
         assertThat(result.totalOriginalCount()).isGreaterThan(0);
         assertThat(result.mappedCount() + result.vendorDumpedCount() + result.lossCount()).isEqualTo(result.totalOriginalCount());
 
-        File htmlReportFile = result.htmlReportPath().toFile();
+        GapAnalysisReportGenerator reportGenerator = new GapAnalysisReportGenerator();
+        Path reportPath = reportGenerator.generateHtmlReport(result, tempDir);
+        File htmlReportFile = reportPath.toFile();
         assertThat(htmlReportFile).exists();
         assertThat(htmlReportFile.length()).isGreaterThan(100L);
     }

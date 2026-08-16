@@ -28,7 +28,7 @@ public class App extends Application {
 
         Scene scene = new Scene(root, 960, 640);
 
-        primaryStage.setTitle("VSI Studio Pro — Microscopic Slide Converter");
+        primaryStage.setTitle("OME-Zarr Converter");
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(550);

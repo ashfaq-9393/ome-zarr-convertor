@@ -12,7 +12,8 @@ public class MetadataComparisonEngine {
         OmeZarrVersion version,
         List<OriginalMetadataItem> originalItems,
         List<ConvertedMetadataItem> convertedItems,
-        Path htmlReportPath
+        Path htmlReportPath,
+        Path zarrRootPath
     ) {
         Map<String, ConvertedMetadataItem> convertedByKey = new LinkedHashMap<>();
         for (ConvertedMetadataItem conv : convertedItems) {
@@ -82,7 +83,8 @@ public class MetadataComparisonEngine {
             loss,
             lostItems,
             allItems,
-            htmlReportPath
+            htmlReportPath,
+            zarrRootPath
         );
     }
 

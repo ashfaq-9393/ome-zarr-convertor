@@ -253,7 +253,8 @@ public class OirGapAnalyzerEngine {
         }
 
         int totalOriginal = Math.max(1, rawTags.size());
-        Path reportPath = zarrRoot.getParent() != null ? zarrRoot.getParent() : zarrRoot;
+        Path reportDir = zarrRoot.getParent() != null ? zarrRoot.getParent() : zarrRoot;
+        Path htmlReportPath = reportDir.resolve("metadata_gap_report.html");
 
         return new GapAnalysisResult(
             datasetName,
@@ -264,7 +265,8 @@ public class OirGapAnalyzerEngine {
             loss,
             lostItems,
             allItems,
-            reportPath
+            htmlReportPath,
+            zarrRoot
         );
     }
 }
