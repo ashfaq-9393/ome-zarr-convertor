@@ -13,17 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MetadataGapAnalysisTest {
 
-    @Test
-    void testSemanticMetadataDictionaryResolution() {
-        Optional<String> concept1 = SemanticMetadataDictionary.findCanonicalConcept("ResX");
-        assertThat(concept1).isPresent().contains("pixel_size_x");
 
-        Optional<String> concept2 = SemanticMetadataDictionary.findCanonicalConcept("ExpTime_ms");
-        assertThat(concept2).isPresent().contains("exposure_time");
-
-        Optional<String> concept3 = SemanticMetadataDictionary.findCanonicalConcept("ObjectiveMag");
-        assertThat(concept3).isPresent().contains("objective_magnification");
-    }
 
     @Test
     void testFullMetadataGapAnalysisAndHtmlReportGeneration(@TempDir Path tempDir) {

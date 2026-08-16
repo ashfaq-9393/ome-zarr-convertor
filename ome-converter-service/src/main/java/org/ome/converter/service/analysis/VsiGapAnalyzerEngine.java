@@ -14,9 +14,8 @@ import java.nio.file.Path;
 import java.util.*;
 
 /**
- * Enterprise VSI Gap Analysis Engine utilizing static JSON dictionary mapping rulebooks
- * (validator_dictionary.json, universal_mapping_dictionary.json) combined with
- * SemanticMetadataDictionary for alias resolution.
+ * VSI Gap Analysis Engine utilizing static JSON dictionary mapping rulebooks
+ * (validator_dictionary.json, universal_mapping_dictionary.json, final_validator_mapping.json).
  */
 public class VsiGapAnalyzerEngine {
     private static final Logger log = LoggerFactory.getLogger(VsiGapAnalyzerEngine.class);

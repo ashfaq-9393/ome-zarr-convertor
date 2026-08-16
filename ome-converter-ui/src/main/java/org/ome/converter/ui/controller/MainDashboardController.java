@@ -677,11 +677,6 @@ public class MainDashboardController {
     }
 
     @FXML
-    private void handleOpenComplianceReport() {
-        viewModel.openComplianceReport();
-    }
-
-    @FXML
     private void handleOpenOfficialValidator() {
         handleCheckCompliance();
     }

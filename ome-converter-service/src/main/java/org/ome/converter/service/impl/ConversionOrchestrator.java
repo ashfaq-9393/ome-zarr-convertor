@@ -16,9 +16,6 @@ import org.ome.converter.dao.api.JobRepository;
 import org.ome.converter.dao.entity.JobEntity;
 import org.ome.converter.dao.impl.JsonFileAuditLogRepository;
 import org.ome.converter.dao.impl.JsonFileJobRepository;
-import org.ome.converter.service.validation.InputValidator;
-import org.ome.converter.service.validation.StorageValidator;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,8 +30,6 @@ public class ConversionOrchestrator {
 
     private final JobRepository jobRepository;
     private final AuditLogRepository auditLogRepository;
-    private final InputValidator inputValidator;
-    private final StorageValidator storageValidator;
     private final ExecutorService executorService;
     private final Map<String, Future<ConversionResult>> activeFutures = new ConcurrentHashMap<>();
     private final Map<String, AtomicBoolean> cancelSignals = new ConcurrentHashMap<>();
@@ -46,8 +41,6 @@ public class ConversionOrchestrator {
     public ConversionOrchestrator(JobRepository jobRepository, AuditLogRepository auditLogRepository) {
         this.jobRepository = jobRepository;
         this.auditLogRepository = auditLogRepository;
-        this.inputValidator = new InputValidator();
-        this.storageValidator = new StorageValidator();
         this.executorService = Executors.newFixedThreadPool(4, new ThreadFactory() {
             private int count = 0;
             @Override
@@ -59,8 +52,13 @@ public class ConversionOrchestrator {
 
     public Future<ConversionResult> submitConversion(ConversionRequest request) throws ConversionException {
         File sourceFile = request.sourceFile().toFile();
-        inputValidator.validateSourceFile(sourceFile);
-        storageValidator.validateTargetDestination(request.targetDestinationDirectory(), sourceFile.length());
+        if (sourceFile == null || !sourceFile.exists() || !sourceFile.isFile()) {
+            throw new ConversionException("Invalid or non-existent source image file: " + (sourceFile != null ? sourceFile.getAbsolutePath() : "null"));
+        }
+        File targetDir = request.targetDestinationDirectory().toFile();
+        if (targetDir.exists() && !targetDir.isDirectory()) {
+            throw new ConversionException("Target destination must be a directory: " + targetDir.getAbsolutePath());
+        }
 
         ConverterProvider provider = ConverterRegistry.getInstance().findProviderForFile(sourceFile);
         ImageConverter converter = provider.createConverter();

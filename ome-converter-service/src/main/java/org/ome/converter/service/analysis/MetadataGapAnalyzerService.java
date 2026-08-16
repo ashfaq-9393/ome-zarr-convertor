@@ -10,8 +10,6 @@ import java.util.List;
 public class MetadataGapAnalyzerService {
     private static final Logger log = LoggerFactory.getLogger(MetadataGapAnalyzerService.class);
 
-    private final OriginalMetadataCollector collector = new OriginalMetadataCollector();
-    private final ConvertedMetadataInspector inspector = new ConvertedMetadataInspector();
     private final VsiGapAnalyzerEngine vsiEngine = new VsiGapAnalyzerEngine();
     private final OirGapAnalyzerEngine oirEngine = new OirGapAnalyzerEngine();
 
@@ -28,10 +26,10 @@ public class MetadataGapAnalyzerService {
         GapAnalysisResult finalResult;
 
         if (datasetName.toLowerCase().endsWith(".oir")) {
-            log.info("Using OIR Gap Analysis Engine (TausiqVarma mapping rulebook) for {}", datasetName);
+            log.info("Using OIR Gap Analysis Engine (Rulebook Mapping) for {}", datasetName);
             finalResult = oirEngine.analyze(datasetName, version, standardMeta, vendorMeta, zarrRoot);
         } else {
-            log.info("Using VSI Static Dictionary & Semantic Gap Analysis Engine for {}", datasetName);
+            log.info("Using VSI Gap Analysis Engine (Rulebook Mapping) for {}", datasetName);
             finalResult = vsiEngine.analyze(datasetName, version, standardMeta, vendorMeta, zarrRoot);
         }
 
