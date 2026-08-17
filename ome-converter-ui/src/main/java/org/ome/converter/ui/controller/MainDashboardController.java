@@ -207,6 +207,16 @@ public class MainDashboardController {
         if (webValidatorView != null) {
             webValidatorView.getEngine().setJavaScriptEnabled(true);
             webValidatorView.getEngine().setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36");
+
+            webValidatorView.setContextMenuEnabled(false);
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem viewSourceItem = new MenuItem("📄 View Page Source Code in Notepad");
+            viewSourceItem.setOnAction(e -> openValidationSourceInNotepad());
+            contextMenu.getItems().add(viewSourceItem);
+
+            webValidatorView.setOnContextMenuRequested(e -> {
+                contextMenu.show(webValidatorView, e.getScreenX(), e.getScreenY());
+            });
         }
 
         setupPathTooltipsAndDragDrop();
@@ -679,5 +689,24 @@ public class MainDashboardController {
     @FXML
     private void handleOpenOfficialValidator() {
         handleCheckCompliance();
+    }
+
+    private void openValidationSourceInNotepad() {
+        try {
+            if (webValidatorView == null || webValidatorView.getEngine() == null) return;
+            String renderedHtml = (String) webValidatorView.getEngine().executeScript("document.documentElement.outerHTML");
+            if (renderedHtml == null || renderedHtml.isBlank()) {
+                AlertHelper.showInputValidationError("Source Code Error", "No rendered HTML source code available yet. Please validate a dataset first.");
+                return;
+            }
+
+            File tempFile = File.createTempFile("ngff_validator_source_", ".html");
+            tempFile.deleteOnExit();
+            java.nio.file.Files.writeString(tempFile.toPath(), renderedHtml);
+
+            new ProcessBuilder("notepad.exe", tempFile.getAbsolutePath()).start();
+        } catch (Exception e) {
+            AlertHelper.showInputValidationError("Notepad Error", "Failed to open rendered HTML source code in Notepad: " + e.getMessage());
+        }
     }
 }

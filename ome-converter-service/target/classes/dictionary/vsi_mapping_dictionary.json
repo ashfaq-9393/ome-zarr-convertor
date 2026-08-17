@@ -1,6 +1,236 @@
 {
-  "_comment": "OIR-to-OME-XML Metadata Dictionary v2.0 — Covers all 872 raw metadata keys from Bio-Formats",
-
+  "Channel ID": {
+    "oir_xml_source": "channel:id",
+    "ome_target": "N/A (internal linking)",
+    "pretty_key_prefix": "channel",
+    "status": "STRUCTURAL",
+    "suffix_match": "id"
+  },
+  "Channel color": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "channel:color",
+    "ome_target": "store.setChannelColor",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "color",
+    "xml_attribute": "Color",
+    "xml_tag": "Channel"
+  },
+  "Channel end wavelength": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "channel:emission",
+    "ome_target": "store.setChannelEmissionWavelength",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "end wavelength",
+    "xml_attribute": "EmissionWavelength",
+    "xml_tag": "Channel"
+  },
+  "Channel linked laser index": {
+    "oir_xml_source": "channel:laserIndex",
+    "ome_target": "store.setChannelLightSourceSettingsID (indirect)",
+    "pretty_key_prefix": "channel",
+    "status": "STRUCTURAL",
+    "suffix_match": "linked laser index"
+  },
+  "Channel pinhole": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "fvCommonphase:pinholeDiameter",
+    "ome_target": "store.setChannelPinholeSize",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "pinhole",
+    "xml_attribute": "PinholeSize",
+    "xml_tag": "Channel"
+  },
+  "Channel start wavelength": {
+    "alt_prefixes": [
+      "channel"
+    ],
+    "oir_xml_source": "channel:excitation",
+    "ome_target": "store.setChannelExcitationWavelength",
+    "pretty_key_prefix": "channel",
+    "status": "MAPPED",
+    "suffix_match": "start wavelength",
+    "xml_attribute": "ExcitationWavelength",
+    "xml_tag": "Channel"
+  },
+  "Creation date": {
+    "oir_xml_source": "base:creationDateTime",
+    "ome_target": "store.setImageAcquisitionDate",
+    "pretty_key_prefix": "creation date",
+    "status": "MAPPED",
+    "xml_tag": "Image"
+  },
+  "Detector ID": {
+    "oir_xml_source": "detector:id",
+    "ome_target": "store.setDetectorID (auto-generated LSID)",
+    "pretty_key_prefix": "detector id",
+    "status": "STRUCTURAL"
+  },
+  "Detector gain": {
+    "oir_xml_source": "detector:gain",
+    "ome_target": "store.setDetectorGain",
+    "pretty_key_prefix": "detector gain",
+    "status": "MAPPED",
+    "xml_attribute": "Gain",
+    "xml_tag": "Detector"
+  },
+  "Detector linked channel ID": {
+    "oir_xml_source": "detector:channelId",
+    "ome_target": "store.setDetectorSettingsID (indirect)",
+    "pretty_key_prefix": "detector linked channel id",
+    "status": "STRUCTURAL"
+  },
+  "Detector offset": {
+    "oir_xml_source": "detector:offset",
+    "ome_target": "store.setDetectorOffset",
+    "pretty_key_prefix": "detector offset",
+    "status": "MAPPED",
+    "xml_attribute": "Offset",
+    "xml_tag": "Detector"
+  },
+  "Detector voltage": {
+    "oir_xml_source": "detector:voltage",
+    "ome_target": "store.setDetectorVoltage",
+    "pretty_key_prefix": "detector voltage",
+    "status": "MAPPED",
+    "xml_attribute": "Voltage",
+    "xml_tag": "Detector"
+  },
+  "Laser ID": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "commonimage:id",
+    "ome_target": "store.setLaserModel",
+    "pretty_key_prefix": "laser",
+    "status": "MAPPED",
+    "suffix_match": "id",
+    "xml_attribute": "ID",
+    "xml_tag": "Laser"
+  },
+  "Laser data ID": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:dataId",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "data id"
+  },
+  "Laser power": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:power",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "power"
+  },
+  "Laser transmissivity": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:transmissivity",
+    "ome_target": "OriginalMetadata",
+    "pretty_key_prefix": "laser",
+    "status": "UNMAPPED_OR_DROPPED",
+    "suffix_match": "transmissivity"
+  },
+  "Laser wavelength": {
+    "alt_prefixes": [
+      "laser"
+    ],
+    "oir_xml_source": "laser:wavelength",
+    "ome_target": "store.setLaserWavelength",
+    "pretty_key_prefix": "laser",
+    "status": "MAPPED",
+    "suffix_match": "wavelength",
+    "xml_attribute": "Wavelength",
+    "xml_tag": "Laser"
+  },
+  "Objective Lens immersion": {
+    "oir_xml_source": "opticalelement:immersion",
+    "ome_target": "store.setObjectiveImmersion",
+    "pretty_key_prefix": "objective lens immersion",
+    "status": "MAPPED",
+    "xml_attribute": "Immersion",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens magnification": {
+    "oir_xml_source": "opticalelement:magnification",
+    "ome_target": "store.setObjectiveNominalMagnification",
+    "pretty_key_prefix": "objective lens magnification",
+    "status": "MAPPED",
+    "xml_attribute": "NominalMagnification",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens na": {
+    "oir_xml_source": "opticalelement:naValue",
+    "ome_target": "store.setObjectiveLensNA",
+    "pretty_key_prefix": "objective lens na",
+    "status": "MAPPED",
+    "xml_attribute": "LensNA",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens name": {
+    "oir_xml_source": "opticalelement:displayName",
+    "ome_target": "store.setObjectiveModel",
+    "pretty_key_prefix": "objective lens name",
+    "status": "MAPPED",
+    "xml_attribute": "Model",
+    "xml_tag": "Objective"
+  },
+  "Objective Lens refractive index": {
+    "oir_xml_source": "opticalelement:refraction",
+    "ome_target": "store.setObjectiveSettingsRefractiveIndex",
+    "pretty_key_prefix": "objective lens refractive index",
+    "status": "MAPPED",
+    "xml_attribute": "RefractiveIndex",
+    "xml_tag": "ObjectiveSettings"
+  },
+  "Objective Lens wd": {
+    "oir_xml_source": "opticalelement:wdValue",
+    "ome_target": "store.setObjectiveWorkingDistance",
+    "pretty_key_prefix": "objective lens wd",
+    "status": "MAPPED",
+    "xml_attribute": "WorkingDistance",
+    "xml_tag": "Objective"
+  },
+  "Pixel Length X": {
+    "oir_xml_source": "commonimage:physicalX",
+    "ome_target": "store.setPixelsPhysicalSizeX",
+    "pretty_key_prefix": "pixel length x",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeX",
+    "xml_tag": "Pixels"
+  },
+  "Pixel Length Y": {
+    "oir_xml_source": "commonimage:physicalY",
+    "ome_target": "store.setPixelsPhysicalSizeY",
+    "pretty_key_prefix": "pixel length y",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeY",
+    "xml_tag": "Pixels"
+  },
+  "Z step": {
+    "oir_xml_source": "lsmimage:zStep",
+    "ome_target": "store.setPixelsPhysicalSizeZ",
+    "pretty_key_prefix": "z step",
+    "status": "MAPPED",
+    "xml_attribute": "PhysicalSizeZ",
+    "xml_tag": "Pixels"
+  },
+  "_comment": "OIR-to-OME-XML Metadata Dictionary v2.0 \u2014 Covers all 872 raw metadata keys from Bio-Formats",
   "base:bitCounts": {
     "status": "MAPPED",
     "ome_target": "m.bitsPerPixel",
@@ -43,41 +273,72 @@
     "pretty_key_prefix": "imageDefinition width",
     "alt_prefixes": []
   },
-
   "commonframe:general": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonframe:imageDefinition": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:acquisition": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:axis": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:configuration": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:general": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:imageInfo": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:imagingParam": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:laser": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:lsm": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonimage:microscopeConfiguration": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
-
   "commonimage:height": {
     "status": "MAPPED",
     "ome_target": "m.sizeY",
@@ -100,7 +361,9 @@
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
     "pretty_key_prefix": "objectiveLens name",
-    "alt_prefixes": ["objective lens name"]
+    "alt_prefixes": [
+      "objective lens name"
+    ]
   },
   "commonimage:wavelength": {
     "status": "MAPPED",
@@ -114,12 +377,17 @@
     "pretty_key_prefix": "imageSize width",
     "alt_prefixes": []
   },
-
   "commonparam:axis": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonparam:pixelResolution": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonparam:endPosition": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -199,7 +467,6 @@
     "pretty_key_prefix": "pixelResolution z",
     "alt_prefixes": []
   },
-
   "commonphase:bitCounts": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -207,7 +474,10 @@
     "alt_prefixes": []
   },
   "commonphase:channel": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonphase:colorType": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -222,13 +492,22 @@
     "alt_prefixes": []
   },
   "commonphase:elementChannel": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonphase:imageDefinition": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonphase:length": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonphase:name": {
     "status": "MAPPED",
@@ -237,7 +516,10 @@
     "alt_prefixes": []
   },
   "commonphase:pixelUnit": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "commonphase:x": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -257,9 +539,11 @@
     "pretty_key_prefix": "channel z",
     "alt_prefixes": []
   },
-
   "frame:frameProperties": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "fvCommonparam:specifiedFrameInterval": {
     "status": "MAPPED",
@@ -279,21 +563,35 @@
     "pretty_key_prefix": "lsmChannel laserDataId",
     "alt_prefixes": []
   },
-
   "image:imageProperties": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:acquisition": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:channel": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:imagingMainLaser": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:imagingParam": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:laserDataId": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -302,10 +600,16 @@
     "alt_prefixes": []
   },
   "lsmimage:param": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:scannerSettings": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmimage:scannerType": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -313,45 +617,66 @@
     "pretty_key_prefix": "lsmConfiguration scannerType",
     "alt_prefixes": []
   },
-
   "lsmparam:gain": {
     "status": "MAPPED",
     "ome_target": "store.setDetectorGain()",
     "pretty_key_prefix": "pmt gain",
-    "alt_prefixes": ["detector gain"]
+    "alt_prefixes": [
+      "detector gain"
+    ]
   },
   "lsmparam:mainLaser": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmparam:offset": {
     "status": "MAPPED",
     "ome_target": "store.setDetectorOffset()",
     "pretty_key_prefix": "pmt offset",
-    "alt_prefixes": ["detector offset"]
+    "alt_prefixes": [
+      "detector offset"
+    ]
   },
   "lsmparam:pmt": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmparam:speed": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lsmparam:voltage": {
     "status": "MAPPED",
     "ome_target": "store.setDetectorVoltage()",
     "pretty_key_prefix": "pmt voltage",
-    "alt_prefixes": ["detector voltage"]
+    "alt_prefixes": [
+      "detector voltage"
+    ]
   },
-
   "lut:LUT": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lut:data": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
   "lut:linear": {
-    "status": "STRUCTURAL", "ome_target": null, "pretty_key_prefix": null, "alt_prefixes": []
+    "status": "STRUCTURAL",
+    "ome_target": null,
+    "pretty_key_prefix": null,
+    "alt_prefixes": []
   },
-
   "opticalelement:displayName": {
     "status": "MAPPED",
     "ome_target": "store.setObjectiveModel()",
@@ -374,19 +699,25 @@
     "status": "MAPPED",
     "ome_target": "store.setObjectiveNominalMagnification()",
     "pretty_key_prefix": "objectiveLens magnification",
-    "alt_prefixes": ["objective lens magnification"]
+    "alt_prefixes": [
+      "objective lens magnification"
+    ]
   },
   "opticalelement:naValue": {
     "status": "MAPPED",
     "ome_target": "store.setObjectiveLensNA()",
     "pretty_key_prefix": "objectiveLens naValue",
-    "alt_prefixes": ["objective lens na"]
+    "alt_prefixes": [
+      "objective lens na"
+    ]
   },
   "opticalelement:refraction": {
     "status": "MAPPED",
     "ome_target": "store.setObjectiveSettingsRefractiveIndex()",
     "pretty_key_prefix": "objectiveLens refraction",
-    "alt_prefixes": ["objective lens refractive index"]
+    "alt_prefixes": [
+      "objective lens refractive index"
+    ]
   },
   "opticalelement:startWavelength": {
     "status": "MAPPED",
@@ -398,9 +729,10 @@
     "status": "MAPPED",
     "ome_target": "store.setObjectiveWorkingDistance()",
     "pretty_key_prefix": "objectiveLens wdValue",
-    "alt_prefixes": ["objective lens wd"]
+    "alt_prefixes": [
+      "objective lens wd"
+    ]
   },
-
   "bf:detectorId": {
     "status": "MAPPED",
     "ome_target": "store.setDetectorID()",
@@ -462,7 +794,6 @@
     "alt_prefixes": [],
     "notes": "Dynamic keys like '- Laser <name> data ID' matched by suffix"
   },
-
   "display:lutLinear": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -631,7 +962,6 @@
     "pretty_key_prefix": "all shadow",
     "alt_prefixes": []
   },
-
   "hw:dichroicMirrorName": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -746,7 +1076,6 @@
     "pretty_key_prefix": "pinAssign type",
     "alt_prefixes": []
   },
-
   "sys:deviceName": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -777,7 +1106,6 @@
     "pretty_key_prefix": "fileInfomation version",
     "alt_prefixes": []
   },
-
   "config:microscopeFs": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -940,7 +1268,6 @@
     "pretty_key_prefix": "phase name",
     "alt_prefixes": []
   },
-
   "spatial:acquisitionRotation": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -1043,12 +1370,13 @@
     "pretty_key_prefix": "zPosition zStagePosition",
     "alt_prefixes": []
   },
-
   "acq:channelDeviceName": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
     "pretty_key_prefix": "channel deviceName",
-    "alt_prefixes": ["lsmChannel deviceName"]
+    "alt_prefixes": [
+      "lsmChannel deviceName"
+    ]
   },
   "acq:lsmChannelName": {
     "status": "UNMAPPED_OR_DROPPED",
@@ -1200,7 +1528,6 @@
     "pretty_key_prefix": "alignment tiltYPosition",
     "alt_prefixes": []
   },
-
   "stim:stimulationMainLaserWavelength": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -1219,7 +1546,6 @@
     "pretty_key_prefix": "stimulationParam scanUnitType",
     "alt_prefixes": []
   },
-
   "trig:inTriggerEnabled": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -1316,7 +1642,6 @@
     "pretty_key_prefix": "synchronizedAcquisitionParamList type",
     "alt_prefixes": []
   },
-
   "pointscan:pointTimeAutoAssign": {
     "status": "UNMAPPED_OR_DROPPED",
     "ome_target": "OriginalMetadata (Fallback)",
@@ -1400,5 +1725,69 @@
     "ome_target": "OriginalMetadata (Fallback)",
     "pretty_key_prefix": "pointTiming pulse",
     "alt_prefixes": []
+  },
+  "condenser displayName": {
+    "status": "MAPPED",
+    "ome_target": "store.setChannelName()"
+  },
+  "- Channel CH5 ID": {
+    "status": "MAPPED",
+    "ome_target": "store.setLaserModel()"
+  },
+  "stimulationMainLaser wavelength": {
+    "status": "STRUCTURAL",
+    "ome_target": null
+  },
+  "synchronizedAcquisitionParamList imagingFrameCount": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "laser power": {
+    "status": "MAPPED",
+    "ome_target": "store.setLightSourcePower() (Note: Usually mapped indirectly through commonparam:power)"
+  },
+  "laser transmissivity": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "- Channel CH4 linked laser index": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "pixelResolution z": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "channel laserDataId": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "lsmConfiguration scannerType": {
+    "status": "UNMAPPED_OR_DROPPED",
+    "ome_target": "OriginalMetadata (Fallback)"
+  },
+  "objectiveLens displayName": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveModel()"
+  },
+  "objectiveLens immersion": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveImmersion()"
+  },
+  "- Objective Lens magnification": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveNominalMagnification()"
+  },
+  "objectiveLens naValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveLensNA()"
+  },
+  "objectiveLens refraction": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveSettingsRefractiveIndex()"
+  },
+  "objectiveLens wdValue": {
+    "status": "MAPPED",
+    "ome_target": "store.setObjectiveWorkingDistance()"
   }
 }

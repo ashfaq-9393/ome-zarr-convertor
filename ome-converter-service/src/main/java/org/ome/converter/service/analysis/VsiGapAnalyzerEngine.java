@@ -39,10 +39,7 @@ public class VsiGapAnalyzerEngine {
 
     private void loadDictionaryResources() {
         String[] resources = {
-            "/dictionary/validator_dictionary.json",
-            "/dictionary/universal_mapping_dictionary.json",
-            "/dictionary/final_validator_mapping.json",
-            "/dictionary/fixed_validator_mapping.json"
+            "/dictionary/vsi_mapping_dictionary.json"
         };
 
         for (String resPath : resources) {

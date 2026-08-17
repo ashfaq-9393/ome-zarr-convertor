@@ -35,7 +35,7 @@ public class OirGapAnalyzerEngine {
 
     private void loadDictionaryResources() {
         String[] resources = {
-            "/dictionary/validator_dictionary.json"
+            "/dictionary/oir_mapping_dictionary.json"
         };
 
         for (String resPath : resources) {
