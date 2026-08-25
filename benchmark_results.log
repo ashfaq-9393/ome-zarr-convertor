@@ -1,0 +1,4185 @@
+
+---> Running Benchmark: v04_local_open_dataset
+Running in QUICK mode (reduced rounds/warmups for rapid testing).
+
+---> Running Benchmark: v04_local_open_dataset
+Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 787.30 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.35 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.29 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 886.30 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 800.10 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.66 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 858.10 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.60 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.40 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 925.65 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.18 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.82 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.25 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 825.95 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 823.60 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 940.05 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 823.40 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.07 ms            | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 841.75 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 919.95 us          | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.
+WARNING: the benchmark result may be unstable
+* the standard deviation (362 us) is 33% of the mean (1.10 ms)
+* the maximum (2.13 ms) is 93% greater than the mean (1.10 ms)
+* the shortest raw value is only 783 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 1.10 ms +- 0.36 ms
+
+---> Running Benchmark: v05_local_open_dataset
+Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 73.10 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 39.10 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 39.50 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 49.40 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 49.30 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 47.90 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 56.85 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.60 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.35 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.30 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.85 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 41.00 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 41.80 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.65 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.35 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.45 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 61.60 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 91.95 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 45.55 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+SKIPPED: v05_local_open_dataset (Error: [Errno 2] No such file or directory: 'C:\\Users\\LENOVO\\Documents\\performance evalution\\data\\v05\\pig_heart.ome.zarr\\zarr.json')
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 41.55 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.
+WARNING: the benchmark result may be unstable
+* the standard deviation (17.7 us) is 37% of the mean (47.3 us)
+* the maximum (107 us) is 125% greater than the mean (47.3 us)
+* the shortest raw value is only 34.2 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 47.3 us +- 17.7 us
+
+---> Running Benchmark: v04_local_read_single_chunk
+Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.70 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.00 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.05 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 51.45 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.10 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 41.45 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 45.15 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.75 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 162.85 us          | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.50 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 42.50 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 36.75 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 39.20 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.25 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 87.45 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 38.00 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 42.70 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 37.35 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+
+---> Running Benchmark: v05_local_open_dataset
+
+---> Running Benchmark: v04_local_read_single_chunk
+SKIPPED: v04_local_read_single_chunk (Error: Zstd decompression error: invalid input data)
+
+---> Running Benchmark: v05_local_read_single_chunk
+
+---> Running Benchmark: v04_local_read_random_chunks
+
+---> Running Benchmark: v05_local_read_random_chunks
+
+---> Running Benchmark: v04_local_read_contiguous
+
+---> Running Benchmark: v05_local_read_contiguous
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+
+---> Running Benchmark: v04_local_write_chunks
+
+---> Running Benchmark: v05_local_write_chunks
+
+---> Running Benchmark: v04_remote_read_single_chunk
+
+---> Running Benchmark: v05_remote_read_single_chunk
+
+---> Running Benchmark: v04_remote_read_contiguous
+
+---> Running Benchmark: v05_remote_read_contiguous
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Local)      | N/A                | 41.65 us           | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+.SKIPPED: v04_local_read_single_chunk (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_local_read_single_chunk
+SKIPPED: v05_local_read_single_chunk (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_local_read_random_chunks
+SKIPPED: v04_local_read_random_chunks (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_local_read_random_chunks
+SKIPPED: v05_local_read_random_chunks (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_local_read_contiguous
+SKIPPED: v04_local_read_contiguous (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_local_read_contiguous
+SKIPPED: v05_local_read_contiguous (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+SKIPPED: v04_local_read_pyramid_levels (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+SKIPPED: v05_local_read_pyramid_levels (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_local_write_chunks
+SKIPPED: v04_local_write_chunks (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_local_write_chunks
+SKIPPED: v05_local_write_chunks (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_remote_read_single_chunk
+SKIPPED: v04_remote_read_single_chunk (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_remote_read_single_chunk
+SKIPPED: v05_remote_read_single_chunk (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v04_remote_read_contiguous
+SKIPPED: v04_remote_read_contiguous (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+---> Running Benchmark: v05_remote_read_contiguous
+SKIPPED: v05_remote_read_contiguous (Error: C:\Users\LENOVO\Documents\performance evalution\venv\Scripts\python.exe failed with exit code 1)
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 1.10 ms            | 47.26 us           | -95.7%      
+Read Single Chunk (Local)      | N/A                | N/A                | N/A         
+Read 20 Random Chunks          | N/A                | N/A                | N/A         
+Read Contiguous Region         | N/A                | N/A                | N/A         
+Read Pyramid Levels            | N/A                | N/A                | N/A         
+Write Chunks (Local)           | N/A                | N/A                | N/A         
+Read Single Chunk (Remote)     | N/A                | N/A                | N/A         
+Read Contiguous Region (Remote) | N/A                | N/A                | N/A         
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+Running in QUICK mode (reduced rounds/warmups for rapid testing).
+
+---> Running Benchmark: v04_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (153 us) is 17% of the mean (899 us)
+* the maximum (1.53 ms) is 70% greater than the mean (899 us)
+* the shortest raw value is only 768 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 899 us +- 153 us
+
+---> Running Benchmark: v05_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (17.1 us) is 37% of the mean (46.7 us)
+* the maximum (99.1 us) is 112% greater than the mean (46.7 us)
+* the shortest raw value is only 34.0 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 46.7 us +- 17.1 us
+
+---> Running Benchmark: v04_local_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (32.0 us) is 58% of the mean (55.3 us)
+* the maximum (201 us) is 265% greater than the mean (55.3 us)
+* the shortest raw value is only 33.5 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 55.3 us +- 32.0 us
+
+---> Running Benchmark: v05_local_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (49.5 us) is 77% of the mean (64.2 us)
+* the maximum (321 us) is 400% greater than the mean (64.2 us)
+* the shortest raw value is only 33.1 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 64.2 us +- 49.5 us
+
+---> Running Benchmark: v04_local_read_random_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (839 us) is 23% of the mean (3.72 ms)
+* the maximum (5.73 ms) is 54% greater than the mean (3.72 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_random_chunks: Mean +- std dev: 3.72 ms +- 0.84 ms
+
+---> Running Benchmark: v05_local_read_random_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (153 us) is 21% of the mean (739 us)
+* the maximum (1.19 ms) is 61% greater than the mean (739 us)
+* the shortest raw value is only 579 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_random_chunks: Mean +- std dev: 739 us +- 153 us
+
+---> Running Benchmark: v04_local_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.97 ms) is 16% of the mean (18.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_contiguous: Mean +- std dev: 18.9 ms +- 3.0 ms
+
+---> Running Benchmark: v05_local_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.54 ms) is 16% of the mean (15.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_contiguous: Mean +- std dev: 15.9 ms +- 2.5 ms
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (5.26 ms) is 16% of the mean (31.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_pyramid_levels: Mean +- std dev: 31.9 ms +- 5.3 ms
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (8.97 ms) is 26% of the mean (34.9 ms)
+* the maximum (60.0 ms) is 72% greater than the mean (34.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_pyramid_levels: Mean +- std dev: 34.9 ms +- 9.0 ms
+
+---> Running Benchmark: v04_local_write_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (1.06 ms) is 21% of the mean (5.09 ms)
+* the maximum (9.20 ms) is 81% greater than the mean (5.09 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 5.09 ms +- 1.06 ms
+
+---> Running Benchmark: v05_local_write_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (476 us) is 25% of the mean (1.91 ms)
+* the maximum (3.52 ms) is 85% greater than the mean (1.91 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_write_chunks: Mean +- std dev: 1.91 ms +- 0.48 ms
+
+---> Running Benchmark: v04_remote_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (187 us) is 19% of the mean (969 us)
+* the maximum (1.58 ms) is 63% greater than the mean (969 us)
+* the shortest raw value is only 752 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 969 us +- 187 us
+
+---> Running Benchmark: v05_remote_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (5.63 sec) is 165% of the mean (3.42 sec)
+* the minimum (879 ms) is 74% smaller than the mean (3.42 sec)
+* the maximum (31.3 sec) is 815% greater than the mean (3.42 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_single_chunk: Mean +- std dev: 3.42 sec +- 5.63 sec
+
+---> Running Benchmark: v04_remote_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (167 us) is 18% of the mean (928 us)
+* the maximum (1.47 ms) is 58% greater than the mean (928 us)
+* the shortest raw value is only 764 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_contiguous: Mean +- std dev: 928 us +- 167 us
+
+---> Running Benchmark: v05_remote_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (11.3 sec) is 46% of the mean (24.5 sec)
+* the minimum (10.8 sec) is 56% smaller than the mean (24.5 sec)
+* the maximum (50.8 sec) is 108% greater than the mean (24.5 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_contiguous: Mean +- std dev: 24.5 sec +- 11.3 sec
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 899.09 us          | 46.70 us           | -94.8%      
+Read Single Chunk (Local)      | 55.26 us           | 64.18 us           | +16.2%      
+Read 20 Random Chunks          | 3.72 ms            | 738.53 us          | -80.1%      
+Read Contiguous Region         | 18.91 ms           | 15.89 ms           | -16.0%      
+Read Pyramid Levels            | 31.92 ms           | 34.89 ms           | +9.3%       
+Write Chunks (Local)           | 5.09 ms            | 1.91 ms            | -62.5%      
+Read Single Chunk (Remote)     | 968.60 us          | 3.422 s            | +353176.9%  
+Read Contiguous Region (Remote) | 927.75 us          | 24.463 s           | +2636649.3% 
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+Running in QUICK mode (reduced rounds/warmups for rapid testing).
+
+---> Running Benchmark: v04_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (34.2 us) is 23% of the mean (152 us)
+* the maximum (261 us) is 72% greater than the mean (152 us)
+* the shortest raw value is only 114 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 152 us +- 34 us
+
+---> Running Benchmark: v05_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (37.3 us) is 16% of the mean (232 us)
+* the maximum (412 us) is 78% greater than the mean (232 us)
+* the shortest raw value is only 188 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_open_dataset: Mean +- std dev: 232 us +- 37 us
+
+---> Running Benchmark: v04_local_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (203 us) is 32% of the mean (633 us)
+* the maximum (1.46 ms) is 130% greater than the mean (633 us)
+* the shortest raw value is only 485 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_single_chunk: Mean +- std dev: 633 us +- 203 us
+
+---> Running Benchmark: v05_local_read_single_chunk
+.Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+...........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (251 us) is 32% of the mean (790 us)
+* the maximum (1.59 ms) is 101% greater than the mean (790 us)
+* the shortest raw value is only 584 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 790 us +- 251 us
+
+---> Running Benchmark: v04_local_read_random_chunks
+................................
+WARNING: the benchmark result may be unstable
+* the standard deviation (7.86 ms) is 19% of the mean (41.5 ms)
+* the maximum (67.2 ms) is 62% greater than the mean (41.5 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 41.5 ms +- 7.9 ms
+
+---> Running Benchmark: v05_local_read_random_chunks
+..
+WARNING: the benchmark result may be unstable
+* the standard deviation (38.4 us) is 22% of the mean (174 us)
+* the maximum (310 us) is 78% greater than the mean (174 us)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 174 us +- 38 us
+
+---> Running Benchmark: v05_local_open_dataset
+..............................
+WARNING: the benchmark result may be unstable
+* the standard deviation (7.32 ms) is 17% of the mean (43.9 ms)
+* the maximum (73.1 ms) is 67% greater than the mean (43.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 43.9 ms +- 7.3 ms
+
+---> Running Benchmark: v04_local_read_contiguous
+.........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (72.0 us) is 22% of the mean (322 us)
+* the maximum (544 us) is 69% greater than the mean (322 us)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_open_dataset: Mean +- std dev: 322 us +- 72 us
+
+---> Running Benchmark: v04_local_read_single_chunk
+.......
+WARNING: the benchmark result may be unstable
+* the standard deviation (6.19 ms) is 16% of the mean (39.1 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 39.1 ms +- 6.2 ms
+
+---> Running Benchmark: v05_local_read_contiguous
+...............................
+WARNING: the benchmark result may be unstable
+* the standard deviation (6.12 ms) is 14% of the mean (43.9 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_contiguous: Mean +- std dev: 43.9 ms +- 6.1 ms
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (113 us) is 13% of the mean (846 us)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_single_chunk: Mean +- std dev: 846 us +- 113 us
+
+---> Running Benchmark: v05_local_read_single_chunk
+.....
+WARNING: the benchmark result may be unstable
+* the standard deviation (362 us) is 18% of the mean (2.01 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 2.01 ms +- 0.36 ms
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+.............................
+WARNING: the benchmark result may be unstable
+* the standard deviation (329 us) is 17% of the mean (1.99 ms)
+* the maximum (3.21 ms) is 61% greater than the mean (1.99 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 1.99 ms +- 0.33 ms
+
+---> Running Benchmark: v04_local_write_chunks
+.............................
+WARNING: the benchmark result may be unstable
+* the standard deviation (380 us) is 20% of the mean (1.92 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 1.92 ms +- 0.38 ms
+
+---> Running Benchmark: v05_local_write_chunks
+....
+WARNING: the benchmark result may be unstable
+* the standard deviation (105 us) is 14% of the mean (775 us)
+* the maximum (1.30 ms) is 67% greater than the mean (775 us)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 775 us +- 105 us
+
+---> Running Benchmark: v04_local_read_random_chunks
+..........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (982 us) is 37% of the mean (2.64 ms)
+* the maximum (6.71 ms) is 155% greater than the mean (2.64 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_write_chunks: Mean +- std dev: 2.64 ms +- 0.98 ms
+
+---> Running Benchmark: v04_remote_read_single_chunk
+...............
+WARNING: the benchmark result may be unstable
+* the standard deviation (10.5 ms) is 25% of the mean (41.5 ms)
+* the maximum (79.8 ms) is 92% greater than the mean (41.5 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 41.5 ms +- 10.5 ms
+
+---> Running Benchmark: v05_local_read_random_chunks
+.........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (6.41 ms) is 17% of the mean (37.8 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 37.8 ms +- 6.4 ms
+
+---> Running Benchmark: v04_local_read_contiguous
+..........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (6.06 ms) is 17% of the mean (36.5 ms)
+* the maximum (57.6 ms) is 58% greater than the mean (36.5 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 36.5 ms +- 6.1 ms
+
+---> Running Benchmark: v05_local_read_contiguous
+.........................
+v05_local_read_contiguous: Mean +- std dev: 34.3 ms +- 3.3 ms
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (361 ms) is 22% of the mean (1.61 sec)
+* the maximum (2.68 sec) is 66% greater than the mean (1.61 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 1.61 sec +- 0.36 sec
+
+---> Running Benchmark: v05_remote_read_single_chunk
+..
+WARNING: the benchmark result may be unstable
+* the standard deviation (586 us) is 23% of the mean (2.51 ms)
+* the maximum (3.96 ms) is 58% greater than the mean (2.51 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 2.51 ms +- 0.59 ms
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+.........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (390 us) is 21% of the mean (1.85 ms)
+* the maximum (3.64 ms) is 97% greater than the mean (1.85 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 1.85 ms +- 0.39 ms
+
+---> Running Benchmark: v04_local_write_chunks
+......................
+WARNING: the benchmark result may be unstable
+* the standard deviation (254 us) is 14% of the mean (1.76 ms)
+* the maximum (2.91 ms) is 66% greater than the mean (1.76 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 1.76 ms +- 0.25 ms
+
+---> Running Benchmark: v05_local_write_chunks
+......................
+v05_local_write_chunks: Mean +- std dev: 2.06 ms +- 0.18 ms
+
+---> Running Benchmark: v04_remote_read_single_chunk
+........................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.94 sec) is 95% of the mean (3.10 sec)
+* the minimum (1.13 sec) is 64% smaller than the mean (3.10 sec)
+* the maximum (13.2 sec) is 327% greater than the mean (3.10 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_single_chunk: Mean +- std dev: 3.10 sec +- 2.94 sec
+
+---> Running Benchmark: v04_remote_read_contiguous
+.................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.69 sec) is 107% of the mean (2.51 sec)
+* the minimum (1.13 sec) is 55% smaller than the mean (2.51 sec)
+* the maximum (16.9 sec) is 574% greater than the mean (2.51 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 2.51 sec +- 2.69 sec
+
+---> Running Benchmark: v05_remote_read_single_chunk
+................................
+WARNING: the benchmark result may be unstable
+* the standard deviation (4.57 sec) is 104% of the mean (4.38 sec)
+* the minimum (2.19 sec) is 50% smaller than the mean (4.38 sec)
+* the maximum (31.5 sec) is 619% greater than the mean (4.38 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_contiguous: Mean +- std dev: 4.38 sec +- 4.57 sec
+
+---> Running Benchmark: v05_remote_read_contiguous
+....
+WARNING: the benchmark result may be unstable
+* the standard deviation (749 ms) is 41% of the mean (1.85 sec)
+* the maximum (4.75 sec) is 157% greater than the mean (1.85 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_single_chunk: Mean +- std dev: 1.85 sec +- 0.75 sec
+
+---> Running Benchmark: v04_remote_read_contiguous
+................................
+WARNING: the benchmark result may be unstable
+* the standard deviation (509 ms) is 16% of the mean (3.24 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_contiguous: Mean +- std dev: 3.24 sec +- 0.51 sec
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 151.79 us          | 231.52 us          | +52.5%      
+Read Single Chunk (Local)      | 633.35 us          | 790.47 us          | +24.8%      
+Read 20 Random Chunks          | 41.46 ms           | 43.91 ms           | +5.9%       
+Read Contiguous Region         | 39.15 ms           | 43.87 ms           | +12.1%      
+Read Pyramid Levels            | 2.01 ms            | 1.99 ms            | -0.8%       
+Write Chunks (Local)           | 1.92 ms            | 2.64 ms            | +37.4%      
+Read Single Chunk (Remote)     | 1.612 s            | 3.101 s            | +92.4%      
+Read Contiguous Region (Remote) | 4.385 s            | 3.239 s            | -26.1%      
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+........
+WARNING: the benchmark result may be unstable
+* the standard deviation (749 ms) is 24% of the mean (3.14 sec)
+* the maximum (7.09 sec) is 125% greater than the mean (3.14 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_contiguous: Mean +- std dev: 3.14 sec +- 0.75 sec
+
+---> Running Benchmark: v05_remote_read_contiguous
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.38 sec) is 79% of the mean (3.01 sec)
+* the maximum (17.0 sec) is 465% greater than the mean (3.01 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_contiguous: Mean +- std dev: 3.01 sec +- 2.38 sec
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 173.87 us          | 321.64 us          | +85.0%      
+Read Single Chunk (Local)      | 846.05 us          | 775.09 us          | -8.4%       
+Read 20 Random Chunks          | 41.49 ms           | 37.83 ms           | -8.8%       
+Read Contiguous Region         | 36.48 ms           | 34.26 ms           | -6.1%       
+Read Pyramid Levels            | 2.51 ms            | 1.85 ms            | -26.3%      
+Write Chunks (Local)           | 1.76 ms            | 2.06 ms            | +17.1%      
+Read Single Chunk (Remote)     | 2.506 s            | 1.847 s            | -26.3%      
+Read Contiguous Region (Remote) | 3.144 s            | 3.008 s            | -4.3%       
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+Running in QUICK mode (reduced rounds/warmups for rapid testing).
+
+---> Running Benchmark: v04_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (68.8 us) is 33% of the mean (209 us)
+* the maximum (401 us) is 92% greater than the mean (209 us)
+* the shortest raw value is only 146 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 209 us +- 69 us
+
+---> Running Benchmark: v05_local_open_dataset
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (78.8 us) is 25% of the mean (316 us)
+* the maximum (485 us) is 54% greater than the mean (316 us)
+* the shortest raw value is only 212 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_open_dataset: Mean +- std dev: 316 us +- 79 us
+
+---> Running Benchmark: v04_local_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (169 us) is 23% of the mean (749 us)
+* the maximum (1.41 ms) is 89% greater than the mean (749 us)
+* the shortest raw value is only 614 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_single_chunk: Mean +- std dev: 749 us +- 169 us
+
+---> Running Benchmark: v05_local_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (197 us) is 24% of the mean (822 us)
+* the maximum (1.35 ms) is 64% greater than the mean (822 us)
+* the shortest raw value is only 589 us
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_single_chunk: Mean +- std dev: 822 us +- 197 us
+
+---> Running Benchmark: v04_local_read_random_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (7.22 ms) is 18% of the mean (39.8 ms)
+* the maximum (63.5 ms) is 59% greater than the mean (39.8 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 39.8 ms +- 7.2 ms
+
+---> Running Benchmark: v05_local_read_random_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (10.2 ms) is 22% of the mean (45.7 ms)
+* the maximum (68.5 ms) is 50% greater than the mean (45.7 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 45.7 ms +- 10.2 ms
+
+---> Running Benchmark: v04_local_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (7.95 ms) is 18% of the mean (43.2 ms)
+* the maximum (71.0 ms) is 64% greater than the mean (43.2 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 43.2 ms +- 7.9 ms
+
+---> Running Benchmark: v05_local_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (10.2 ms) is 21% of the mean (47.8 ms)
+* the maximum (74.6 ms) is 56% greater than the mean (47.8 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_read_contiguous: Mean +- std dev: 47.8 ms +- 10.2 ms
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (536 us) is 25% of the mean (2.19 ms)
+* the maximum (3.76 ms) is 72% greater than the mean (2.19 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 2.19 ms +- 0.54 ms
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (395 us) is 18% of the mean (2.15 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 2.15 ms +- 0.40 ms
+
+---> Running Benchmark: v04_local_write_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (496 us) is 24% of the mean (2.07 ms)
+* the maximum (3.28 ms) is 58% greater than the mean (2.07 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 2.07 ms +- 0.50 ms
+
+---> Running Benchmark: v05_local_write_chunks
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (553 us) is 25% of the mean (2.23 ms)
+* the maximum (3.73 ms) is 67% greater than the mean (2.23 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_local_write_chunks: Mean +- std dev: 2.23 ms +- 0.55 ms
+
+---> Running Benchmark: v04_remote_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (156 ms) is 11% of the mean (1.41 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 1.41 sec +- 0.16 sec
+
+---> Running Benchmark: v05_remote_read_single_chunk
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (179 ms) is 12% of the mean (1.48 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_single_chunk: Mean +- std dev: 1.48 sec +- 0.18 sec
+
+---> Running Benchmark: v04_remote_read_contiguous
+....................
+v04_remote_read_contiguous: Mean +- std dev: 3.16 sec +- 0.30 sec
+
+---> Running Benchmark: v05_remote_read_contiguous
+....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (1.48 sec) is 44% of the mean (3.38 sec)
+* the maximum (11.9 sec) is 253% greater than the mean (3.38 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_contiguous: Mean +- std dev: 3.38 sec +- 1.48 sec
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 208.96 us          | 315.61 us          | +51.0%      
+Read Single Chunk (Local)      | 748.84 us          | 821.59 us          | +9.7%       
+Read 20 Random Chunks          | 39.82 ms           | 45.69 ms           | +14.7%      
+Read Contiguous Region         | 43.20 ms           | 47.80 ms           | +10.6%      
+Read Pyramid Levels            | 2.19 ms            | 2.15 ms            | -1.6%       
+Write Chunks (Local)           | 2.07 ms            | 2.23 ms            | +7.4%       
+Read Single Chunk (Remote)     | 1.412 s            | 1.480 s            | +4.9%       
+Read Contiguous Region (Remote) | 3.159 s            | 3.383 s            | +7.1%       
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
+Running in FULL RIGOR mode (default pyperf process isolation).
+
+---> Running Benchmark: v04_local_open_dataset
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (1.40 ms) is 23% of the mean (6.11 ms)
+* the maximum (10.9 ms) is 78% greater than the mean (6.11 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_open_dataset: Mean +- std dev: 6.11 ms +- 1.40 ms
+
+---> Running Benchmark: v05_local_open_dataset
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (20.7 ms) is 12% of the mean (176 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_single_chunk: Mean +- std dev: 176 ms +- 21 ms
+
+---> Running Benchmark: v04_local_read_single_chunk
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (33.3 ms) is 17% of the mean (198 ms)
+* the maximum (328 ms) is 66% greater than the mean (198 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_single_chunk: Mean +- std dev: 198 ms +- 33 ms
+
+---> Running Benchmark: v05_local_read_single_chunk
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (26.8 ms) is 12% of the mean (217 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 217 ms +- 27 ms
+
+---> Running Benchmark: v04_local_read_random_chunks
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (30.3 ms) is 13% of the mean (238 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 238 ms +- 30 ms
+
+---> Running Benchmark: v05_local_read_random_chunks
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (58.1 ms) is 22% of the mean (260 ms)
+* the maximum (528 ms) is 103% greater than the mean (260 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_contiguous: Mean +- std dev: 260 ms +- 58 ms
+
+---> Running Benchmark: v04_local_read_contiguous
+.....................
+v04_local_read_contiguous: Mean +- std dev: 238 ms +- 11 ms
+
+---> Running Benchmark: v05_local_read_contiguous
+.....................
+v04_local_read_pyramid_levels: Mean +- std dev: 244 ms +- 18 ms
+
+---> Running Benchmark: v04_local_read_pyramid_levels
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (24.6 ms) is 10% of the mean (246 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_read_pyramid_levels: Mean +- std dev: 246 ms +- 25 ms
+
+---> Running Benchmark: v05_local_read_pyramid_levels
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (5.75 ms) is 45% of the mean (12.8 ms)
+* the maximum (45.6 ms) is 257% greater than the mean (12.8 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 12.8 ms +- 5.8 ms
+
+---> Running Benchmark: v04_local_write_chunks
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.26 ms) is 20% of the mean (11.5 ms)
+* the maximum (25.7 ms) is 124% greater than the mean (11.5 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_local_write_chunks: Mean +- std dev: 11.5 ms +- 2.3 ms
+
+---> Running Benchmark: v05_local_write_chunks
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (1.49 sec) is 31% of the mean (4.87 sec)
+* the maximum (8.80 sec) is 81% greater than the mean (4.87 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 4.87 sec +- 1.49 sec
+
+---> Running Benchmark: v04_remote_read_single_chunk
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (1.40 sec) is 31% of the mean (4.50 sec)
+* the maximum (10.6 sec) is 136% greater than the mean (4.50 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_single_chunk: Mean +- std dev: 4.50 sec +- 1.40 sec
+
+---> Running Benchmark: v05_remote_read_single_chunk
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (83.6 ms) is 13% of the mean (620 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_single_chunk: Mean +- std dev: 620 ms +- 84 ms
+
+---> Running Benchmark: v04_remote_read_contiguous
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (2.06 sec) is 41% of the mean (5.00 sec)
+* the maximum (11.7 sec) is 133% greater than the mean (5.00 sec)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v04_remote_read_contiguous: Mean +- std dev: 5.00 sec +- 2.06 sec
+
+---> Running Benchmark: v05_remote_read_contiguous
+.....................
+WARNING: the benchmark result may be unstable
+* the standard deviation (73.1 ms) is 11% of the mean (638 ms)
+
+Try to rerun the benchmark with more runs, values and/or loops.
+Run 'python.exe -m pyperf system tune' command to reduce the system jitter.
+Use pyperf stats, pyperf dump and pyperf hist to analyze results.
+Use --quiet option to hide these warnings.
+
+v05_remote_read_contiguous: Mean +- std dev: 638 ms +- 73 ms
+
+=====================================================================================
+                      OME-ZARR PERFORMANCE SUMMARY TABLE                      
+=====================================================================================
+Operation Category             | v0.4 Mean Time     | v0.5 Mean Time     | % Difference
+-------------------------------------------------------------------------------------
+Open Dataset (Local)           | 6.11 ms            | 175.99 ms          | +2781.8%    
+Read Single Chunk (Local)      | 198.21 ms          | 216.71 ms          | +9.3%       
+Read 20 Random Chunks          | 238.12 ms          | 259.96 ms          | +9.2%       
+Read Contiguous Region         | 237.91 ms          | 244.26 ms          | +2.7%       
+Read Pyramid Levels            | 245.60 ms          | 12.78 ms           | -94.8%      
+Write Chunks (Local)           | 11.46 ms           | 4.867 s            | +42384.0%   
+Read Single Chunk (Remote)     | 4.498 s            | 619.68 ms          | -86.2%      
+Read Contiguous Region (Remote) | 5.000 s            | 638.47 ms          | -87.2%      
+=====================================================================================
+Full benchmark results saved to: C:\Users\LENOVO\Documents\performance evalution\benchmark_results.log
+
