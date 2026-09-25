@@ -1,0 +1,270 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OME-NGFF validator</title>
+
+    <style>
+      html {
+        -webkit-text-size-adjust: 100%;
+        box-sizing: border-box;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        word-break: normal;
+      }
+      *, :after, :before {
+        background-repeat: no-repeat;
+        box-sizing: inherit;
+      }
+      :after, :before {
+        text-decoration: inherit;
+        vertical-align: inherit;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      hr {
+        color: inherit;
+        height: 0;
+        overflow: visible;
+      }
+      details, main {
+        display: block;
+      }
+      summary {
+        display: list-item;
+      }
+      small {
+        font-size: 80%;
+      }
+      [hidden] {
+        display: none;
+      }
+      abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        text-decoration: underline dotted;
+      }
+      a {
+        background-color: transparent;
+      }
+      a:active, a:hover {
+        outline-width: 0;
+      }
+      code, kbd, pre, samp {
+        font-family: monospace, monospace;
+      }
+      pre {
+        font-size: 1em;
+      }
+      b, strong {
+        font-weight: bolder;
+      }
+      sub, sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        border-color: inherit;
+        text-indent: 0;
+      }
+      iframe {
+        border-style: none;
+      }
+      input {
+        border-radius: 0;
+      }
+      [type="number"]::-webkit-inner-spin-button,
+      [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      textarea {
+        overflow: auto;
+        resize: vertical;
+      }
+      button, input, optgroup, select, textarea {
+        font: inherit;
+      }
+      optgroup {
+        font-weight: 700;
+      }
+      button {
+        overflow: visible;
+      }
+      button, select {
+        text-transform: none;
+      }
+      [role="button"], [type="button"], [type="reset"], [type="submit"], button {
+        cursor: pointer;
+      }
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner,
+      button::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner,
+      button:-moz-focusring {
+        outline: 1px dotted ButtonText;
+      }
+      [type="reset"], [type="submit"], button, html [type="button"] {
+        -webkit-appearance: button;
+      }
+      button, input, select, textarea {
+        background-color: transparent;
+        border-style: none;
+      }
+      a:focus, button:focus, input:focus, select:focus, textarea:focus {
+        outline-width: 0;
+      }
+      select::-ms-value {
+        color: currentColor;
+      }
+      legend {
+        border: 0;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        white-space: normal;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        color: inherit;
+        font: inherit;
+      }
+      [disabled] {
+        cursor: default;
+      }
+      img {
+        border-style: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      [aria-busy="true"] {
+        cursor: progress;
+      }
+      [aria-controls] {
+        cursor: pointer;
+      }
+      [aria-disabled="true"] {
+        cursor: default;
+      }
+      body {
+        --omeRed: #df283f;
+        --omeGreen: #128669;
+        --omeLinkBlue: #1d8dcd;
+        padding: 0;
+        font-family: "Overpass", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+      html, body {
+        height: 100%;
+      }
+      #app {
+        height: 100%;
+      }
+      article {
+        color: #343a40;
+        border: solid #ddd 1px;
+        border-radius: 10px;
+        padding: 15px;
+        background: white;
+        margin: 10px 0;
+        text-align: center;
+        box-shadow: 10px 10px 20px rgba(212, 239, 253, 0.5);
+        width: 100%;
+        position: relative;
+      }
+      @media (min-width: 1000px) {
+        article {
+          width: 40%;
+        }
+        article.scene {
+          width: 60%;
+        }
+      }
+    </style>
+    <script type="module" crossorigin="" src="assets/index.ddfebf21.js"></script>
+    <link rel="stylesheet" href="assets/index.5cf17a37.css">
+  <style></style></head>
+  <body>
+    <div id="app"> <main class="svelte-otrsyw"><nav class="svelte-otrsyw"><div class="navLeft svelte-7uc1km"><img alt="OME Logo" src="https://ome.github.io/ome-ngff-validator/ome-main-nav.svg" style="height: 30px;"> <h1 class="svelte-7uc1km">NGFF Validator</h1></div> <ul class="svelte-7uc1km"><li class="svelte-7uc1km"><button class="svelte-7uc1km">About</button></li></ul></nav> <section class="svelte-otrsyw"><h1 class="svelte-v2a59y">Image: image_0013.zarr</h1>  <div class="svelte-otrsyw"><article><div class="thumbnail_wrapper svelte-ssktxf"><div title="Failed to load thumbnail: Failed to decode deflate" class="failed svelte-nw4e9j"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Failed to load thumbnail: Failed to decode deflate" class="thumbnail svelte-nw4e9j"> <div class="svelte-nw4e9j">×</div></div></div> <p>Validating: <a href="http://127.0.0.1:8000/image_0013.zarr/.zattrs" class="svelte-ssktxf">/image_0013.zarr/.zattrs</a></p> Using version 0.4.
+  Using schema: 
+   <a href="/validator/schemas/0.4/image.schema" target="_blank" class="svelte-ssktxf">undefined</a> <div class="valid svelte-o7ut0o">✓</div>  <div class="openwith svelte-nnf93u"><span>Open with:</span> <ul><li class="svelte-nnf93u"><a title="View Image in vizarr" target="_blank" href="https://biongff.github.io/vizarr/?source=http://127.0.0.1:8000/image_0013.zarr" class="svelte-nnf93u"><img class="viewer_icon svelte-nnf93u" src="https://ome.github.io/ome-ngff-validator/vizarr_logo.png" alt="Viewer logo"></a>  </li><li class="svelte-nnf93u"><a title="View Image in itk-vtk-viewer" target="_blank" href="https://kitware.github.io/itk-vtk-viewer/app/?rotate=false&amp;fileToLoad=http://127.0.0.1:8000/image_0013.zarr" class="svelte-nnf93u"><img class="viewer_icon svelte-nnf93u" src="https://ome.github.io/ome-ngff-validator/itkvtk_logo.png" alt="Viewer logo"></a>  </li><li class="svelte-nnf93u"><a title="View Image in neuroglancer" target="_blank" href="https://neuroglancer-demo.appspot.com/#!{%22layers%22:[{%22source%22:%22http://127.0.0.1:8000/image_0013.zarr%22,%22name%22:%22OME-NGFF%22}]}" class="svelte-nnf93u"><img class="viewer_icon svelte-nnf93u" src="https://ome.github.io/ome-ngff-validator/neuroglancer.png" alt="Viewer logo"></a>  </li><li class="svelte-nnf93u"><a title="View Image in Vol-E viewer" target="_blank" href="https://volumeviewer.allencell.org/viewer?url=http://127.0.0.1:8000/image_0013.zarr" class="svelte-nnf93u"><img class="viewer_icon svelte-nnf93u" src="https://ome.github.io/ome-ngff-validator/aics_website-3d-cell-viewer.png" alt="Viewer logo"></a>  </li><li class="svelte-nnf93u"><button class="copyBtn svelte-mm54y3" title="Copy URL"><img class="viewer_icon svelte-mm54y3" src="https://ome.github.io/ome-ngff-validator/napari.png" alt="Viewer Icon"> <img class="copyIcon svelte-mm54y3" src="https://ome.github.io/ome-ngff-validator/copy_icon.png" alt="Copy Icon"></button> <div class="viewer_html svelte-nnf93u"><p>See <a href="https://napari.org/">napari.org</a> for install instructions.</p><p>Then <code>napari http://127.0.0.1:8000/image_0013.zarr</code></p></div> </li><li class="svelte-nnf93u"><button class="copyBtn svelte-mm54y3" title="Copy URL"><img class="viewer_icon svelte-mm54y3" src="https://ome.github.io/ome-ngff-validator/MoBIE.jpeg" alt="Viewer Icon"> <img class="copyIcon svelte-mm54y3" src="https://ome.github.io/ome-ngff-validator/copy_icon.png" alt="Copy Icon"></button> <div class="viewer_html svelte-nnf93u"><p><a href="https://github.com/mobie/mobie-viewer-fiji/">MoBIE</a> plugin for ImageJ/Fiji. See <a href="https://omero-guides.readthedocs.io/en/latest/fiji/docs/view_mobie_zarr.html">MoBIE guide</a> for installation. Plugins &gt; BigDataViewer &gt; OME ZARR &gt; <br> Open OME ZARR from S3…. <code>http://127.0.0.1:8000/image_0013.zarr</code></p></div> </li></ul></div> <div class="json svelte-ssktxf"><div class="folder svelte-60tpry"><div class="expanded caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"> {  <ul class="svelte-60tpry" style=""><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class="expanded caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"><span class="key svelte-18a4t9w" href="https://ngff.openmicroscopy.org/0.4/index.html#multiscale-md">multiscales<a target="_blank" href="https://ngff.openmicroscopy.org/0.4/index.html#multiscale-md" title="Open ngff spec for multiscales." class="svelte-18a4t9w"><svg width="1em" height="1em" stroke-width="0" class="info" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></a></span>: [  <ul class="svelte-60tpry" style=""><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class="expanded caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"> {  <ul class="svelte-60tpry" style=""><li class="svelte-60tpry"><span class="key indent svelte-60tpry">"version"</span>:
+
+                
+                <span class="string svelte-60tpry">"0.4"</span> <span class="trailing-comma svelte-60tpry">,</span> </li><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class=" caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"><span class="key svelte-18a4t9w" href="https://ngff.openmicroscopy.org/0.4/index.html#axes-md">axes<a target="_blank" href="https://ngff.openmicroscopy.org/0.4/index.html#axes-md" title="Open ngff spec for axes." class="svelte-18a4t9w"><svg width="1em" height="1em" stroke-width="0" class="info" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></a></span>: [ <span class="comment dots svelte-60tpry">...</span> ] <span class="trailing-comma svelte-60tpry">,</span> <span class="comment svelte-60tpry">// 5 items</span>  </div></div> </li><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class=" caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"><span class="key svelte-18a4t9w" href="">datasets</span>: [ <span class="comment dots svelte-60tpry">...</span> ]  <span class="comment svelte-60tpry">// 2 items</span>  </div></div> </li></ul> } </div></div> </li></ul> ] <span class="trailing-comma svelte-60tpry">,</span></div></div> </li><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class=" caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"><span class="key svelte-18a4t9w" href="https://ngff.openmicroscopy.org/0.4/index.html#omero-md">omero<a target="_blank" href="https://ngff.openmicroscopy.org/0.4/index.html#omero-md" title="Open ngff spec for omero." class="svelte-18a4t9w"><svg width="1em" height="1em" stroke-width="0" class="info" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></a></span>: { <span class="comment dots svelte-60tpry">...</span> } <span class="trailing-comma svelte-60tpry">,</span> <span class="comment svelte-60tpry">// 2 items</span>  </div></div> </li><li class="svelte-60tpry"><div class="folder svelte-60tpry"><div class=" caret svelte-60tpry"><svg width="1em" height="1em" stroke-width="0" class="caret-toggle" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path></svg></div> <div class="content svelte-60tpry"><span class="key svelte-18a4t9w" href="">evident.omezarr</span>: { <span class="comment dots svelte-60tpry">...</span> }  <span class="comment svelte-60tpry">// 4 items</span>  </div></div> </li></ul> } </div></div></div>   </article> <article class="svelte-1u2mha0"><h2 class="svelte-1u2mha0">Multiscale 0</h2> <p title="dtypes match and shapes are consistent">2 Datasets checked <span style="color: green;">✓</span></p>  <div class="array svelte-1a72or7"><p>Path <a href="http://127.0.0.1:8000/image_0013.zarr/0/.zarray " class="svelte-1a72or7">0/.zarray</a></p> <table class="svelte-1a72or7"><tr class="svelte-1a72or7"><th class="svelte-1a72or7"></th> <th class="svelte-1a72or7">Array</th> <th class="svelte-1a72or7">Chunk</th> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Bytes</th> <td class="svelte-1a72or7">4.19 MB</td> <td class="svelte-1a72or7">131.07 KB</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Shape</th> <td class="svelte-1a72or7">[2,2,2,512,512]</td> <td class="svelte-1a72or7">[1,1,1,256,256]</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Counts</th> <td class="svelte-1a72or7">2,2,2,2,2</td> <td class="svelte-1a72or7">32 Chunks</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Type</th> <td class="svelte-1a72or7">&lt;u2</td> <td class="svelte-1a72or7">numpy.ndarray</td></tr></table> <div class="chunkLoader svelte-17w95lj">Load chunk:
+  <input type="checkbox"> <select name="dim_0" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_1" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_2" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_3" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_4" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select> </div>  <div class="parent svelte-1lfjwoy"><div class="container svelte-1lfjwoy" style="--size-x: 300px; --size-y: 300px; --size-z: 1.171875px; --chunkX: 150px; --chunkY: 150px; --chunkZ: 0.5859375px; --shardX: 100px; --shardY: 100px; --shardZ: 100px; --shardColor: transparent; --scrollX: 50deg;"><div class="cube svelte-1lfjwoy"><div class="face front svelte-1lfjwoy"><div class="sizeX svelte-1lfjwoy">512</div> <div class="sizeY svelte-1lfjwoy">512</div></div> <div class="face back svelte-1lfjwoy"></div> <div class="face right svelte-1lfjwoy"></div> <div class="face left svelte-1lfjwoy"><div class="sizeX svelte-1lfjwoy">2</div></div> <div class="face top svelte-1lfjwoy"></div> <div class="face bottom svelte-1lfjwoy"></div></div></div></div> <details class="svelte-rlnfqz"><summary>0/.zarray</summary> <pre class="svelte-rlnfqz"><code>{
+  "zarr_format": 2,
+  "shape": [
+    2,
+    2,
+    2,
+    512,
+    512
+  ],
+  "chunks": [
+    1,
+    1,
+    1,
+    256,
+    256
+  ],
+  "dtype": "&lt;u2",
+  "compressor": {
+    "id": "zlib",
+    "level": 1
+  },
+  "fill_value": 0,
+  "order": "C",
+  "filters": null,
+  "dimension_separator": "/"
+}</code></pre></details></div><div class="array svelte-1a72or7"><p>Path <a href="http://127.0.0.1:8000/image_0013.zarr/1/.zarray " class="svelte-1a72or7">1/.zarray</a></p> <table class="svelte-1a72or7"><tr class="svelte-1a72or7"><th class="svelte-1a72or7"></th> <th class="svelte-1a72or7">Array</th> <th class="svelte-1a72or7">Chunk</th> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Bytes</th> <td class="svelte-1a72or7">1.05 MB</td> <td class="svelte-1a72or7">131.07 KB</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Shape</th> <td class="svelte-1a72or7">[2,2,2,256,256]</td> <td class="svelte-1a72or7">[1,1,1,256,256]</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Counts</th> <td class="svelte-1a72or7">2,2,2,1,1</td> <td class="svelte-1a72or7">8 Chunks</td> </tr> <tr class="svelte-1a72or7"><th class="svelte-1a72or7">Type</th> <td class="svelte-1a72or7">&lt;u2</td> <td class="svelte-1a72or7">numpy.ndarray</td></tr></table> <div class="chunkLoader svelte-17w95lj">Load chunk:
+  <input type="checkbox"> <select name="dim_0" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_1" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select name="dim_2" class="svelte-17w95lj"><option value="0">0</option><option value="1">1</option></select><select disabled="" name="dim_3" class="svelte-17w95lj"><option value="0">0</option></select><select disabled="" name="dim_4" class="svelte-17w95lj"><option value="0">0</option></select> </div>  <div class="parent svelte-1lfjwoy"><div class="container svelte-1lfjwoy" style="--size-x: 300px; --size-y: 300px; --size-z: 2.34375px; --chunkX: 300px; --chunkY: 300px; --chunkZ: 1.171875px; --shardX: 100px; --shardY: 100px; --shardZ: 100px; --shardColor: transparent; --scrollX: 77.5deg;"><div class="cube svelte-1lfjwoy"><div class="face front svelte-1lfjwoy"><div class="sizeX svelte-1lfjwoy">256</div> <div class="sizeY svelte-1lfjwoy">256</div></div> <div class="face back svelte-1lfjwoy"></div> <div class="face right svelte-1lfjwoy"></div> <div class="face left svelte-1lfjwoy"><div class="sizeX svelte-1lfjwoy">2</div></div> <div class="face top svelte-1lfjwoy"></div> <div class="face bottom svelte-1lfjwoy"></div></div></div></div> <details class="svelte-rlnfqz"><summary>1/.zarray</summary> <pre class="svelte-rlnfqz"><code>{
+  "zarr_format": 2,
+  "shape": [
+    2,
+    2,
+    2,
+    256,
+    256
+  ],
+  "chunks": [
+    1,
+    1,
+    1,
+    256,
+    256
+  ],
+  "dtype": "&lt;u2",
+  "compressor": {
+    "id": "zlib",
+    "level": 1
+  },
+  "fill_value": 0,
+  "order": "C",
+  "filters": null,
+  "dimension_separator": "/"
+}</code></pre></details></div> </article></div></section></main></div>
+  
+
+</body></html>

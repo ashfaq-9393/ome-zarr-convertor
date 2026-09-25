@@ -50,7 +50,7 @@ class OmeZarrV04WriterTest {
         assertThat(vendorNode).isNotNull();
         assertThat(vendorNode.get("vsi_global_tags").get("Tag1").asText()).isEqualTo("Val1");
 
-        File companionXml = zarrRoot.resolve("OME").resolve("METADATA.ome.xml").toFile();
+        File companionXml = zarrRoot.resolve("METADATA.ome.xml").toFile();
         assertThat(companionXml).exists();
 
         // Write array metadata for level 0

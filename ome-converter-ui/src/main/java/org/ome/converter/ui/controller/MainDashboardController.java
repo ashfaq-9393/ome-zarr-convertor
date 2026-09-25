@@ -694,15 +694,43 @@ public class MainDashboardController {
     private void openValidationSourceInNotepad() {
         try {
             if (webValidatorView == null || webValidatorView.getEngine() == null) return;
+            String location = webValidatorView.getEngine().getLocation();
             String renderedHtml = (String) webValidatorView.getEngine().executeScript("document.documentElement.outerHTML");
             if (renderedHtml == null || renderedHtml.isBlank()) {
                 AlertHelper.showInputValidationError("Source Code Error", "No rendered HTML source code available yet. Please validate a dataset first.");
                 return;
             }
 
+            // 1. Resolve base URL for server resources
+            String baseUrl = "http://127.0.0.1:8000/validator/";
+            if (location != null && location.startsWith("http://")) {
+                int validatorIdx = location.indexOf("/validator/");
+                if (validatorIdx > 0) {
+                    baseUrl = location.substring(0, validatorIdx + "/validator/".length());
+                }
+            }
+
+            // 2. Read embedded Svelte CSS content to inline directly into <head> for 100% perfect visual layout alignment
+            String inlinedCss = "";
+            try (java.io.InputStream is = getClass().getResourceAsStream("/validator/assets/index.5cf17a37.css")) {
+                if (is != null) {
+                    inlinedCss = new String(is.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+                }
+            } catch (Exception ignored) {}
+
+            StringBuilder headFix = new StringBuilder();
+            headFix.append("<head>\n    <base href=\"").append(baseUrl).append("\">\n");
+            if (!inlinedCss.isBlank()) {
+                headFix.append("    <style>\n/* Inlined Svelte Component Styles for Perfect Visual Alignment */\n")
+                       .append(inlinedCss)
+                       .append("\n    </style>\n");
+            }
+
+            String finalHtml = renderedHtml.replace("<head>", headFix.toString());
+
             File tempFile = File.createTempFile("ngff_validator_source_", ".html");
             tempFile.deleteOnExit();
-            java.nio.file.Files.writeString(tempFile.toPath(), renderedHtml);
+            java.nio.file.Files.writeString(tempFile.toPath(), finalHtml, java.nio.charset.StandardCharsets.UTF_8);
 
             new ProcessBuilder("notepad.exe", tempFile.getAbsolutePath()).start();
         } catch (Exception e) {

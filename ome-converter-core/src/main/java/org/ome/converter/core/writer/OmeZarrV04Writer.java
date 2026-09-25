@@ -73,9 +73,7 @@ public class OmeZarrV04Writer implements OmeZarrWriterStrategy {
         log.info("Initialized OME-Zarr 0.4 root metadata (.zgroup and .zattrs) at {}", zarrDir.getAbsolutePath());
 
         if (omeXmlContent != null && !omeXmlContent.isBlank()) {
-            File omeDir = new File(zarrDir, "OME");
-            omeDir.mkdirs();
-            File omeXmlFile = new File(omeDir, "METADATA.ome.xml");
+            File omeXmlFile = new File(zarrDir, "METADATA.ome.xml");
             FileUtils.writeStringToFile(omeXmlFile, omeXmlContent, StandardCharsets.UTF_8);
         }
     }
