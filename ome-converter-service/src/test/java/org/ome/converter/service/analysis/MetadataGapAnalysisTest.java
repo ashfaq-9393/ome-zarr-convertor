@@ -5,6 +5,7 @@ import org.junit.jupiter.api.io.TempDir;
 import org.ome.converter.core.model.*;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
@@ -13,10 +14,37 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MetadataGapAnalysisTest {
 
+    @Test
+    void exportedReportIncludesInteractiveCategoryViews(@TempDir Path tempDir) throws Exception {
+        GapAnalysisResult.GapAnalysisItemDetail loss = new GapAnalysisResult.GapAnalysisItemDetail(
+            "Loss.Key", "loss value", "LOSS", "N/A", "N/A", "Loss explanation"
+        );
+        GapAnalysisResult.GapAnalysisItemDetail mapped = new GapAnalysisResult.GapAnalysisItemDetail(
+            "Mapped.Key", "mapped value", "MAPPED", "zarr.json#/ome", "mapped value", "Mapped explanation"
+        );
+        GapAnalysisResult.GapAnalysisItemDetail vendor = new GapAnalysisResult.GapAnalysisItemDetail(
+            "Vendor.Key", "vendor value", "VENDOR_DUMPED", "zarr.json#/vendor", "vendor value", "Vendor explanation"
+        );
+        GapAnalysisResult result = new GapAnalysisResult(
+            "sample.oir", OmeZarrVersion.OME_ZARR_0_5, 3, 1, 1, 1,
+            List.of(loss), List.of(loss, mapped, vendor), null, null
+        );
+        File destination = tempDir.resolve("interactive-report.html").toFile();
 
+        Path exported = new GapAnalysisReportGenerator().generateHtmlReportToFile(result, destination);
+
+        String html = Files.readString(exported);
+        assertThat(html).contains("Loss.Key", "Mapped.Key", "Vendor.Key");
+        assertThat(html).contains("data-filter=\"LOSS\">Loss (1)", "data-filter=\"MAPPED\">Mapped (1)");
+        assertThat(html).contains("data-filter=\"VENDOR\">Vendor (1)", "data-filter=\"ALL\">All (3)");
+        assertThat(html).contains("data-category=\"LOSS\"", "data-category=\"MAPPED\"", "data-category=\"VENDOR\"");
+        assertThat(html).contains("button.addEventListener('click'", "showCategory('LOSS')");
+        assertThat(html).contains("<th>Original Key</th><th>Original Value</th><th>Converted Location</th><th>Converted Value</th><th>Explanation</th>");
+        assertThat(html).doesNotContain("<th>Status</th>");
+    }
 
     @Test
-    void testFullMetadataGapAnalysisAndHtmlReportGeneration(@TempDir Path tempDir) {
+    void testFullMetadataGapAnalysisAndHtmlReportGeneration(@TempDir Path tempDir) throws Exception {
         ImageMetadata standardMeta = new ImageMetadata(
             "sample_slide.vsi", 2048, 2048, 1, 3, 1,
             0.325, 0.325, 1.0, "micrometer", "micrometer", "micrometer",
@@ -50,6 +78,9 @@ class MetadataGapAnalysisTest {
         File htmlReportFile = reportPath.toFile();
         assertThat(htmlReportFile).exists();
         assertThat(htmlReportFile.length()).isGreaterThan(100L);
+        String html = Files.readString(reportPath);
+        assertThat(html).contains("sample_slide.vsi", "data-filter=\"LOSS\"", "data-filter=\"MAPPED\"");
+        assertThat(html).contains("data-filter=\"VENDOR\"", "data-filter=\"ALL\"", "--bg: #f3f6fa");
     }
 
     @Test

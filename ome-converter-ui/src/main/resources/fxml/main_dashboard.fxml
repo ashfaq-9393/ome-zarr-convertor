@@ -162,7 +162,7 @@
                                 <ToggleButton fx:id="btnCategoryVendor" text="Vendor (0)" styleClass="badge-vendor-btn" onAction="#handleCategoryVendor"/>
                                 <ToggleButton fx:id="btnCategoryAll" text="All (0)" styleClass="toggle-option-btn" onAction="#handleCategoryAll"/>
                                 <Region HBox.hgrow="ALWAYS"/>
-                                <Button text="📥 Export Report (HTML)" onAction="#handleExportGapReport" styleClass="btn-secondary"/>
+                                <Button text="📥 Export Interactive Report (HTML)" onAction="#handleExportGapReport" styleClass="btn-secondary"/>
                             </HBox>
 
                             <TableView fx:id="tblLostMetadata" VBox.vgrow="ALWAYS" styleClass="custom-table-view">

@@ -149,13 +149,11 @@ public class OmeZarrV04Writer implements OmeZarrWriterStrategy {
     public void writeCompanionXml(Path zarrRoot, String xmlContent) throws ConversionException {
         if (xmlContent == null || xmlContent.isBlank()) return;
         try {
-            Path omeDir = zarrRoot.resolve("OME");
-            Files.createDirectories(omeDir);
-            Path companionFile = omeDir.resolve("METADATA.ome.xml");
+            Path companionFile = zarrRoot.resolve("METADATA.ome.xml");
             Files.writeString(companionFile, xmlContent);
-            log.info("Wrote bioformats2raw companion OME-XML metadata node to {}", companionFile.toAbsolutePath());
+            log.info("Wrote companion OME-XML metadata file to {}", companionFile.toAbsolutePath());
         } catch (Exception e) {
-            log.warn("Failed to write companion OME/METADATA.ome.xml file", e);
+            log.warn("Failed to write METADATA.ome.xml file", e);
         }
     }
 

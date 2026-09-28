@@ -30,11 +30,11 @@ public class ConvertedMetadataInspector {
                 inspectZarrV3Dataset(zarrRoot, specVerName, list);
             }
 
-            // Inspect companion OME/METADATA.ome.xml if present
-            Path companionFile = zarrRoot.resolve("OME").resolve("METADATA.ome.xml");
+            // Inspect companion METADATA.ome.xml if present
+            Path companionFile = zarrRoot.resolve("METADATA.ome.xml");
             if (Files.exists(companionFile)) {
                 long size = Files.size(companionFile);
-                list.add(new ConvertedMetadataItem("OME/METADATA.ome.xml", "METADATA.ome.xml", "XML_FILE (" + size + " bytes)", "TRANSITIONAL_XML", specVerName));
+                list.add(new ConvertedMetadataItem("METADATA.ome.xml", "METADATA.ome.xml", "XML_FILE (" + size + " bytes)", "TRANSITIONAL_XML", specVerName));
             }
 
         } catch (Exception e) {
